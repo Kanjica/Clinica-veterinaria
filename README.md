@@ -1,2 +1,2 @@
-# Cl-nica-veterin-ria
+# Clinica-veteriniria
 Implementação de uma clínica veterinária em java.
