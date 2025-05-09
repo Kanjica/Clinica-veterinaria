@@ -1,5 +1,3 @@
-package Lista3LP2Faculdade;
-
 public class Veterinario{
 	 
 private String nome;
