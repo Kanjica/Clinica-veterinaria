@@ -5,7 +5,7 @@ public class Tutor {
 	private int telefoneContato;
 	private String endereco;
 	
-	public Veterinario(String nome, String cpf, String email, int telefoneContato, String endereco) {
+	public Tutor(String nome, String cpf, String email, int telefoneContato, String endereco) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
