@@ -1,12 +1,12 @@
 import java.util.Date;
 
-public class Veterinario{
+public class Vacina{
 	 
 private String nomeVacina;
 private Date dataMinistrada;
 private Date validadeVacina;
 
-	public Veterinario(String nomeVacina, Date dataMinistrada, Date validadeVacina) {
+	public Vacina(String nomeVacina, Date dataMinistrada, Date validadeVacina) {
 		super();
 		this.nomeVacina = nomeVacina;
 		this.dataMinistrada = dataMinistrada;
