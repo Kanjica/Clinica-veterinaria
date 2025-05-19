@@ -1,53 +1,19 @@
-public class Veterinario{
+import java.util.ArrayList;
+
+public class Veterinario extends Funcionario{
 	 
-private String nome;
-private String cpf;
-private String email;
-private String telefoneContato;
 private String especialidade;
 private int cfmv;
+private ArrayList<Consulta> consultas;
 
-	public Veterinario(String nome, String cpf, String email, String telefoneContato, String especialidade, int cfmv) {
-		super();
-		this.nome = nome;
-		this.cpf = cpf;
-		this.email = email;
-		this.telefoneContato = telefoneContato;
+	public Veterinario(String nome, String cpf, String email, int telefoneContato, String especialidade, int cfmv, String turno) {
+		super(nome, cpf,email,telefoneContato, turno);
+		
 		this.especialidade = especialidade;
 		this.cfmv = cfmv;
+                this.consultas = new ArrayList<>();
 	}
 	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	public String getCpf() {
-		return cpf;
-	}
-	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public String getTelefoneContato() {
-		return telefoneContato;
-	}
-	
-	public void setTelefoneContato(String telefoneContato) {
-		this.telefoneContato = telefoneContato;
-	}
 	
 	public String getEspecialidade() {
 		return especialidade;
@@ -64,4 +30,12 @@ private int cfmv;
 	public void setCfmv(int cfmv) {
 		this.cfmv = cfmv;
 	}
+        
+        public void addConsultas(Consulta consulta){
+            this.consultas.add(consulta);
+        }
+        
+        public ArrayList<Consulta> getConsultas(){
+            return this.consultas;
+        }
 }
