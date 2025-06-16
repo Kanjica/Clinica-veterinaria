@@ -1,3 +1,5 @@
+package com.mycompany.clinicaveterinaria;
+
 import java.util.Date;
 
 public class Vacina{

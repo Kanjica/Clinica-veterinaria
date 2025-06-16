@@ -1,17 +1,23 @@
+
+import com.mycompany.clinicaveterinaria.Vacina;
+import java.util.ArrayList;
+
 public class Animal{
 	
 	private String nome;
 	private String raca;
 	private String dataNascimento;
 	private Tutor tutor;
-	private Historico historico;
+        private ArrayList<Consulta> consultas;
+        private ArrayList<Vacina> vacinas;
 	
-	public Animal(String nome, String raca, String dataNascimento, Tutor tutor, Historico historico) {
+	
+	public Animal(String nome, String raca, String dataNascimento, Tutor tutor) {
 		this.nome = nome;
 		this.raca = raca;
 		this.dataNascimento = dataNascimento;
 		this.tutor = tutor;
-		this.historico = historico;
+		
 	}
 
 	public String getNome() {
@@ -46,12 +52,6 @@ public class Animal{
 		this.tutor = tutor;
 	}
 
-	public Historico getHistorico() {
-		return historico;
-	}
-
-	public void setHistorico(Historico historico) {
-		this.historico = historico;
-	}
+	
 	
 }

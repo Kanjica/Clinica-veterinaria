@@ -1,3 +1,4 @@
+import com.mycompany.clinicaveterinaria.Vacina;
 import java.util.ArrayList;
 
 public class Clinica {
@@ -5,6 +6,8 @@ public class Clinica {
     private ArrayList<Veterinario> veterinarios;
     private ArrayList<Animal> animais;
     private ArrayList<Consulta> consultas;
+    private ArrayList<Vacina> vacinas;
+    
     
     public Clinica(String nome){
         this.nome = nome;
@@ -43,6 +46,14 @@ public class Clinica {
 
     public void addConsultas(Consulta consultas) {
         this.consultas.add(consultas);
+    }
+    
+    public ArrayList<Vacina> getVacina() {
+        return vacinas;
+    }
+
+    public void addVacinas(Vacina vacina) {
+        this.vacinas.add(vacina);
     }
     
 }

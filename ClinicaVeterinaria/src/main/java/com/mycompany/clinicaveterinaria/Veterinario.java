@@ -4,7 +4,7 @@ public class Veterinario extends Funcionario{
 	 
 private String especialidade;
 private int cfmv;
-private ArrayList<Consulta> consultas;
+private ArrayList<Agendamento> consultas;
 
 	public Veterinario(String nome, String cpf, String email, int telefoneContato, String especialidade, int cfmv, String turno) {
 		super(nome, cpf,email,telefoneContato, turno);
@@ -31,11 +31,11 @@ private ArrayList<Consulta> consultas;
 		this.cfmv = cfmv;
 	}
         
-        public void addConsultas(Consulta consulta){
+        public void addConsultas(Agendamento consulta){
             this.consultas.add(consulta);
         }
         
-        public ArrayList<Consulta> getConsultas(){
+        public ArrayList<Agendamento> getConsultas(){
             return this.consultas;
         }
 }
