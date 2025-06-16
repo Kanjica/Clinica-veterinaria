@@ -1,5 +1,6 @@
+package com.mycompany.clinicaveterinaria;
 
-import com.mycompany.clinicaveterinaria.Vacina;
+
 import java.util.ArrayList;
 
 public class Animal{

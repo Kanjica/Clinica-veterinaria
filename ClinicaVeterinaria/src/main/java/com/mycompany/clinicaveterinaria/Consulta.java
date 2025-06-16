@@ -1,5 +1,6 @@
-public class Consulta{
+package com.mycompany.clinicaveterinaria;
 
+public class Consulta{
 	
 	private String problema;
 	private String diagnostico;

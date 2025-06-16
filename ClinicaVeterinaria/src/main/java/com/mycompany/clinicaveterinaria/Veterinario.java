@@ -1,3 +1,5 @@
+package com.mycompany.clinicaveterinaria;
+
 import java.util.ArrayList;
 
 public class Veterinario extends Funcionario{
