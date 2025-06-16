@@ -1,6 +1,9 @@
 package com.mycompany.clinicaveterinaria;
 
 import java.util.ArrayList;
+import java.time.LocalTime;
+import java.time.LocalDate;
+
 
 public class Veterinario extends Funcionario{
 	 
@@ -15,6 +18,17 @@ private ArrayList<Agendamento> consultas;
 		this.cfmv = cfmv;
                 this.consultas = new ArrayList<>();
 	}
+        
+        public boolean verificarAgenda(LocalDate data, LocalTime hora, String especialidade){
+            for(Agendamento agenda: consultas){
+                if(agenda.getDate() == data && agenda.getHora().equals(hora)){
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        
 	
 	
 	public String getEspecialidade() {

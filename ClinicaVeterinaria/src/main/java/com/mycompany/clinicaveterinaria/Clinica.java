@@ -1,6 +1,8 @@
 package com.mycompany.clinicaveterinaria;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Clinica {
     private String nome;
@@ -15,6 +17,21 @@ public class Clinica {
         this.animais = new ArrayList<>();
         this.consultas = new ArrayList<>();
         this.veterinarios = new ArrayList<>();
+    }
+    
+    public Veterinario EncontrarVeterinario(String especialidade,LocalDate data, LocalTime hora){
+        for(Veterinario vet: veterinarios){
+            // encontrar um veterinario na clinica com a especialidade
+            if(vet.getEspecialidade().equals(especialidade)){
+                
+                // encontrar agr um veterinario com horario livre para atender
+                if(vet.verificarAgenda(data, hora)){
+                return vet;
+                }
+            }           
+        }
+        
+        return null;
     }
 
     public String getNome() {

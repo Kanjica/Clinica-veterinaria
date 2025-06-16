@@ -1,21 +1,27 @@
 package com.mycompany.clinicaveterinaria;
-
-import java.util.Date;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class Agendamento{
 
 	private Veterinario veterinario;
-	private Date date;
-	private String hora;
+	private LocalDate date;
+	private LocalTime hora;
         private String especialidade;
         private Animal animal;
 
-    public Agendamento(Veterinario veterinario, Date date, String hora, String especialidade, Animal animal) {
+    public Agendamento(Veterinario veterinario, LocalDate date, LocalTime hora, String especialidade, Animal animal) {
         this.veterinario = veterinario;
         this.date = date;
         this.hora = hora;
         this.especialidade = especialidade;
         this.animal = animal;
+    }
+    
+    public float ValorConsulta(){
+            // depende da especialidade
+            return 0;
+            
     }
 	
 	
@@ -27,16 +33,16 @@ public class Agendamento{
 	public void setVeterinario(Veterinario veterinario) {
 		this.veterinario = veterinario;
 	}
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	public String getHora() {
+	public LocalTime getHora() {
 		return hora;
 	}
-	public void setHora(String hora) {
+	public void setHora(LocalTime hora) {
 		this.hora = hora;
 	}
 
