@@ -1,14 +1,14 @@
 package com.mycompany.clinicaveterinaria;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class VacinaAplicada {
     private Vacina vacina;
-    private Date dataMinistrada;
-    private Date proxAplicacao;
+    private LocalDate dataMinistrada;
+    private LocalDate proxAplicacao;
     private float preco;
 
-    public VacinaAplicada(Vacina vacina, Date dataMinistrada, Date proxAplicacao, float preco) {
+    public VacinaAplicada(Vacina vacina, LocalDate dataMinistrada, LocalDate proxAplicacao, float preco) {
         this.vacina = vacina;
         this.dataMinistrada = dataMinistrada;
         this.proxAplicacao = proxAplicacao;
@@ -25,19 +25,19 @@ public class VacinaAplicada {
         this.vacina = vacina;
     }
 
-    public Date getDataMinistrada() {
+    public LocalDate getDataMinistrada() {
         return dataMinistrada;
     }
 
-    public void setDataMinistrada(Date dataMinistrada) {
+    public void setDataMinistrada(LocalDate dataMinistrada) {
         this.dataMinistrada = dataMinistrada;
     }
 
-    public Date getProxAplicacao() {
+    public LocalDate getProxAplicacao() {
         return proxAplicacao;
     }
 
-    public void setProxAplicacao(Date proxAplicacao) {
+    public void setProxAplicacao(LocalDate proxAplicacao) {
         this.proxAplicacao = proxAplicacao;
     }
 

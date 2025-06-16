@@ -1,18 +1,18 @@
 package com.mycompany.clinicaveterinaria;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Vacina{
 	 
 private String nomeVacina;
-private Date dataMinistrada;
-private Date validadeVacina;
+private LocalDate validadeVacina;
+private float preco;
 
-	public Vacina(String nomeVacina, Date dataMinistrada, Date validadeVacina) {
+	public Vacina(String nomeVacina, LocalDate validadeVacina, float preco) {
 		super();
 		this.nomeVacina = nomeVacina;
-		this.dataMinistrada = dataMinistrada;
 		this.validadeVacina = validadeVacina;
+                this.preco = preco;
 	}
 
 	public String getNomeVacina() {
@@ -23,19 +23,12 @@ private Date validadeVacina;
 		this.nomeVacina = nomeVacina;
 	}
 
-	public Date getDataMinistrada() {
-		return dataMinistrada;
-	}
 
-	public void setDataMinistrada(Date dataMinistrada) {
-		this.dataMinistrada = dataMinistrada;
-	}
-
-	public Date getValidadeVacina() {
+	public LocalDate getValidadeVacina() {
 		return validadeVacina;
 	}
 
-	public void setValidadeVacina(Date validadeVacina) {
+	public void setValidadeVacina(LocalDate validadeVacina) {
 		this.validadeVacina = validadeVacina;
 	}
 
