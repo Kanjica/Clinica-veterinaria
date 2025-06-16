@@ -1,5 +1,5 @@
 package com.mycompany.clinicaveterinaria;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 
 public class Consulta{
@@ -29,13 +29,25 @@ public class Consulta{
             }
         }
         
-        public boolean DisponibilidadeQualquerHorario(Clinica clinica){
-            
+        // Procurar de 20 em 20 minutos um veterinario disponivel:
+        public boolean DisponibilidadeQualquerHorario(Clinica clinica, LocalTime hora){
+            while(!hora.equals(LocalTime.of(12, 0)) && !hora.equals(LocalTime.of(18, 0))){
+                Veterinario veterinario = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade(), this.getAgendado().getDate(), hora);
+                if(veterinario != null){
+                    this.setVeterinario(veterinario);
+                    return true;
+                } else{
+                    hora = hora.plusMinutes(20);
+                }
+                // se o horario da manha ta cheio, tenta ve o horario da tarde:
+                if(hora.equals(12)){
+                    hora = LocalTime.of(14, 0);
+                }
+            }
+            System.out.println("Nao temos medico disponivel no momento, tente outro dia!");
             return false;
-            
+              
         }
-        
-        
 
 	public String getProblema() {
 		return problema;

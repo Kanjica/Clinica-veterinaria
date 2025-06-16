@@ -23,7 +23,6 @@ public class Clinica {
         for(Veterinario vet: veterinarios){
             // encontrar um veterinario na clinica com a especialidade
             if(vet.getEspecialidade().equals(especialidade)){
-                
                 // encontrar agr um veterinario com horario livre para atender
                 if(vet.verificarAgenda(data, hora)){
                 return vet;

@@ -19,9 +19,9 @@ private ArrayList<Agendamento> consultas;
                 this.consultas = new ArrayList<>();
 	}
         
-        public boolean verificarAgenda(LocalDate data, LocalTime hora, String especialidade){
+        public boolean verificarAgenda(LocalDate data, LocalTime hora){
             for(Agendamento agenda: consultas){
-                if(agenda.getDate() == data && agenda.getHora().equals(hora)){
+                if(agenda.getDate().equals(data) && agenda.getHora().equals(hora)){
                     return false;
                 }
             }
