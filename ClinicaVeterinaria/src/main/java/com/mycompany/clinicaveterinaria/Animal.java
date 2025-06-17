@@ -10,7 +10,7 @@ public class Animal{
 	private String dataNascimento;
 	private Tutor tutor;
         private ArrayList<Consulta> consultas;
-        private ArrayList<Vacina> vacinas;
+        private ArrayList<VacinaAplicada> vacinasAplicada;
 	
 	
 	public Animal(String nome, String raca, String dataNascimento, Tutor tutor) {
@@ -18,8 +18,18 @@ public class Animal{
 		this.raca = raca;
 		this.dataNascimento = dataNascimento;
 		this.tutor = tutor;
-		
+                consultas = new ArrayList();
+                vacinasAplicada = new ArrayList();		
 	}
+        
+        public void addConsultas(Consulta c){
+            consultas.add(c);         
+        }
+        
+        public void addVacinasAplicada(VacinaAplicada va){
+            vacinasAplicada.add(va);
+        }
+        
 
 	public String getNome() {
 		return nome;
@@ -52,6 +62,30 @@ public class Animal{
 	public void setTutor(Tutor tutor) {
 		this.tutor = tutor;
 	}
+
+        public ArrayList<Consulta> getConsultas() {
+               return consultas;
+        }
+
+        public void setConsultas(ArrayList<Consulta> consultas) {
+            this.consultas = consultas;
+        }
+
+        public ArrayList<VacinaAplicada> getVacinasAplicada() {
+        return vacinasAplicada;
+        }
+
+        public void setVacinasAplicada(ArrayList<VacinaAplicada> vacinasAplicada) {
+        this.vacinasAplicada = vacinasAplicada;
+        }
+        
+        @Override
+        public String toString() {
+               return "Nome: " + nome + 
+                       "\nRaça: " + raca + 
+                       "\nData de Nascimento: " + dataNascimento + 
+                       "\nTutor: " + tutor.getNome() + "\n";
+        }
 
 	
 	
