@@ -1,5 +1,6 @@
 package com.mycompany.clinicaveterinaria;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class Consulta{
@@ -12,11 +13,10 @@ public class Consulta{
         private float preco;
         
 
-        public Consulta(String problema, String diagnostico, String medicamento, float preco) {
-        this.problema = problema;
-        this.diagnostico = diagnostico;
-        this.medicamento = medicamento;
-        this.preco = preco;
+        public Consulta(Agendamento agendado, float preco) {
+          this.agendado = agendado;
+          this.preco = preco;
+          
         }
         
         public boolean verificarDisponibilidade(Clinica clinica){
@@ -25,6 +25,7 @@ public class Consulta{
                 this.setVeterinario(veterinarioDisp);
                 return true;
             } else{
+                System.out.println();
                 System.out.println("Nao temos medico disponivel no momento, porfavor aguarde mais 20 min!"); // Podemos fazer um metodo que verifica qual o proximo horario disponivel...                
                 return false;
             }
@@ -36,18 +37,48 @@ public class Consulta{
                 Veterinario veterinarioDisp = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade().getNome(), this.getAgendado().getDate(), hora);
                 if(veterinarioDisp != null){
                     this.setVeterinario(veterinarioDisp);
+                    veterinarioDisp.addConsultas(agendado);
+                    this.getAgendado().setHora(hora);
                     return true;
                 } else{
                     hora = hora.plusMinutes(20);
                 }
                 // se o horario da manha ta cheio, tenta ve o horario da tarde:
                 if(hora.equals(12)){
+                    System.out.print("nao encontramos no horario da manha medicos disponiveis, tentando no horario da tarde...");
                     hora = LocalTime.of(14, 0);
                 }
             }
             System.out.println("Nao temos medico disponivel no momento, tente outro dia!");
             return false;
               
+        }
+        
+        public void EmitirProntuario(String problema, String diagnostico, String medicamento){
+            this.problema = problema;
+            this.diagnostico = diagnostico;
+            this.medicamento = medicamento;
+        }
+        
+        public void ImprimirProntuario(){
+            //criar um formatacao Br
+            DateTimeFormatter formatoBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            // Formata a data
+             String dataFormatada = this.getAgendado().getDate().format(formatoBR);
+            System.out.println();
+            System.out.println("Prontuario do Animal: ");
+            
+            System.out.println("Animal: " + this.getAgendado().getAnimal().getNome());
+            System.out.println("Tutor: " + this.getAgendado().getAnimal().getTutor().getNome());
+            System.out.println("Data: " + dataFormatada);
+            System.out.println("Hora da consulta: " + this.getAgendado().getHora());
+            System.out.println("Veterinario que atendeu: " + this.getVeterinario().getNome());
+            System.out.println("Problema do Animal: " + this.getProblema());
+            System.out.println("Diagnostico: " + this.getDiagnostico());
+            System.out.println("Medicacao: " + this.getMedicamento());
+            System.out.println("Valor da consulta: " + this.getPreco());
+            
         }
 
 	public String getProblema() {

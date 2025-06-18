@@ -2,6 +2,7 @@ package com.mycompany.clinicaveterinaria;
 
 import java.util.ArrayList;
 
+
 public class Tutor {
 	private String nome;
 	private String cpf;

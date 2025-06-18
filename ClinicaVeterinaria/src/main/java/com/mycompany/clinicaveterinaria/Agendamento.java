@@ -18,8 +18,7 @@ public class Agendamento{
     }
     
     public float ValorConsulta(){
-            // depende da especialidade
-            return 0;
+            return this.getEspecialidade().getPreco();
             
     }
 	
