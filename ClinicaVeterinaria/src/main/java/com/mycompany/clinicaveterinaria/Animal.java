@@ -67,7 +67,39 @@ public class Animal{
         }
 
         public ArrayList<VacinaAplicada> getVacinasAplicada() {
-        return listaVacinasAplicada;
+            return listaVacinasAplicada;
+        }
+
+        public ArrayList<Consulta> getListaConsultas() {
+            return listaConsultas;
+        }
+
+        public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
+            this.listaConsultas = listaConsultas;
+        }
+
+        public ArrayList<VacinaAplicada> getListaVacinasAplicada() {
+            return listaVacinasAplicada;
+        }
+
+        public void setListaVacinasAplicada(ArrayList<VacinaAplicada> listaVacinasAplicada) {
+            this.listaVacinasAplicada = listaVacinasAplicada;
+        }
+        
+        public float CalcularPrecoDasVacinas(){
+            float total = 0;
+            for(VacinaAplicada v: listaVacinasAplicada){
+                total = v.getPreco() + total;            
+            }
+            return total;
+        }
+        
+        public float CalcularPrecoDasConsultas(){
+            float total = 0;
+            for(Consulta c: listaConsultas){
+                total = c.getAgendado().ValorConsulta() + total;
+            }
+            return total;
         }
 
         

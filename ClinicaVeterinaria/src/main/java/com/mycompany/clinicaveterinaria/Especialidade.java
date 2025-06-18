@@ -1,9 +1,5 @@
-
 package com.mycompany.clinicaveterinaria;
-/**
- *
- * @author kessi
- */
+
 public class Especialidade {
     
     private String nome;

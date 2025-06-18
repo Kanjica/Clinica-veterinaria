@@ -59,6 +59,15 @@ public class Clinica {
         return null;
     }
     
+     public float calcularTotalAtendimento(Tutor tutor){
+        float total = 0;
+        for(Animal a: tutor.getlistaAnimais()){
+            total = total + a.CalcularPrecoDasVacinas() + a.CalcularPrecoDasConsultas();
+        }
+        
+        return total;
+    }
+    
     public Tutor buscarTutor(){
         return null;
     }
@@ -110,5 +119,32 @@ public class Clinica {
     public void addEspecialidades(Especialidade especialidade) {
         this.listaEspecialidades.add(especialidade);
     }
+
+    public ArrayList<Veterinario> getListaVeterinarios() {
+        return listaVeterinarios;
+    }
+
+    public void setListaVeterinarios(ArrayList<Veterinario> listaVeterinarios) {
+        this.listaVeterinarios = listaVeterinarios;
+    }
+
+    public ArrayList<Consulta> getListaConsultas() {
+        return listaConsultas;
+    }
+
+    public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
+        this.listaConsultas = listaConsultas;
+    }
+
+    public ArrayList<Vacina> getListaVacinas() {
+        return listaVacinas;
+    }
+
+    public void setListaVacinas(ArrayList<Vacina> listaVacinas) {
+        this.listaVacinas = listaVacinas;
+    }
+    
+    
+    
     
 }

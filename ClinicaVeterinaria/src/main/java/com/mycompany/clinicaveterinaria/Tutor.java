@@ -23,10 +23,15 @@ public class Tutor {
 		this.listaAnimais.add(animal);
 	}
 
-	public ArrayList<Animal> getAnimais(){
+	public ArrayList<Animal> getlistaAnimais(){
 		return this.listaAnimais;
 	}
 
+    
+        public void setListaAnimais(ArrayList<Animal> listaAnimais) {
+               this.listaAnimais = listaAnimais;
+        }
+        
 	public String getNome() {
 		return nome;
 	}
