@@ -2,14 +2,13 @@ package com.mycompany.clinicaveterinaria;
 
 import java.util.ArrayList;
 
-
 public class Tutor {
 	private String nome;
 	private String cpf;
 	private String email;
 	private int telefoneContato;
 	private String endereco;
-	private ArrayList<Animal> animais;
+	private ArrayList<Animal> listaAnimais;
 	
 	public Tutor(String nome, String cpf, String email, int telefoneContato, String endereco) {
 		this.nome = nome;
@@ -17,16 +16,15 @@ public class Tutor {
 		this.email = email;
 		this.telefoneContato = telefoneContato;
 		this.endereco = endereco;
-                animais = new ArrayList();
+                listaAnimais = new ArrayList();
 	}
 	
 	public void addAnimais(Animal animal){
-		this.animais.add(animal);
-
+		this.listaAnimais.add(animal);
 	}
 
 	public ArrayList<Animal> getAnimais(){
-		return this.animais;
+		return this.listaAnimais;
 	}
 
 	public String getNome() {
@@ -70,7 +68,7 @@ public class Tutor {
 	}
         
          public void alterarAnimal(String nomeAntigo, String novoNome, String raca, String dataNascimento, Tutor tutor){
-            for(Animal a: animais){
+            for(Animal a: listaAnimais){
                 if(nomeAntigo.equalsIgnoreCase(a.getNome())){
                     a.setNome(novoNome);
                     a.setRaca(raca);
@@ -84,14 +82,9 @@ public class Tutor {
         }        
         
         public void excluirAnimal(String nome){            
-           /* for(Animal a: animais){
-                if(nome.equalsIgnoreCase(a.getNome())){
-                    animais.remove(a);
-                break;}
-            } Funcionou mas vi que é arriscado*/
-            for(int i = 0; i <animais.size(); i++){
-                if(animais.get(i).getNome().equalsIgnoreCase(nome)){
-                    animais.remove(i);
+            for(int i = 0; i <listaAnimais.size(); i++){
+                if(listaAnimais.get(i).getNome().equalsIgnoreCase(nome)){
+                    listaAnimais.remove(i);
                      System.out.println("Animal excluido com sucesso"); 
                     break;
                 }      
@@ -99,7 +92,7 @@ public class Tutor {
         }
         
         public void consultarAnimal(String nome){
-            for(Animal a: animais){
+            for(Animal a: listaAnimais){
                 if(nome.equalsIgnoreCase(a.getNome())){
                     System.out.println("Animal procurado:");
                     System.out.println(a);}
@@ -107,15 +100,13 @@ public class Tutor {
         }
         
         public void listarAnimais(){
-            if(animais.isEmpty()) // Verifica se a lista está vazia
+            if(listaAnimais.isEmpty()) // Verifica se a lista está vazia
                 System.out.println("Lista vazia\n");
             else{
                 System.out.println("Dados Animais:\n");
-                for(Animal a: animais){
+                for(Animal a: listaAnimais){
                     System.out.println(a);
                 }
             }
         }
-
-
 }
