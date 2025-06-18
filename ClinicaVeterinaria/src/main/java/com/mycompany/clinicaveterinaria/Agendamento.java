@@ -3,12 +3,11 @@ import java.time.LocalTime;
 import java.time.LocalDate;
 
 public class Agendamento{
-
-	private Veterinario veterinario;
-	private LocalDate date;
-	private LocalTime hora;
-        private Especialidade especialidade;
-        private Animal animal;
+    
+    private LocalDate date;
+    private LocalTime hora;
+    private Especialidade especialidade;
+    private Animal animal;
 
     public Agendamento(LocalDate date, LocalTime hora, Especialidade especialidade, Animal animal) {
         this.date = date;
@@ -17,49 +16,40 @@ public class Agendamento{
         this.animal = animal;
     }
     
-    public float ValorConsulta(){
-            return this.getEspecialidade().getPreco();
-            
+    public float ValorConsulta(){    
+        return this.getEspecialidade().getPreco();        
     }
-	
-	
-        
-        
-	public Veterinario getVeterinario() {
-		return veterinario;
+    
+    public LocalDate getDate() {
+	return date;
 	}
-	public void setVeterinario(Veterinario veterinario) {
-		this.veterinario = veterinario;
+    
+    public void setDate(LocalDate date) {
+	this.date = date;
 	}
-	public LocalDate getDate() {
-		return date;
+    
+    public LocalTime getHora() {
+	return hora;
 	}
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-	public LocalTime getHora() {
-		return hora;
-	}
-	public void setHora(LocalTime hora) {
-		this.hora = hora;
+    
+    public void setHora(LocalTime hora) {
+	this.hora = hora;
 	}
 
-        public Especialidade getEspecialidade() {
+    public Especialidade getEspecialidade() {
         return especialidade;
         }
 
-        public void setEspecialidade(Especialidade especialidade) {
+    public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
         }
 
-        public Animal getAnimal() {
+    public Animal getAnimal() {
         return animal;
         }
 
-        public void setAnimal(Animal animal) {
+    public void setAnimal(Animal animal) {
         this.animal = animal;
         }
-        
-        
-	
+        	
 }
