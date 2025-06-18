@@ -1,6 +1,5 @@
 package com.mycompany.clinicaveterinaria;
 
-
 import java.util.ArrayList;
 
 public class Animal{
@@ -9,8 +8,8 @@ public class Animal{
 	private String raca;
 	private String dataNascimento;
 	private Tutor tutor;
-        private ArrayList<Consulta> consultas;
-        private ArrayList<VacinaAplicada> vacinasAplicada;
+        private ArrayList<Consulta> listaConsultas;
+        private ArrayList<VacinaAplicada> listaVacinasAplicada;
 	
 	
 	public Animal(String nome, String raca, String dataNascimento, Tutor tutor) {
@@ -18,16 +17,16 @@ public class Animal{
 		this.raca = raca;
 		this.dataNascimento = dataNascimento;
 		this.tutor = tutor;
-                consultas = new ArrayList();
-                vacinasAplicada = new ArrayList();		
+                this.listaConsultas = new ArrayList();
+                this.listaVacinasAplicada = new ArrayList();		
 	}
         
         public void addConsultas(Consulta c){
-            consultas.add(c);         
+            listaConsultas.add(c);         
         }
         
         public void addVacinasAplicada(VacinaAplicada va){
-            vacinasAplicada.add(va);
+            listaVacinasAplicada.add(va);
         }
         
 
@@ -64,20 +63,13 @@ public class Animal{
 	}
 
         public ArrayList<Consulta> getConsultas() {
-               return consultas;
-        }
-
-        public void setConsultas(ArrayList<Consulta> consultas) {
-            this.consultas = consultas;
+               return listaConsultas;
         }
 
         public ArrayList<VacinaAplicada> getVacinasAplicada() {
-        return vacinasAplicada;
+        return listaVacinasAplicada;
         }
 
-        public void setVacinasAplicada(ArrayList<VacinaAplicada> vacinasAplicada) {
-        this.vacinasAplicada = vacinasAplicada;
-        }
         
         @Override
         public String toString() {

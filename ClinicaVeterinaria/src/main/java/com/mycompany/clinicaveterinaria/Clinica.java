@@ -6,23 +6,24 @@ import java.time.LocalTime;
 
 public class Clinica {
     private String nome;
-    private ArrayList<Veterinario> veterinarios;
-    private ArrayList<Animal> animais;
-    private ArrayList<Consulta> consultas;
-    private ArrayList<Vacina> vacinas;
+    private ArrayList<Veterinario> listaVeterinarios;
+    private ArrayList<Tutor> listaTutores;
+    private ArrayList<Consulta> listaConsultas;
+    private ArrayList<Vacina> listaVacinas;
     
     
     public Clinica(String nome){
         this.nome = nome;
-        this.animais = new ArrayList<>();
-        this.consultas = new ArrayList<>();
-        this.veterinarios = new ArrayList<>();
+        this.listaTutores = new ArrayList<>();
+        this.listaConsultas = new ArrayList<>();
+        this.listaVeterinarios = new ArrayList<>();
+        this.listaVacinas = new ArrayList<>();
     }
     
     public Veterinario EncontrarVeterinario(String especialidade,LocalDate data, LocalTime hora){
-        for(Veterinario vet: veterinarios){
+        for(Veterinario vet: listaVeterinarios){
             // encontrar um veterinario na clinica com a especialidade
-            if(vet.getEspecialidade().equals(especialidade)){
+            if(vet.getEspecialidade().getNome().equals(especialidade)){
                 // encontrar agr um veterinario com horario livre para atender
                 if(vet.verificarAgenda(data, hora)){
                 return vet;
@@ -42,35 +43,35 @@ public class Clinica {
     }
 
     public ArrayList<Veterinario> getVeterinarios() {
-        return veterinarios;
+        return this.listaVeterinarios;
     }
 
     public void addVeterinarios(Veterinario veterinario) {
-        this.veterinarios.add(veterinario);
+        this.listaVeterinarios.add(veterinario);
     }
 
-    public ArrayList<Animal> getAnimais() {
-        return animais;
+    public ArrayList<Tutor> getListaTutores() {
+        return this.listaTutores;
     }
 
-    public void addAnimais(Animal animal) {
-        this.animais.add(animal);
+    public void addTutor(Tutor animal) {
+        this.listaTutores.add(animal);
     }
 
     public ArrayList<Consulta> getConsultas() {
-        return consultas;
+        return this.listaConsultas;
     }
 
     public void addConsultas(Consulta consultas) {
-        this.consultas.add(consultas);
+        this.listaConsultas.add(consultas);
     }
     
     public ArrayList<Vacina> getVacina() {
-        return vacinas;
+        return this.listaVacinas;
     }
 
     public void addVacinas(Vacina vacina) {
-        this.vacinas.add(vacina);
+        this.listaVacinas.add(vacina);
     }
     
 }

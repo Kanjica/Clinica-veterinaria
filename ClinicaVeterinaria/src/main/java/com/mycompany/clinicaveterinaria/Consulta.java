@@ -3,13 +3,14 @@ import java.time.LocalTime;
 
 
 public class Consulta{
-	
+    
+	private Agendamento agendado;
 	private String problema;
 	private String diagnostico;
 	private String medicamento;
         private Veterinario veterinario;
         private float preco;
-        private Agendamento agendado;
+        
 
         public Consulta(String problema, String diagnostico, String medicamento, float preco) {
         this.problema = problema;
@@ -19,9 +20,9 @@ public class Consulta{
         }
         
         public boolean verificarDisponibilidade(Clinica clinica){
-            Veterinario veterinario = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade(), this.getAgendado().getDate(), this.getAgendado().getHora());
-            if(veterinario != null){
-                this.setVeterinario(veterinario);
+            Veterinario veterinarioDisp = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade().getNome(), this.getAgendado().getDate(), this.getAgendado().getHora());
+            if(veterinarioDisp != null){
+                this.setVeterinario(veterinarioDisp);
                 return true;
             } else{
                 System.out.println("Nao temos medico disponivel no momento, porfavor aguarde mais 20 min!"); // Podemos fazer um metodo que verifica qual o proximo horario disponivel...                
@@ -32,9 +33,9 @@ public class Consulta{
         // Procurar de 20 em 20 minutos um veterinario disponivel:
         public boolean DisponibilidadeQualquerHorario(Clinica clinica, LocalTime hora){
             while(!hora.equals(LocalTime.of(12, 0)) && !hora.equals(LocalTime.of(18, 0))){
-                Veterinario veterinario = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade(), this.getAgendado().getDate(), hora);
-                if(veterinario != null){
-                    this.setVeterinario(veterinario);
+                Veterinario veterinarioDisp = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade().getNome(), this.getAgendado().getDate(), hora);
+                if(veterinarioDisp != null){
+                    this.setVeterinario(veterinarioDisp);
                     return true;
                 } else{
                     hora = hora.plusMinutes(20);

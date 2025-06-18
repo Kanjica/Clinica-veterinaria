@@ -7,20 +7,20 @@ import java.time.LocalDate;
 
 public class Veterinario extends Funcionario{
 	 
-private String especialidade;
+private Especialidade especialidade;
 private int cfmv;
-private ArrayList<Agendamento> consultas;
+private ArrayList<Agendamento> listaConsultas;
 
-	public Veterinario(String nome, String cpf, String email, int telefoneContato, String especialidade, int cfmv, String turno) {
+	public Veterinario(String nome, String cpf, String email, int telefoneContato, Especialidade especialidade, int cfmv, String turno) {
 		super(nome, cpf,email,telefoneContato, turno);
 		
 		this.especialidade = especialidade;
 		this.cfmv = cfmv;
-                this.consultas = new ArrayList<>();
+                this.listaConsultas = new ArrayList<>();
 	}
         
         public boolean verificarAgenda(LocalDate data, LocalTime hora){
-            for(Agendamento agenda: consultas){
+            for(Agendamento agenda: this.listaConsultas){
                 if(agenda.getDate().equals(data) && agenda.getHora().equals(hora)){
                     return false;
                 }
@@ -31,11 +31,11 @@ private ArrayList<Agendamento> consultas;
         
 	
 	
-	public String getEspecialidade() {
+	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
 	
-	public void setEspecialidade(String especialidade) {
+	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
 	
@@ -48,10 +48,10 @@ private ArrayList<Agendamento> consultas;
 	}
         
         public void addConsultas(Agendamento consulta){
-            this.consultas.add(consulta);
+            this.listaConsultas.add(consulta);
         }
         
         public ArrayList<Agendamento> getConsultas(){
-            return this.consultas;
+            return this.listaConsultas;
         }
 }

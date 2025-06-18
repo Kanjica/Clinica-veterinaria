@@ -7,11 +7,10 @@ public class Agendamento{
 	private Veterinario veterinario;
 	private LocalDate date;
 	private LocalTime hora;
-        private String especialidade;
+        private Especialidade especialidade;
         private Animal animal;
 
-    public Agendamento(Veterinario veterinario, LocalDate date, LocalTime hora, String especialidade, Animal animal) {
-        this.veterinario = veterinario;
+    public Agendamento(LocalDate date, LocalTime hora, Especialidade especialidade, Animal animal) {
         this.date = date;
         this.hora = hora;
         this.especialidade = especialidade;
@@ -46,11 +45,11 @@ public class Agendamento{
 		this.hora = hora;
 	}
 
-        public String getEspecialidade() {
+        public Especialidade getEspecialidade() {
         return especialidade;
         }
 
-        public void setEspecialidade(String especialidade) {
+        public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
         }
 
