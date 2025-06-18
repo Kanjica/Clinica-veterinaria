@@ -14,8 +14,6 @@ public class VacinaAplicada {
         this.proxAplicacao = proxAplicacao;
         this.preco = preco;
     }
-    
-    
 
     public Vacina getVacina() {
         return vacina;

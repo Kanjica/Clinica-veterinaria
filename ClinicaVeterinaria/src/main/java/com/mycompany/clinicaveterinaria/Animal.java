@@ -62,14 +62,6 @@ public class Animal{
 		this.tutor = tutor;
 	}
 
-        public ArrayList<Consulta> getConsultas() {
-               return listaConsultas;
-        }
-
-        public ArrayList<VacinaAplicada> getVacinasAplicada() {
-            return listaVacinasAplicada;
-        }
-
         public ArrayList<Consulta> getListaConsultas() {
             return listaConsultas;
         }

@@ -10,13 +10,9 @@ public class Consulta{
 	private String diagnostico;
 	private String medicamento;
         private Veterinario veterinario;
-        private float preco;
         
-
-        public Consulta(Agendamento agendado, float preco) {
-          this.agendado = agendado;
-          this.preco = preco;
-          
+        public Consulta(Agendamento agendado) {
+          this.agendado = agendado;    
         }
         
         public boolean verificarDisponibilidade(Clinica clinica){
@@ -77,7 +73,7 @@ public class Consulta{
             System.out.println("Problema do Animal: " + this.getProblema());
             System.out.println("Diagnostico: " + this.getDiagnostico());
             System.out.println("Medicacao: " + this.getMedicamento());
-            System.out.println("Valor da consulta: " + this.getPreco());
+            System.out.println("Valor da consulta: " + this.agendado.ValorConsulta());
             
         }
 
@@ -113,14 +109,7 @@ public class Consulta{
         this.veterinario = veterinario;
     }
 
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
-
+   
     public Agendamento getAgendado() {
         return agendado;
     }

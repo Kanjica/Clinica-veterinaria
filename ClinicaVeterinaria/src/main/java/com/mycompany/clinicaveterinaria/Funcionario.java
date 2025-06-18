@@ -2,11 +2,11 @@ package com.mycompany.clinicaveterinaria;
 
 public class Funcionario{
 
-	private String nome;
-	private String cpf;
-	private String email;
-	private int telefoneContato;
-	private String turnoTrabalho;
+	protected String nome;
+	protected String cpf;
+	protected String email;
+	protected int telefoneContato;
+	protected String turnoTrabalho;
 	
 	public Funcionario(String nome, String cpf, String email, int telefoneContato, String turnoTrabalho) {
 		this.nome = nome;

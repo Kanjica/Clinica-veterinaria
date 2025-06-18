@@ -43,8 +43,8 @@ public class testesAna {
         Agendamento ag2 = new Agendamento(data,hora1,cardiologista,a2);
         
         System.out.println("Vamos marcar uma consulta, vai sai no valor de: " + ag1.ValorConsulta());
-        Consulta consulta1 = new Consulta(ag1,ag1.ValorConsulta());
-        Consulta consulta2 = new Consulta(ag2,ag2.ValorConsulta());
+        Consulta consulta1 = new Consulta(ag1);
+        Consulta consulta2 = new Consulta(ag2);
         
         
         if(consulta1.verificarDisponibilidade(petShop)){

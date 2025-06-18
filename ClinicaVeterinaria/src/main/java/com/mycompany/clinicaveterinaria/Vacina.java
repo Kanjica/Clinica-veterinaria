@@ -32,4 +32,14 @@ private float preco;
 		this.validadeVacina = validadeVacina;
 	}
 
+        public float getPreco() {
+            return preco;
+        }
+
+        public void setPreco(float preco) {
+            this.preco = preco;
+        }
+        
+        
+
 }

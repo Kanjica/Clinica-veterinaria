@@ -24,7 +24,7 @@ public class ClinicaVeterinaria {
         Veterinario vet1 = new Veterinario("Rogerio", "111335346096", "Rogerio@gmail.com", 9472923, esp1, 1, "matutino");
         Veterinario vet = new Veterinario("João Silva", "123.456.789-00", "joao@vet.com", 11999999, esp2, 123456, "manhã");
         
-        Consulta c1 = new Consulta(ag, 50);
+        Consulta c1 = new Consulta(ag);
         
         Vacina vacina1 = new Vacina("Vacina1", LocalDate.of(2025, 6, 18), 10.0f);
         Vacina vacina2 = new Vacina("Vacina2", LocalDate.of(2025, 6, 10), 10.0f);

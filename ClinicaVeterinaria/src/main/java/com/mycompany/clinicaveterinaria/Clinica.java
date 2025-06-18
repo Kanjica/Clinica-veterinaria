@@ -80,10 +80,6 @@ public class Clinica {
         this.nome = nome;
     }
 
-    public ArrayList<Veterinario> getVeterinarios() {
-        return this.listaVeterinarios;
-    }
-
     public void addVeterinarios(Veterinario veterinario) {
         this.listaVeterinarios.add(veterinario);
     }
@@ -96,17 +92,9 @@ public class Clinica {
         this.listaTutores.add(animal);
     }
 
-    public ArrayList<Consulta> getConsultas() {
-        return this.listaConsultas;
-    }
-
     public void addConsultas(Consulta consultas) {
         this.listaConsultas.add(consultas);
-    }
-    
-    public ArrayList<Vacina> getVacina() {
-        return this.listaVacinas;
-    }
+    }  
 
     public void addVacinas(Vacina vacina) {
         this.listaVacinas.add(vacina);
@@ -143,6 +131,8 @@ public class Clinica {
     public void setListaVacinas(ArrayList<Vacina> listaVacinas) {
         this.listaVacinas = listaVacinas;
     }
+    
+    
     
     
     

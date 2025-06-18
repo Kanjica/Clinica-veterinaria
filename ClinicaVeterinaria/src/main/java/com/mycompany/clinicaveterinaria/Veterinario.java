@@ -27,10 +27,7 @@ private ArrayList<Agendamento> listaConsultas;
             }
             return true;
         }
-        
-        
-	
-	
+     
 	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
@@ -51,7 +48,13 @@ private ArrayList<Agendamento> listaConsultas;
             this.listaConsultas.add(consulta);
         }
         
-        public ArrayList<Agendamento> getConsultas(){
-            return this.listaConsultas;
+        public ArrayList<Agendamento> getListaConsultas() {
+             return listaConsultas;
         }
+
+        public void setListaConsultas(ArrayList<Agendamento> listaConsultas) {
+             this.listaConsultas = listaConsultas;
+        }
+        
+        
 }
