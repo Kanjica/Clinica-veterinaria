@@ -25,31 +25,31 @@ public class Agendamento{
 	}
     
     public void setDate(LocalDate date) {
-	this.date = date;
+    	this.date = date;
 	}
     
     public LocalTime getHora() {
-	return hora;
+    	return hora;
 	}
     
     public void setHora(LocalTime hora) {
-	this.hora = hora;
+    	this.hora = hora;
 	}
 
     public Especialidade getEspecialidade() {
-        return especialidade;
-        }
+    	return especialidade;
+    }
 
     public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
-        }
+    }
 
     public Animal getAnimal() {
         return animal;
-        }
+    }
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
-        }
+    }
         	
 }

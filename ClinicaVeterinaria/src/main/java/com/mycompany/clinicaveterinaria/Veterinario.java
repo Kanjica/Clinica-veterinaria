@@ -16,18 +16,18 @@ private ArrayList<Agendamento> listaConsultas;
 		
 		this.especialidade = especialidade;
 		this.cfmv = cfmv;
-                this.listaConsultas = new ArrayList<>();
+        this.listaConsultas = new ArrayList<>();
 	}
         
-        public boolean verificarAgenda(LocalDate data, LocalTime hora){
-            for(Agendamento agenda: this.listaConsultas){
-                if(agenda.getDate().equals(data) && agenda.getHora().equals(hora)){
-                    return false;
-                }
+    public boolean verificarAgenda(LocalDate data, LocalTime hora){
+        for(Agendamento agenda: this.listaConsultas){
+            if(agenda.getDate().equals(data) && agenda.getHora().equals(hora)){
+                return false;
             }
-            return true;
         }
-     
+        return true;
+    }
+ 
 	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
@@ -44,17 +44,16 @@ private ArrayList<Agendamento> listaConsultas;
 		this.cfmv = cfmv;
 	}
         
-        public void addConsultas(Agendamento consulta){
-            this.listaConsultas.add(consulta);
-        }
-        
-        public ArrayList<Agendamento> getListaConsultas() {
-             return listaConsultas;
-        }
+    public void addConsultas(Agendamento consulta){
+        this.listaConsultas.add(consulta);
+    }
+    
+    public ArrayList<Agendamento> getListaConsultas() {
+         return listaConsultas;
+    }
 
-        public void setListaConsultas(ArrayList<Agendamento> listaConsultas) {
-             this.listaConsultas = listaConsultas;
-        }
-        
+    public void setListaConsultas(ArrayList<Agendamento> listaConsultas) {
+         this.listaConsultas = listaConsultas;
+    }
         
 }

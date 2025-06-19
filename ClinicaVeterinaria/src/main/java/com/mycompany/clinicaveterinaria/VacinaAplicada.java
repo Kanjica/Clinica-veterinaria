@@ -47,5 +47,4 @@ public class VacinaAplicada {
         this.preco = preco;
     }
     
-    
 }

@@ -26,6 +26,4 @@ public class Especialidade {
         this.preco = preco;
     }
     
-    
-    
 }

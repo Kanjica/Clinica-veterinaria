@@ -59,7 +59,7 @@ public class Clinica {
         return null;
     }
     
-     public float calcularTotalAtendimento(Tutor tutor){
+    public float calcularTotalAtendimento(Tutor tutor){
         float total = 0;
         for(Animal a: tutor.getlistaAnimais()){
             total = total + a.CalcularPrecoDasVacinas() + a.CalcularPrecoDasConsultas();
@@ -131,10 +131,5 @@ public class Clinica {
     public void setListaVacinas(ArrayList<Vacina> listaVacinas) {
         this.listaVacinas = listaVacinas;
     }
-    
-    
-    
-    
-    
     
 }
