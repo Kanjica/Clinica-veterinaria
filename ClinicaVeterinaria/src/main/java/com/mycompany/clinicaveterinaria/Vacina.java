@@ -12,7 +12,7 @@ private float preco;
 		super();
 		this.nomeVacina = nomeVacina;
 		this.validadeVacina = validadeVacina;
-                this.preco = preco;
+        this.preco = preco;
 	}
 
 	public String getNomeVacina() {
@@ -32,14 +32,12 @@ private float preco;
 		this.validadeVacina = validadeVacina;
 	}
 
-        public float getPreco() {
-            return preco;
-        }
+    public float getPreco() {
+        return preco;
+    }
 
-        public void setPreco(float preco) {
-            this.preco = preco;
-        }
-        
-        
-
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+    
 }

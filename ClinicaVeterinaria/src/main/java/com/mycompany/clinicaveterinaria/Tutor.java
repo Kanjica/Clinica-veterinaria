@@ -27,10 +27,9 @@ public class Tutor {
 		return this.listaAnimais;
 	}
 
-    
-        public void setListaAnimais(ArrayList<Animal> listaAnimais) {
-               this.listaAnimais = listaAnimais;
-        }
+    public void setListaAnimais(ArrayList<Animal> listaAnimais) {
+           this.listaAnimais = listaAnimais;
+    }
         
 	public String getNome() {
 		return nome;
@@ -72,46 +71,46 @@ public class Tutor {
 		this.endereco = endereco;
 	}
         
-         public void alterarAnimal(String nomeAntigo, String novoNome, String raca, String dataNascimento, Tutor tutor){
+     public void alterarAnimal(String nomeAntigo, String novoNome, String raca, String dataNascimento, Tutor tutor){
+        for(Animal a: listaAnimais){
+            if(nomeAntigo.equalsIgnoreCase(a.getNome())){
+                a.setNome(novoNome);
+                a.setRaca(raca);
+                a.setDataNascimento(dataNascimento);
+                a.setTutor(tutor);
+                System.out.println("Animal alterado com sucesso");
+                return;
+            }
+        }
+        System.out.println("Animal não encontrado");     
+     }        
+    
+     public void excluirAnimal(String nome){            
+        for(int i = 0; i <listaAnimais.size(); i++){
+            if(listaAnimais.get(i).getNome().equalsIgnoreCase(nome)){
+                listaAnimais.remove(i);
+                 System.out.println("Animal excluido com sucesso"); 
+                break;
+            }      
+         }
+     }
+    
+    public void consultarAnimal(String nome){
+        for(Animal a: listaAnimais){
+            if(nome.equalsIgnoreCase(a.getNome())){
+                System.out.println("Animal procurado:");
+                System.out.println(a);}
+        }          
+    }
+    
+    public void listarAnimais(){
+        if(listaAnimais.isEmpty()) // Verifica se a lista está vazia
+            System.out.println("Lista vazia\n");
+        else{
+            System.out.println("Dados Animais:\n");
             for(Animal a: listaAnimais){
-                if(nomeAntigo.equalsIgnoreCase(a.getNome())){
-                    a.setNome(novoNome);
-                    a.setRaca(raca);
-                    a.setDataNascimento(dataNascimento);
-                    a.setTutor(tutor);
-                    System.out.println("Animal alterado com sucesso");
-                    return;
-                }
-            }
-            System.out.println("Animal não encontrado");     
-        }        
-        
-        public void excluirAnimal(String nome){            
-            for(int i = 0; i <listaAnimais.size(); i++){
-                if(listaAnimais.get(i).getNome().equalsIgnoreCase(nome)){
-                    listaAnimais.remove(i);
-                     System.out.println("Animal excluido com sucesso"); 
-                    break;
-                }      
+                System.out.println(a);
             }
         }
-        
-        public void consultarAnimal(String nome){
-            for(Animal a: listaAnimais){
-                if(nome.equalsIgnoreCase(a.getNome())){
-                    System.out.println("Animal procurado:");
-                    System.out.println(a);}
-            }          
-        }
-        
-        public void listarAnimais(){
-            if(listaAnimais.isEmpty()) // Verifica se a lista está vazia
-                System.out.println("Lista vazia\n");
-            else{
-                System.out.println("Dados Animais:\n");
-                for(Animal a: listaAnimais){
-                    System.out.println(a);
-                }
-            }
-        }
+    }
 }
