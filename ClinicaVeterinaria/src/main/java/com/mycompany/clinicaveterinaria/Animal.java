@@ -1,5 +1,6 @@
 package com.mycompany.clinicaveterinaria;
 
+import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -13,8 +14,9 @@ public class Animal{
 	private String raca;
 	private String dataNascimento;
 	private Tutor tutor;
-    private ArrayList<Consulta> listaConsultas;
-    private ArrayList<VacinaAplicada> listaVacinasAplicada;
+        private ArrayList<Consulta> listaConsultas;
+        private ArrayList<VacinaAplicada> listaVacinasAplicada;
+        private ArrayList<Agendamento> listaAgendamentos;
 	
 	
 	public Animal(String nome, String raca, String dataNascimento, Tutor tutor) {
@@ -22,66 +24,10 @@ public class Animal{
 		this.raca = raca;
 		this.dataNascimento = dataNascimento;
 		this.tutor = tutor;
-        this.listaConsultas = new ArrayList<>();
-        this.listaVacinasAplicada = new ArrayList<>();		
+                this.listaConsultas = new ArrayList<>();
+                this.listaVacinasAplicada = new ArrayList<>();	
+                this.listaAgendamentos = new ArrayList<>();
 	}
-        
-    public void addConsultas(Consulta c){
-        listaConsultas.add(c);         
-    }
-    
-    public void addVacinasAplicada(VacinaAplicada va){
-        listaVacinasAplicada.add(va);
-    }
-    
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getRaca() {
-		return raca;
-	}
-
-	public void setRaca(String raca) {
-		this.raca = raca;
-	}
-
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
-	public Tutor getTutor() {
-		return tutor;
-	}
-
-	public void setTutor(Tutor tutor) {
-		this.tutor = tutor;
-	}
-
-    public ArrayList<Consulta> getListaConsultas() {
-        return listaConsultas;
-    }
-
-    public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
-        this.listaConsultas = listaConsultas;
-    }
-
-    public ArrayList<VacinaAplicada> getListaVacinasAplicada() {
-        return listaVacinasAplicada;
-    }
-
-    public void setListaVacinasAplicada(ArrayList<VacinaAplicada> listaVacinasAplicada) {
-        this.listaVacinasAplicada = listaVacinasAplicada;
-    }
     
     private List<VacinaAplicada> vacinasVencendoNoMes(String mesStr) {
     	try {
@@ -147,5 +93,116 @@ public class Animal{
                    "\nData de Nascimento: " + dataNascimento + 
                    "\nTutor: " + tutor.getNome() + "\n";
     }
+    
+    
+    // Cancelar um agendamento que o animal tinha
+    public void cancelarAgendamento(LocalDate data) {
+        Agendamento agendamentoEncontrado = null;
+        
+        for(Agendamento agen: listaAgendamentos){           
+            if(agen.getDate().equals(data)){
+                agendamentoEncontrado = agen;                
+                break;
+            }
+        }
+           if(agendamentoEncontrado!= null){
+               listaAgendamentos.remove(agendamentoEncontrado);
+               System.out.println("Agendamento cancelado com sucesso.");
+               
+           }else{
+             System.out.println("Agendamento não encontrado.");  
+           }           
+    }
+    
+    public void imprimirAgendamentos(){
+        int i = 1;
+        System.out.println("\nSegue a lista das futuras consultas de " + this.getNome()+ "\n");
+        for(Agendamento agen: listaAgendamentos){
+            System.out.println("Agendamento n: " + i);
+            System.out.println("Dia do agendamento: " + agen.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            System.out.println("Agendamento: " + agen.getHora());
+            System.out.println();
+            i++;
+        }
+    }
+    
+    // Encontrar uma consulta especifica:
+    public Consulta BuscarConsulta(LocalDate data){
+        for(Consulta con: listaConsultas){
+            if(con.getAgendado().getDate().equals(data)){
+                return con;
+            }
+        }
+        return null;
+    }
+
+    
+    // Gets e sets
+    public void addConsultas(Consulta c){
+        listaConsultas.add(c);         
+    }
+    
+    public void addVacinasAplicada(VacinaAplicada va){
+        listaVacinasAplicada.add(va);
+    }
+    
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getRaca() {
+		return raca;
+	}
+
+	public void setRaca(String raca) {
+		this.raca = raca;
+	}
+
+	public String getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
+
+    public ArrayList<Consulta> getListaConsultas() {
+        return listaConsultas;
+    }
+
+    public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
+        this.listaConsultas = listaConsultas;
+    }
+
+    public ArrayList<VacinaAplicada> getListaVacinasAplicada() {
+        return listaVacinasAplicada;
+    }
+
+    public void setListaVacinasAplicada(ArrayList<VacinaAplicada> listaVacinasAplicada) {
+        this.listaVacinasAplicada = listaVacinasAplicada;
+    }
+
+    public ArrayList<Agendamento> getListaAgendamentos() {
+        return listaAgendamentos;
+    }
+
+    public void addListaAgendamentos(Agendamento agendado) {
+        this.listaAgendamentos.add(agendado);
+    }
+    
+    
 
 }

@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.util.Scanner;
 
 public class testesAna {
-
+    
     public static void main(String[] args) {
         
         System.out.println("Bem Vindo a Clinica Veterinaria");
@@ -33,48 +33,38 @@ public class testesAna {
         
         petShop.addVeterinarios(vet1);
         
-        LocalTime hora = LocalTime.of(14, 0);
-        LocalDate data = LocalDate.of(2025, 11, 30);
         LocalTime hora1 = LocalTime.of(10, 0);
+        LocalDate data = LocalDate.of(2025, 11, 30);
+        LocalDate data2 = LocalDate.of(2025, 11, 29);
+        
+        LocalTime hora2 = LocalTime.of(14, 0);
         
          
          
-        Agendamento ag1 = new Agendamento(data,hora,cardiologista,a1);
-        Agendamento ag2 = new Agendamento(data,hora1,cardiologista,a2);
+        Agendamento ag1 = new Agendamento(data,hora2,cardiologista,a1);
+        a1.addListaAgendamentos(ag1);
         
-        System.out.println("Vamos marcar uma consulta, vai sai no valor de: " + ag1.ValorConsulta());
+        Agendamento ag2 = new Agendamento(data,hora2,cardiologista,a1);
+        a1.addListaAgendamentos(ag2);
+        
+        Agendamento ag3 = new Agendamento(data,hora2,cardiologista,a1);
+        a1.addListaAgendamentos(ag3);
+        
+        a1.imprimirAgendamentos();
+ 
+        
         Consulta consulta1 = new Consulta(ag1);
         Consulta consulta2 = new Consulta(ag2);
+        Consulta consulta3 = new Consulta(ag3);
         
-        
-        if(consulta1.verificarDisponibilidade(petShop)){
-            consulta1.EmitirProntuario("Dor no coracao", "problema no coracao", "dipirona");
-            consulta1.getVeterinario().addConsultas(consulta1.getAgendado());
-            consulta1.ImprimirProntuario();
-            
-        } else{
-            
-            
-            System.out.print("Deseja verificar se possuimos algum outro medico disponivel em outros horarios?(s/n): \n Resposta: ");
-            String r = scanner.nextLine();
-            
-            if(r.equals("s")){
-                consulta1.DisponibilidadeQualquerHorario(petShop, consulta1.getAgendado().getHora());
-                
-            } else{
-                System.out.print("Te aguardamos em outro dia! ");
-            }
-        }
         
         if(consulta2.verificarDisponibilidade(petShop)){
             consulta2.EmitirProntuario("Dor no coracao", "parada cardiaca", "__");
             consulta2.ImprimirProntuario();
             consulta2.getVeterinario().addConsultas(consulta2.getAgendado());
             
-        } else{
-         
-            
-            System.out.print("Deseja verificar se possuimos algum outro medico disponivel em outros horarios?(s/n): \n Resposta: ");
+        } else{      
+            System.out.print("\nDeseja verificar se possuimos algum outro medico disponivel em outros horarios?(s/n): \n Resposta: ");
             String r = scanner.nextLine();
             
             if(r.equals("s")){
@@ -88,6 +78,50 @@ public class testesAna {
                 System.out.print("Te aguardamos em outro dia! ");
             }
         }
+        
+        if(consulta1.verificarDisponibilidade(petShop)){
+            consulta1.EmitirProntuario("Dor no coracao", "parada cardiaca", "__");
+            consulta1.ImprimirProntuario();
+            consulta1.getVeterinario().addConsultas(consulta1.getAgendado());
+            
+        } else{      
+            System.out.print("\nDeseja verificar se possuimos algum outro medico disponivel em outros horarios?(s/n): \n Resposta: ");
+            String r = scanner.nextLine();
+            
+            if(r.equals("s")){
+                if(consulta1.DisponibilidadeQualquerHorario(petShop, consulta1.getAgendado().getHora())){
+                    consulta1.EmitirProntuario("Dor no coracao", "sentindo dor", "__");
+                    consulta1.ImprimirProntuario();
+                    consulta1.getVeterinario().addConsultas(consulta1.getAgendado());
+                }
+      
+            } else{
+                System.out.print("Te aguardamos em outro dia! ");
+            }
+        }
+        
+        if(consulta3.verificarDisponibilidade(petShop)){
+            consulta3.EmitirProntuario("Dor no coracao", "parada cardiaca", "__");
+            consulta3.ImprimirProntuario();
+            consulta3.getVeterinario().addConsultas(consulta3.getAgendado());
+            
+        } else{      
+            System.out.print("\nDeseja verificar se possuimos algum outro medico disponivel em outros horarios?(s/n): \n Resposta: ");
+            String r = scanner.nextLine();
+            
+            if(r.equals("s")){
+                if(consulta3.DisponibilidadeQualquerHorario(petShop, consulta3.getAgendado().getHora())){
+                    consulta3.EmitirProntuario("Dor no coracao", "parada cardiaca", "__");
+                    consulta3.ImprimirProntuario();
+                    consulta3.getVeterinario().addConsultas(consulta3.getAgendado());
+                }
+      
+            } else{
+                System.out.print("Te aguardamos em outro dia! ");
+            }
+        }
+        
+        a1.imprimirAgendamentos();
 
 
     }

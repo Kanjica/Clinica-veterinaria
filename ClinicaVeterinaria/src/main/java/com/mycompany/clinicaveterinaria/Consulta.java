@@ -35,25 +35,30 @@ public class Consulta{
                 this.setVeterinario(veterinarioDisp);
                 veterinarioDisp.addConsultas(agendado);
                 this.getAgendado().setHora(hora);
+                System.out.println("\nNo horario das: " + hora + " voce vai ser atendindo pelo Dr. " + veterinarioDisp.getNome() + "\n");
                 return true;
-            } else{
-                hora = hora.plusMinutes(20);
+                
             }
+                hora = hora.plusMinutes(20);
+                
             // se o horario da manha ta cheio, tenta ve o horario da tarde:
-            if(hora.equals(12)){
-                System.out.print("nao encontramos no horario da manha medicos disponiveis, tentando no horario da tarde...");
+            if(hora.equals(LocalTime.of(12, 0))){
+                System.out.print("\nNao encontramos no horario da manha medicos disponiveis, tentando no horario da tarde...\n");
                 hora = LocalTime.of(14, 0);
             }
         }
-        System.out.println("Nao temos medico disponivel no momento, tente outro dia!");
+        System.out.println("\nNao temos medico disponivel no momento, tente outro dia!\n");
         return false;
           
     }
     
     public void EmitirProntuario(String problema, String diagnostico, String medicamento){
+        // quando a consulta ja é feita, ela nao é mais agendada:
+        this.getAgendado().getAnimal().cancelarAgendamento(this.getAgendado().getDate());
         this.problema = problema;
         this.diagnostico = diagnostico;
         this.medicamento = medicamento;
+        
     }
     
     public void ImprimirProntuario(){
