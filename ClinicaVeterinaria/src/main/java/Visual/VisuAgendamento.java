@@ -1,11 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Visual;
 
 import com.mycompany.clinicaveterinaria.*;
-
+import java.awt.Window;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -114,7 +113,7 @@ public class VisuAgendamento extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Veterinaria.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Documents\\MeuProjetos\\Clinica-veterinaria\\ClinicaVeterinaria\\src\\Imagens\\Veterinaria.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -182,7 +181,7 @@ public class VisuAgendamento extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel3.setText("Agendamento");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo2.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Documents\\MeuProjetos\\Clinica-veterinaria\\ClinicaVeterinaria\\src\\Imagens\\Logo2.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -215,9 +214,21 @@ public class VisuAgendamento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendarActionPerformed
-        
-        teste tela = new teste(petShop);
-        tela.setVisible(true);
+         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+         if (window != null) {
+           window.dispose(); // fecha a janela que contém esse painel
+          }
+         
+         JFrame frame = new JFrame("Tela Inicial");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        teste painel = new teste(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
         
     }//GEN-LAST:event_agendarActionPerformed
 
