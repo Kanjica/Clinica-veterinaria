@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Visual;
-
+import com.mycompany.clinicaveterinaria.*;
 /**
  *
  * @author pauli
  */
 public class Modelo extends javax.swing.JPanel {
-
+    Clinica clinica;
     /**
      * Creates new form Agendamento
      */
@@ -71,7 +71,6 @@ public class Modelo extends javax.swing.JPanel {
         });
 
         jButton1.setText("Botao");
-        jButton1.setActionCommand("Botao");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -141,7 +140,6 @@ public class Modelo extends javax.swing.JPanel {
         );
 
         AnimalUser.getAccessibleContext().setAccessibleName("");
-        jButton1.getAccessibleContext().setAccessibleName("Botao");
         jButton1.getAccessibleContext().setAccessibleDescription("");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
