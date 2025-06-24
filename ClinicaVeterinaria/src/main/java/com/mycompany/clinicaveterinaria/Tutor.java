@@ -103,6 +103,15 @@ public class Tutor {
         }          
     }
     
+    public Animal buscarAnimal(String nome){
+        for(Animal a: listaAnimais){
+            if(nome.equals(a.getNome())){
+                return a;
+            }
+        }
+        return null;
+    }
+    
     public void listarAnimais(){
         if(listaAnimais.isEmpty()) // Verifica se a lista está vazia
             System.out.println("Lista vazia\n");

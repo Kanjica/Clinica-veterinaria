@@ -1,8 +1,4 @@
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Visual;
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
@@ -217,10 +213,10 @@ public class teste extends javax.swing.JPanel {
          
         JFrame frame = new JFrame("Agendamento");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setSize(700, 500);// ajusta tamanho da janela ao tamanho do painel e componentes
         frame.setLocationRelativeTo(null); // centraliza
 
-        VisuConsulta painel = new VisuConsulta(petShop);
+        SolicitarConsulta painel = new SolicitarConsulta(petShop);
         frame.add(painel);
 
         frame.setVisible(true);
@@ -239,7 +235,7 @@ public class teste extends javax.swing.JPanel {
         frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
         frame.setLocationRelativeTo(null); // centraliza
 
-        VisuAgendamento painel = new VisuAgendamento(petShop);
+        TelaAgendamento painel = new TelaAgendamento(petShop);
         frame.add(painel);
 
         frame.setVisible(true);
@@ -259,7 +255,7 @@ public class teste extends javax.swing.JPanel {
         frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
         frame.setLocationRelativeTo(null); // centraliza
 
-        VisuCriarVeterinario painel = new VisuCriarVeterinario(petShop);
+        TelaCadastroVeterinario painel = new TelaCadastroVeterinario(petShop);
         frame.add(painel);
 
         frame.setVisible(true);

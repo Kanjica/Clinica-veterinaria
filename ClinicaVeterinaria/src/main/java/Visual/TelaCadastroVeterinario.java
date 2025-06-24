@@ -13,12 +13,12 @@ import javax.swing.SwingUtilities;
  *
  * @author pauli
  */
-public class VisuCriarVeterinario extends javax.swing.JPanel {
+public class TelaCadastroVeterinario extends javax.swing.JPanel {
     Clinica petShop;
     /**
      * Creates new form ModeloJFrame
      */
-    public VisuCriarVeterinario(Clinica clinica) {
+    public TelaCadastroVeterinario(Clinica clinica) {
         this.petShop = clinica;
         initComponents();
         carregarEspecialidades();
@@ -300,7 +300,7 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel24.setText("email:");
+        jLabel24.setText("Email:");
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setText("Especialidade");
@@ -357,7 +357,7 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
         comboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08h as 12h", "14h as 18h" }));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel32.setText("cfmv");
+        jLabel32.setText("CFMV:");
 
         Voltar.setText("Voltar ao Menu");
         Voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -379,18 +379,22 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
                         .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel28)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel32)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel31)
+                                    .addGap(15, 15, 15)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addGap(18, 18, 18)
-                                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addGap(18, 18, 18)
-                                .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel31)
-                                .addGap(15, 15, 15)))
-                        .addGap(34, 34, 34)
+                                .addGap(246, 246, 246)
+                                .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(65, 65, 65)
@@ -404,16 +408,14 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
+                                .addGap(30, 30, 30)
                                 .addComponent(jLabel25)
                                 .addGap(29, 29, 29)
                                 .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(398, 398, 398)
                         .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
@@ -464,7 +466,7 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 13, Short.MAX_VALUE)
+                .addGap(0, 9, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -530,6 +532,9 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
          petShop.addVeterinarios(novoVet);
 
          JOptionPane.showMessageDialog(this, "Veterinário cadastrado com sucesso!");
+         
+         JOptionPane.showMessageDialog(this, novoVet.Imprimir());
+         
          nome.setText("");
          cpf.setText("");
          email.setText("");

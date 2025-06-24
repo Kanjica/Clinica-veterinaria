@@ -27,6 +27,17 @@ private ArrayList<Agendamento> listaConsultas;
         }
         return true;
     }
+    
+    public String Imprimir() {
+    return "Nome: " + nome + "\n" +
+           "CPF: " + cpf + "\n" +
+           "Email: " + email + "\n" +
+           "Telefone: " + telefoneContato + "\n" +
+           "Especialidade: " + especialidade.getNome() + "\n" +
+           "CFMV: " + cfmv + "\n" +
+           "Turno: " + this.turnoTrabalho;
+        }
+
  
 	public Especialidade getEspecialidade() {
 		return especialidade;

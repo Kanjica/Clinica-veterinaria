@@ -1,6 +1,7 @@
 package com.mycompany.clinicaveterinaria;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -96,23 +97,18 @@ public class Animal{
     
     
     // Cancelar um agendamento que o animal tinha
-    public void cancelarAgendamento(LocalDate data) {
-        Agendamento agendamentoEncontrado = null;
+    public void cancelarAgendamento(LocalDate data, LocalTime hora ) {
         
-        for(Agendamento agen: listaAgendamentos){           
-            if(agen.getDate().equals(data)){
-                agendamentoEncontrado = agen;                
-                break;
-            }
-        }
-           if(agendamentoEncontrado!= null){
-               listaAgendamentos.remove(agendamentoEncontrado);
-               System.out.println("Agendamento cancelado com sucesso.");
-               
-           }else{
-             System.out.println("Agendamento não encontrado.");  
-           }           
-    }
+        Agendamento agendamento = buscarAgendamentoPorDataHora(data, hora);
+
+       if (agendamento != null) {
+         listaAgendamentos.remove(agendamento);
+         System.out.println("Agendamento cancelado com sucesso.");
+       } else {
+        System.out.println("Agendamento não encontrado para essa data e horário.");
+        
+       }   
+     }
     
     public void imprimirAgendamentos(){
         int i = 1;
@@ -126,6 +122,15 @@ public class Animal{
         }
     }
     
+    public Agendamento buscarAgendamentoPorDataHora(LocalDate data, LocalTime hora) {
+        for (Agendamento ag : listaAgendamentos) {
+           if (ag.getDate().equals(data) && ag.getHora().equals(hora)) {
+              return ag;
+           }
+         }
+        return null; // Se não encontrar
+       }
+
     // Encontrar uma consulta especifica:
     public Consulta BuscarConsulta(LocalDate data){
         for(Consulta con: listaConsultas){

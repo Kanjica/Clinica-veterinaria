@@ -54,7 +54,7 @@ public class Consulta{
     
     public void EmitirProntuario(String problema, String diagnostico, String medicamento){
         // quando a consulta ja é feita, ela nao é mais agendada:
-        this.getAgendado().getAnimal().cancelarAgendamento(this.getAgendado().getDate());
+        this.getAgendado().getAnimal().cancelarAgendamento(this.getAgendado().getDate(),this.getAgendado().getHora());
         this.problema = problema;
         this.diagnostico = diagnostico;
         this.medicamento = medicamento;

@@ -11,14 +11,14 @@ import javax.swing.SwingUtilities;
  *
  * @author pauli
  */
-public class VisuAgendamento extends javax.swing.JPanel {
+public class TelaAgendamento extends javax.swing.JPanel {
     Clinica petShop;
 
     
     /** 
      * Creates new form Agendamento
      */
-    public VisuAgendamento(Clinica clinica) {
+    public TelaAgendamento(Clinica clinica) {
         initComponents();
         this.petShop = clinica;
         carregarEspecialidades();
@@ -46,6 +46,7 @@ public class VisuAgendamento extends javax.swing.JPanel {
 
         jDialog1 = new javax.swing.JDialog();
         jDialog2 = new javax.swing.JDialog();
+        Voltar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -57,6 +58,7 @@ public class VisuAgendamento extends javax.swing.JPanel {
         DataUser = new javax.swing.JTextField();
         agendar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        Voltar2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -81,6 +83,13 @@ public class VisuAgendamento extends javax.swing.JPanel {
             jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        Voltar1.setText("Voltar ao Menu");
+        Voltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Voltar1ActionPerformed(evt);
+            }
+        });
 
         setBackground(new java.awt.Color(223, 250, 250));
 
@@ -125,6 +134,13 @@ public class VisuAgendamento extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Documents\\MeuProjetos\\Clinica-veterinaria\\ClinicaVeterinaria\\src\\Imagens\\Veterinaria.png")); // NOI18N
 
+        Voltar2.setText("Voltar ao Menu");
+        Voltar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Voltar2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -132,29 +148,34 @@ public class VisuAgendamento extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(DataUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(DataUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel4))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(HoraUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(AnimalUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(HoraUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AnimalUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(EspecialidadeSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EspecialidadeSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)))
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -178,7 +199,9 @@ public class VisuAgendamento extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(EspecialidadeSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -228,21 +251,7 @@ public class VisuAgendamento extends javax.swing.JPanel {
         if(f){
             
         }else{
-         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
-
-         if (window != null) {
-           window.dispose(); // fecha a janela que contém esse painel
-          }
          
-         JFrame frame = new JFrame("Tela Inicial");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
-        frame.setLocationRelativeTo(null); // centraliza
-
-        teste painel = new teste(petShop);
-        frame.add(painel);
-
-        frame.setVisible(true);
         }
         
         
@@ -256,6 +265,42 @@ public class VisuAgendamento extends javax.swing.JPanel {
     private void EspecialidadeSelecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EspecialidadeSelecaoActionPerformed
+
+    private void Voltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Voltar1ActionPerformed
+        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+        if (window != null) {
+            window.dispose(); // fecha a janela que contém esse painel
+        }
+
+        JFrame frame = new JFrame("Tela Inicial");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        teste painel = new teste(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_Voltar1ActionPerformed
+
+    private void Voltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Voltar2ActionPerformed
+        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+        if (window != null) {
+            window.dispose(); // fecha a janela que contém esse painel
+        }
+
+        JFrame frame = new JFrame("Tela Inicial");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        teste painel = new teste(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_Voltar2ActionPerformed
     
 
 
@@ -264,6 +309,8 @@ public class VisuAgendamento extends javax.swing.JPanel {
     private javax.swing.JTextField DataUser;
     private javax.swing.JComboBox<String> EspecialidadeSelecao;
     private javax.swing.JTextField HoraUser;
+    private javax.swing.JButton Voltar1;
+    private javax.swing.JButton Voltar2;
     private javax.swing.JButton agendar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
