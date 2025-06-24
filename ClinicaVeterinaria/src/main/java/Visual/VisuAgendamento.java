@@ -3,6 +3,7 @@ package Visual;
 
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -12,6 +13,7 @@ import javax.swing.SwingUtilities;
  */
 public class VisuAgendamento extends javax.swing.JPanel {
     Clinica petShop;
+
     
     /** 
      * Creates new form Agendamento
@@ -19,8 +21,17 @@ public class VisuAgendamento extends javax.swing.JPanel {
     public VisuAgendamento(Clinica clinica) {
         initComponents();
         this.petShop = clinica;
+        carregarEspecialidades();
         
     }
+    private void carregarEspecialidades() {
+       EspecialidadeSelecao.removeAllItems();
+
+    for (Especialidade esp : petShop.getListaEspecialidades()) {
+        EspecialidadeSelecao.addItem(esp.getNome()); // ou esp diretamente se tiver toString()
+    }
+    }
+    
     
     
     
@@ -88,7 +99,6 @@ public class VisuAgendamento extends javax.swing.JPanel {
         jLabel6.setText("Especialidade:");
 
         EspecialidadeSelecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EspecialidadeSelecao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cardiologista", "Otopedista" }));
         EspecialidadeSelecao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EspecialidadeSelecaoActionPerformed(evt);
@@ -214,6 +224,10 @@ public class VisuAgendamento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendarActionPerformed
+        boolean f = false;
+        if(f){
+            
+        }else{
          Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
 
          if (window != null) {
@@ -229,6 +243,9 @@ public class VisuAgendamento extends javax.swing.JPanel {
         frame.add(painel);
 
         frame.setVisible(true);
+        }
+        
+        
         
     }//GEN-LAST:event_agendarActionPerformed
 
@@ -239,6 +256,7 @@ public class VisuAgendamento extends javax.swing.JPanel {
     private void EspecialidadeSelecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EspecialidadeSelecaoActionPerformed
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -258,4 +276,6 @@ public class VisuAgendamento extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    
 }

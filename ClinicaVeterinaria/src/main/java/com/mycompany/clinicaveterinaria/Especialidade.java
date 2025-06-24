@@ -26,4 +26,10 @@ public class Especialidade {
         this.preco = preco;
     }
     
+    @Override
+    public String toString() {
+    return nome; // Ou o que você quiser mostrar no combo
+    }
+
+    
 }

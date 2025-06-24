@@ -68,6 +68,43 @@ public class Clinica {
         return total;
     }
     
+    public Veterinario buscarVeterinarioPorNome(String nome) {
+        for (Veterinario vet : listaVeterinarios) {
+            if (vet.getNome().equals(nome)) {
+                return vet;
+            }
+        }
+        return null; // não encontrado
+    }
+
+    public Tutor buscarTutorPorNome(String nome) {
+        for (Tutor tutor : listaTutores) {
+            if (tutor.getNome().equals(nome)) {
+                return tutor;
+            }
+        }
+        return null;
+    }
+
+    public Vacina buscarVacinaPorNome(String nome) {
+        for (Vacina vacina : listaVacinas) {
+            if (vacina.getNomeVacina().equals(nome)) {
+                return vacina;
+            }
+        }
+        return null;
+    }
+
+    public Especialidade buscarEspecialidadePorNome(String nome) {
+        for (Especialidade esp : listaEspecialidades) {
+            if (esp.getNome().equals(nome)) {
+                return esp;
+            }
+        }
+        return null;
+    }
+
+    
     public Tutor buscarTutor(){
         return null;
     }
