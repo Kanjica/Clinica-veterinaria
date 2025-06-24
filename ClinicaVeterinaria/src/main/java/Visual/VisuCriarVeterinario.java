@@ -6,6 +6,7 @@ package Visual;
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -99,8 +100,9 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
         jLabel29 = new javax.swing.JLabel();
         Telefone = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        EspecialidadeSelecao5 = new javax.swing.JComboBox<>();
+        comboTurno = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
+        Voltar = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -321,7 +323,7 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
             }
         });
 
-        criarVeterinario.setText("Botao");
+        criarVeterinario.setText("Cadastrar");
         criarVeterinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 criarVeterinarioActionPerformed(evt);
@@ -351,11 +353,18 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel31.setText("Turno");
 
-        EspecialidadeSelecao5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EspecialidadeSelecao5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08h as 12h", "14h as 18h" }));
+        comboTurno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        comboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08h as 12h", "14h as 18h" }));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel32.setText("cfmv");
+
+        Voltar.setText("Voltar ao Menu");
+        Voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -391,20 +400,21 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel29)
-                                    .addComponent(EspecialidadeSelecao5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(59, 59, 59)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addComponent(jLabel25)
                                 .addGap(29, 29, 29)
-                                .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
@@ -433,9 +443,11 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel31)
-                            .addComponent(EspecialidadeSelecao5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(50, 50, 50)
-                        .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -452,7 +464,7 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 24, Short.MAX_VALUE)
+                .addGap(0, 13, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -491,11 +503,54 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
     }//GEN-LAST:event_TelefoneActionPerformed
 
     private void criarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarVeterinarioActionPerformed
-        boolean f = false;
-        if(f){
+        String nomeVet = nome.getText();
+        String cpfVet = cpf.getText();
+        String emailVet = email.getText();
+        String telefoneTexto = Telefone.getText();
+        String cfmvTexto = cfmv.getText();
+        String turno = (String) comboTurno.getSelectedItem();
+        Especialidade especialidade = petShop.buscarEspecialidadePorNome((String) EspecialidadeSelecao4.getSelectedItem());
+        
+        if (nomeVet.isEmpty() || cpfVet.isEmpty() || emailVet.isEmpty() ||telefoneTexto.isEmpty() || cfmvTexto.isEmpty() || turno == null || especialidade == null) {
 
-        }else{
-            Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+         JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
+
+    } else if(!telefoneTexto.matches("\\d+") || !cfmvTexto.matches("\\d+")) {
+         JOptionPane.showMessageDialog(this, "Telefone e CFMV devem ser números. Tente novamente!");
+         
+       } else {
+         // Convertendo os textos pra inteiro
+         int telefoneContato = Integer.parseInt(telefoneTexto);
+         int cfmvVet = Integer.parseInt(cfmvTexto);
+
+         // Criando o veterinário
+         Veterinario novoVet = new Veterinario(
+         nomeVet, cpfVet, emailVet, telefoneContato, especialidade, cfmvVet, turno);
+
+         petShop.addVeterinarios(novoVet);
+
+         JOptionPane.showMessageDialog(this, "Veterinário cadastrado com sucesso!");
+         nome.setText("");
+         cpf.setText("");
+         email.setText("");
+         Telefone.setText("");
+         cfmv.setText("");
+         comboTurno.setSelectedIndex(0);
+         EspecialidadeSelecao4.setSelectedIndex(0);
+}
+
+    }//GEN-LAST:event_criarVeterinarioActionPerformed
+
+    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeActionPerformed
+
+    private void EspecialidadeSelecao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecao4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EspecialidadeSelecao4ActionPerformed
+
+    private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
+        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
 
             if (window != null) {
                 window.dispose(); // fecha a janela que contém esse painel
@@ -510,16 +565,7 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
             frame.add(painel);
 
             frame.setVisible(true);
-        }
-    }//GEN-LAST:event_criarVeterinarioActionPerformed
-
-    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeActionPerformed
-
-    private void EspecialidadeSelecao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecao4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EspecialidadeSelecao4ActionPerformed
+    }//GEN-LAST:event_VoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -536,13 +582,14 @@ public class VisuCriarVeterinario extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> EspecialidadeSelecao2;
     private javax.swing.JComboBox<String> EspecialidadeSelecao3;
     private javax.swing.JComboBox<String> EspecialidadeSelecao4;
-    private javax.swing.JComboBox<String> EspecialidadeSelecao5;
     private javax.swing.JTextField HoraUser;
     private javax.swing.JTextField HoraUser1;
     private javax.swing.JTextField HoraUser2;
     private javax.swing.JTextField HoraUser3;
     private javax.swing.JTextField Telefone;
+    private javax.swing.JButton Voltar;
     private javax.swing.JTextField cfmv;
+    private javax.swing.JComboBox<String> comboTurno;
     private javax.swing.JTextField cpf;
     private javax.swing.JButton criarVeterinario;
     private javax.swing.JTextField email;

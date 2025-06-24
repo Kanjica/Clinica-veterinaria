@@ -105,11 +105,6 @@ public class Clinica {
     }
 
     
-    public Tutor buscarTutor(){
-        return null;
-    }
-    
-    
     
     public String getNome() {
         return nome;
