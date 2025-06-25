@@ -1,35 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package Visual;
+
+package Visual.Tutor;
+import Visual.MenuPrincipal;
+
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 
 /**
  *
- * @author pauli
+ * @author Ana
  */
-public class TelaCadastroVeterinario extends javax.swing.JPanel {
-    Clinica petShop;
-    /**
-     * Creates new form ModeloJFrame
-     */
-    public TelaCadastroVeterinario(Clinica clinica) {
-        this.petShop = clinica;
-        initComponents();
-        carregarEspecialidades();
-    }
-    
-    private void carregarEspecialidades() {
-       EspecialidadeSelecao4.removeAllItems();
+public class SolicitarConsulta extends javax.swing.JPanel {
 
-    for (Especialidade esp : petShop.getListaEspecialidades()) {
-        EspecialidadeSelecao4.addItem(esp.getNome()); // ou esp diretamente se tiver toString()
-    }
+    Clinica petShop;
+    Tutor dono;
+    
+    public SolicitarConsulta(Clinica clinica, Tutor dono) {
+        initComponents();
+        this.petShop = clinica;
+        this.dono = dono;
     }
 
     /**
@@ -83,28 +78,21 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        Voltar1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        EspecialidadeSelecao4 = new javax.swing.JComboBox<>();
-        email = new javax.swing.JTextField();
-        cpf = new javax.swing.JTextField();
-        nome = new javax.swing.JTextField();
-        criarVeterinario = new javax.swing.JButton();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        cfmv = new javax.swing.JTextField();
+        Buscar = new javax.swing.JButton();
+        Voltar2 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        Telefone = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        comboTurno = new javax.swing.JComboBox<>();
-        jLabel32 = new javax.swing.JLabel();
-        Voltar = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        DataAgendada = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        HoraAgendada = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        NomeAnimal = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -284,91 +272,68 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel23.setText("XXX:");
 
-        jLabel33.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://i.imgur.com/Ifajv0U.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
+        Voltar1.setText("Voltar ao Menu");
+        Voltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Voltar1ActionPerformed(evt);
             }
-        }.getIcon());
+        });
 
         setBackground(new java.awt.Color(215, 245, 245));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setText("Cadastrar Veterinario");
+        jLabel3.setText("Solicitar Consulta");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel24.setText("Email:");
-
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel25.setText("Especialidade");
+        jLabel25.setText("Data:");
 
-        EspecialidadeSelecao4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EspecialidadeSelecao4.addActionListener(new java.awt.event.ActionListener() {
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EspecialidadeSelecao4ActionPerformed(evt);
+                BuscarActionPerformed(evt);
             }
         });
 
-        email.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        cpf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        nome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nome.addActionListener(new java.awt.event.ActionListener() {
+        Voltar2.setText("Voltar ao Menu");
+        Voltar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeActionPerformed(evt);
+                Voltar2ActionPerformed(evt);
             }
         });
 
-        criarVeterinario.setText("Cadastrar");
-        criarVeterinario.addActionListener(new java.awt.event.ActionListener() {
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel29.setText("Olá Seja bem vindo novamente");
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel30.setText("Preencha as Informações");
+
+        DataAgendada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarVeterinarioActionPerformed(evt);
-            }
-        });
-
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel27.setText("Nome:");
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setText("CPF:");
-
-        cfmv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel29.setText("TelefoneContato");
-
-        Telefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Telefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TelefoneActionPerformed(evt);
+                DataAgendadaActionPerformed(evt);
             }
         });
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel31.setText("Turno");
+        jLabel31.setText("Hora");
 
-        comboTurno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        comboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08h as 12h", "14h as 18h" }));
-
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel32.setText("CFMV:");
-
-        Voltar.setText("Voltar ao Menu");
-        Voltar.addActionListener(new java.awt.event.ActionListener() {
+        HoraAgendada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VoltarActionPerformed(evt);
+                HoraAgendadaActionPerformed(evt);
             }
         });
 
-        jLabel30.setIcon(new javax.swing.JLabel() {
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel24.setText("Nome do Animal");
+
+        NomeAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NomeAnimalActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
@@ -385,92 +350,69 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(208, 208, 208)
+                                .addComponent(jLabel29))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(225, 225, 225)
+                                .addComponent(jLabel30)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel28)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel32)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel31)
-                                    .addGap(15, 15, 15)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(246, 246, 246)
-                                .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
+                                .addGap(75, 75, 75)
                                 .addComponent(jLabel24)
-                                .addGap(18, 18, 18)
-                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel25)
-                                .addGap(29, 29, 29)
-                                .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel29)
-                                    .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 0, 0))
+                                .addComponent(NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DataAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(HoraAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(145, 145, 145)
+                                .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel33)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel30)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27)
                     .addComponent(jLabel24)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29)
-                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32)
                     .addComponent(jLabel25)
-                    .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel31)
-                            .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel30)))
-                .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(DataAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31)
+                    .addComponent(HoraAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel33))
         );
 
-        jLabel34.setIcon(new javax.swing.JLabel() {
+        jLabel32.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
@@ -487,29 +429,28 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel34)
-                .addGap(20, 20, 20)
+                .addComponent(jLabel32)
+                .addGap(134, 134, 134)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 39, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -529,77 +470,164 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void TelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TelefoneActionPerformed
-
-    private void criarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarVeterinarioActionPerformed
-        String nomeVet = nome.getText();
-        String cpfVet = cpf.getText();
-        String emailVet = email.getText();
-        String telefoneTexto = Telefone.getText();
-        String cfmvTexto = cfmv.getText();
-        String turno = (String) comboTurno.getSelectedItem();
-        Especialidade especialidade = petShop.buscarEspecialidadePorNome((String) EspecialidadeSelecao4.getSelectedItem());
-        
-        if (nomeVet.isEmpty() || cpfVet.isEmpty() || emailVet.isEmpty() ||telefoneTexto.isEmpty() || cfmvTexto.isEmpty() || turno == null || especialidade == null) {
-
-         JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
-
-    } else if(!telefoneTexto.matches("\\d+") || !cfmvTexto.matches("\\d+")) {
-         JOptionPane.showMessageDialog(this, "Telefone e CFMV devem ser números. Tente novamente!");
-         
-       } else {
-         // Convertendo os textos pra inteiro
-         int telefoneContato = Integer.parseInt(telefoneTexto);
-         int cfmvVet = Integer.parseInt(cfmvTexto);
-
-         // Criando o veterinário
-         Veterinario novoVet = new Veterinario(
-         nomeVet, cpfVet, emailVet, telefoneContato, especialidade, cfmvVet, turno);
-
-         petShop.addVeterinarios(novoVet);
-
-         JOptionPane.showMessageDialog(this, "Veterinário cadastrado com sucesso!");
-         
-         JOptionPane.showMessageDialog(this, novoVet.Imprimir());
-         
-         nome.setText("");
-         cpf.setText("");
-         email.setText("");
-         Telefone.setText("");
-         cfmv.setText("");
-         comboTurno.setSelectedIndex(0);
-         EspecialidadeSelecao4.setSelectedIndex(0);
-}
-
-    }//GEN-LAST:event_criarVeterinarioActionPerformed
-
-    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeActionPerformed
-
-    private void EspecialidadeSelecao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecao4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EspecialidadeSelecao4ActionPerformed
-
-    private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
+    private void Voltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Voltar1ActionPerformed
         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
 
-            if (window != null) {
-                window.dispose(); // fecha a janela que contém esse painel
+        if (window != null) {
+            window.dispose(); // fecha a janela que contém esse painel
+        }
+
+        JFrame frame = new JFrame("Tela Inicial");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        MenuPrincipal painel = new MenuPrincipal(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_Voltar1ActionPerformed
+
+    private void Voltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Voltar2ActionPerformed
+        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+        if (window != null) {
+            window.dispose(); // fecha a janela que contém esse painel
+        }
+
+        JFrame frame = new JFrame("Tela Inicial");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        MenuTutor painel = new MenuTutor(petShop, dono);
+        frame.add(painel);
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_Voltar2ActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+                                             
+    String nomeAnimal = NomeAnimal.getText();
+    String dataTexto = DataAgendada.getText();
+    String horaTexto = HoraAgendada.getText();
+
+    // Validação de campos vazios
+    if (nomeAnimal.isEmpty() || dataTexto.isEmpty() || horaTexto.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos!");
+        return;
+    }
+    
+    LocalDate dataAgendada = converterData(dataTexto);
+    LocalTime horaAgendada = converterHora(horaTexto);
+    
+    if (dataAgendada == null && horaAgendada == null) {
+      return;
+    }
+    
+    if(!petShop.verificarTurno(horaAgendada, 8, 12) && !petShop.verificarTurno(horaAgendada, 14, 18)){
+        JOptionPane.showMessageDialog(this, "Digite um horario das 08h as 12h ou das 14h as 18h!");
+        return;
+    }
+    
+    Animal animalAchado = validar(nomeAnimal);
+    if(animalAchado == null){
+        return;
+    }
+ 
+    Agendamento ag1 = animalAchado.buscarAgendamentoPorDataHora(dataAgendada, horaAgendada);
+    if(ag1 == null){
+      JOptionPane.showMessageDialog(this, "Nao encontramos o agendamento!\n" + "Marque o agendamento para conseguir uma consulta!");
+      return;
+    }
+    Consulta consul = new Consulta(ag1);
+                 
+    if(consul.verificarDisponibilidade(petShop) == false){
+        LocalTime hora = consul.ProximoHorario(petShop, horaAgendada);
+        if(hora != null){
+            int resposta = JOptionPane.showConfirmDialog(this,
+            "Nao temos Veterinários disponíveis nesse horário.\nMas temos veterinarios disponiveis as: " + hora + "h",
+            "Deseja marcar uma consulta?",
+             JOptionPane.YES_NO_OPTION);
+      
+            
+            if (resposta == JOptionPane.YES_OPTION) {
+              // Usuário quer procurar outro horário
+              consul.getAgendado().setHora(hora);
+              consul.verificarDisponibilidade(petShop);
+              consul.getAgendado().getAnimal().addConsultas(consul);
+              JOptionPane.showMessageDialog(this, "Horario da consulta remarcada com sucesso!!\n te vemos as " + hora);
+              
+                 
+            } else {
+              JOptionPane.showMessageDialog(this, "Porfavor, remarque sua consulta para outro dia!");
             }
+            
+        } else{
+            JOptionPane.showMessageDialog(this, "Todos os nossos veterinarios estarão em atendimento o dia todo! Remarque sua consulta para outro dia!");
+        }
+        
+    } else{
+        JOptionPane.showMessageDialog(this, "Se dirija a Sala do Doutor(a) " + consul.getVeterinario().getNome() + " que ira te atender agora!");
+        consul.getAgendado().getAnimal().addConsultas(consul);
+        petShop.addConsultas(consul);
+    }
 
-            JFrame frame = new JFrame("Tela Inicial");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
-            frame.setLocationRelativeTo(null); // centraliza
+      // Limpa os campos
+      NomeAnimal.setText("");
+      DataAgendada.setText("");
+      HoraAgendada.setText("");
 
-            teste painel = new teste(petShop);
-            frame.add(painel);
+    }//GEN-LAST:event_BuscarActionPerformed
 
-            frame.setVisible(true);
-    }//GEN-LAST:event_VoltarActionPerformed
+    public LocalDate converterData(String dataTexto) {
+        if (!dataTexto.matches("\\d{2}/\\d{2}/\\d{4}")) {
+             JOptionPane.showMessageDialog(null, 
+            "Data inválida! Use o formato dd/MM/yyyy.");
+             return null;
+         } else {
+            DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            return LocalDate.parse(dataTexto, formatoData);
+            }
+    }
+    
+    public LocalTime converterHora(String horaTexto) {
+      if (!horaTexto.matches("\\d{2}:\\d{2}")) {
+         JOptionPane.showMessageDialog(null, 
+            "Hora inválida! Use o formato HH:mm.");
+          return null;
+      }
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
+        return LocalTime.parse(horaTexto, formatoHora);
+        
+    }
+
+    public Animal validar(String nomeAnimal){
+        
+         Animal animalAchado = dono.buscarAnimal(nomeAnimal);
+            
+         if(animalAchado == null){
+             JOptionPane.showMessageDialog(this, "Seu animal nao foi encontrado!\n Digite corretamente ou cadastre seu bichinho no sistema!");
+             return null;
+        }
+         
+        return animalAchado; 
+ }    
+    
+    
+    
+    
+    private void DataAgendadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAgendadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataAgendadaActionPerformed
+
+    private void HoraAgendadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoraAgendadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HoraAgendadaActionPerformed
+
+    private void NomeAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeAnimalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NomeAnimalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -607,6 +635,8 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
     private javax.swing.JTextField AnimalUser1;
     private javax.swing.JTextField AnimalUser2;
     private javax.swing.JTextField AnimalUser3;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField DataAgendada;
     private javax.swing.JTextField DataUser;
     private javax.swing.JTextField DataUser1;
     private javax.swing.JTextField DataUser2;
@@ -615,24 +645,19 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> EspecialidadeSelecao1;
     private javax.swing.JComboBox<String> EspecialidadeSelecao2;
     private javax.swing.JComboBox<String> EspecialidadeSelecao3;
-    private javax.swing.JComboBox<String> EspecialidadeSelecao4;
+    private javax.swing.JTextField HoraAgendada;
     private javax.swing.JTextField HoraUser;
     private javax.swing.JTextField HoraUser1;
     private javax.swing.JTextField HoraUser2;
     private javax.swing.JTextField HoraUser3;
-    private javax.swing.JTextField Telefone;
-    private javax.swing.JButton Voltar;
-    private javax.swing.JTextField cfmv;
-    private javax.swing.JComboBox<String> comboTurno;
-    private javax.swing.JTextField cpf;
-    private javax.swing.JButton criarVeterinario;
-    private javax.swing.JTextField email;
+    private javax.swing.JTextField NomeAnimal;
+    private javax.swing.JButton Voltar1;
+    private javax.swing.JButton Voltar2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -649,15 +674,12 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -666,6 +688,5 @@ public class TelaCadastroVeterinario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField nome;
     // End of variables declaration//GEN-END:variables
 }

@@ -131,10 +131,10 @@ public class Animal{
         return null; // Se não encontrar
        }
 
-    // Encontrar uma consulta especifica:
-    public Consulta BuscarConsulta(LocalDate data){
+    // Encontrar uma consulta especifica a partir de um tipo de agendamento:
+    public Consulta BuscarConsulta(Agendamento ag1){
         for(Consulta con: listaConsultas){
-            if(con.getAgendado().getDate().equals(data)){
+            if(con.getAgendado().equals(ag1)){
                 return con;
             }
         }

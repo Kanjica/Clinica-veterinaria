@@ -19,6 +19,7 @@ public class Consulta{
         Veterinario veterinarioDisp = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade().getNome(), this.getAgendado().getDate(), this.getAgendado().getHora());
         if(veterinarioDisp != null){
             this.setVeterinario(veterinarioDisp);
+            veterinarioDisp.addAgenda(agendado);
             return true;
         } else{
             System.out.println();
@@ -33,7 +34,7 @@ public class Consulta{
             Veterinario veterinarioDisp = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade().getNome(), this.getAgendado().getDate(), hora);
             if(veterinarioDisp != null){
                 this.setVeterinario(veterinarioDisp);
-                veterinarioDisp.addConsultas(agendado);
+                veterinarioDisp.addAgenda(agendado);
                 this.getAgendado().setHora(hora);
                 System.out.println("\nNo horario das: " + hora + " voce vai ser atendindo pelo Dr. " + veterinarioDisp.getNome() + "\n");
                 return true;
@@ -52,34 +53,52 @@ public class Consulta{
           
     }
     
+    //Encontrar o primeiro horario disponivel e so retornar o horario:
+    public LocalTime ProximoHorario(Clinica clinica, LocalTime hora){
+        while(!hora.equals(LocalTime.of(12, 0)) && !hora.equals(LocalTime.of(18, 0))){
+            Veterinario veterinarioDisp = clinica.EncontrarVeterinario(this.getAgendado().getEspecialidade().getNome(), this.getAgendado().getDate(), hora);
+            if(veterinarioDisp != null){
+                return hora;
+   
+            }
+            
+            hora = hora.plusMinutes(20);
+                
+            // se o horario da manha ta cheio, tenta ve o horario da tarde:
+            if(hora.equals(LocalTime.of(12, 0))){
+                hora = LocalTime.of(14, 0);
+            }
+        }
+        return null;
+    }
+    
     public void EmitirProntuario(String problema, String diagnostico, String medicamento){
         // quando a consulta ja é feita, ela nao é mais agendada:
         this.getAgendado().getAnimal().cancelarAgendamento(this.getAgendado().getDate(),this.getAgendado().getHora());
+        this.getVeterinario().cancelarAgendamento(this.getAgendado().getDate(),this.getAgendado().getHora());
         this.problema = problema;
         this.diagnostico = diagnostico;
         this.medicamento = medicamento;
         
     }
     
-    public void ImprimirProntuario(){
-        //criar um formatacao Br
+    public String ImprimirProntuario(){
         DateTimeFormatter formatoBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        // Formata a data
         String dataFormatada = this.getAgendado().getDate().format(formatoBR);
-        System.out.println();
-        System.out.println("Prontuario do Animal: ");
-        
-        System.out.println("Animal: " + this.getAgendado().getAnimal().getNome());
-        System.out.println("Tutor: " + this.getAgendado().getAnimal().getTutor().getNome());
-        System.out.println("Data: " + dataFormatada);
-        System.out.println("Hora da consulta: " + this.getAgendado().getHora());
-        System.out.println("Veterinario que atendeu: " + this.getVeterinario().getNome());
-        System.out.println("Problema do Animal: " + this.getProblema());
-        System.out.println("Diagnostico: " + this.getDiagnostico());
-        System.out.println("Medicacao: " + this.getMedicamento());
-        System.out.println("Valor da consulta: " + this.agendado.ValorConsulta());
-        
+
+    String prontuario =
+      "\nProntuário do Animal:\n" +
+      "Animal: " + this.getAgendado().getAnimal().getNome() + "\n" +
+      "Tutor: " + this.getAgendado().getAnimal().getTutor().getNome() + "\n" +
+      "Data: " + dataFormatada + "\n" +
+      "Hora da consulta: " + this.getAgendado().getHora() + "\n" +
+      "Veterinário que atendeu: " + this.getVeterinario().getNome() + "\n" +
+      "Problema do Animal: " + this.getProblema() + "\n" +
+      "Diagnóstico: " + this.getDiagnostico() + "\n" +
+      "Medicação: " + this.getMedicamento() + "\n" +
+      "Valor da consulta: R$ " + this.getAgendado().ValorConsulta();
+
+     return prontuario;      
     }
 
 	public String getProblema() {

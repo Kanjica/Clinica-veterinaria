@@ -8,13 +8,24 @@ public class Agendamento{
     private LocalTime hora;
     private Especialidade especialidade;
     private Animal animal;
-
+    
+    //Agendamento
     public Agendamento(LocalDate date, LocalTime hora, Especialidade especialidade, Animal animal) {
         this.date = date;
         this.hora = hora;
         this.especialidade = especialidade;
         this.animal = animal;
     }
+    
+    public String imprimir() {
+    return "Data: " + date + "\n" +
+           "Hora: " + hora + "\n" +
+           "Especialidade: " + especialidade.getNome() + "\n" +
+           "Animal: " + animal.getNome() + "\n" +
+           "Tutor: " + animal.getTutor().getNome();
+}
+
+
     
     public float ValorConsulta(){    
         return this.getEspecialidade().getPreco();        

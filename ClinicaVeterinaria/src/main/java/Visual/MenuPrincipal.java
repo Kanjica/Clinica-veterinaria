@@ -1,20 +1,26 @@
-
+    
 package Visual;
+import Visual.Veterinario.LoginVeterinario;
+import Visual.Tutor.LoginTutor;
+import Visual.Adm.MenuAdministração;
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 /**
  *
- * @author pauli
+ * @author Ana
  */
-public class teste extends javax.swing.JPanel {
+
+public class MenuPrincipal extends javax.swing.JPanel {
     Clinica petShop;
     /**
      * Creates new form Agendamento
      */
-    public teste(Clinica clinica) {
+    public MenuPrincipal(Clinica clinica) {
         initComponents();
         this.petShop = clinica;
         
@@ -30,7 +36,7 @@ public class teste extends javax.swing.JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Cria o painel passando o petShop
-        teste painel = new teste(clinica);
+        MenuPrincipal painel = new MenuPrincipal(clinica);
 
         // Adiciona o painel no frame
         frame.getContentPane().add(painel);
@@ -43,33 +49,71 @@ public class teste extends javax.swing.JPanel {
 
         // Torna visível
         frame.setVisible(true);
+        
+        
     }
     
-    public void criarObjetos(){
-        Tutor t = new Tutor("Alexandre", "12346789", "Alexandre@gmail.com", 90739274, "Rua Alagoas");
-        Tutor t2 = new Tutor("Rafael", "89473740", "Rafael@gmail.com", 8248364, "Rua Lordes");
-       
-        Animal a1 = new Animal("Bob", "Lulu da Pomerania", "20/04/2020", t);
-        Animal a2 = new Animal("Principe", "Pincher", "20/01/2000", t);
-        t.addAnimais(a1);
-        t.addAnimais(a2);
-        
-        
-        petShop.addTutor(t2);
-        petShop.addTutor(t);
-        
-        Especialidade esp1 = new Especialidade("Cardiologista", 50);
-        Especialidade esp2 = new Especialidade("Otopedista", 50);
-        
-        petShop.addEspecialidades(esp2);
-        petShop.addEspecialidades(esp1);
-        
-        Veterinario vet1 = new Veterinario("Ana", "855532", "paulinhasp@gmail.com", 71892284,esp1,1313,"14h as 18h");
-       
-        
-        petShop.addVeterinarios(vet1);
-        
-    }
+    public void criarObjetos() {
+    // Tutores
+    Tutor t1 = new Tutor("Juliana Silva", "123", "juliana.silva@gmail.com", 7199123, "Rua das Acácias, 101");
+    Tutor t2 = new Tutor("Carlos Eduardo", "98765432100", "carlos.edu@gmail.com", 71997654, "Avenida Central, 200");
+    Tutor t3 = new Tutor("Fernanda Moura", "45678912300", "fernanda.moura@gmail.com", 7199876, "Rua São Jorge, 85");
+
+    // Animais
+    Animal a1 = new Animal("Luna", "Golden Retriever", "15/03/2019", t1);
+    Animal a2 = new Animal("Tico", "Shih Tzu", "09/11/2021", t1);
+    Animal a3 = new Animal("Thor", "Pastor Alemão", "01/01/2020", t2);
+    Animal a4 = new Animal("Mel", "Gato Siamês", "12/08/2018", t3);
+    Animal a5 = new Animal("Zig", "Poodle", "05/05/2017", t3);
+
+    // Associar animais aos tutores
+    t1.addAnimais(a1);
+    t1.addAnimais(a2);
+    t2.addAnimais(a3);
+    t3.addAnimais(a4);
+    t3.addAnimais(a5);
+
+    // Adicionar tutores no petShop
+    petShop.addTutor(t1);
+    petShop.addTutor(t2);
+    petShop.addTutor(t3);
+
+    // Especialidades
+    Especialidade esp1 = new Especialidade("Cardiologista", 80);
+    Especialidade esp2 = new Especialidade("Ortopedista", 70);
+    Especialidade esp3 = new Especialidade("Dermatologista", 60);
+
+    petShop.addEspecialidades(esp1);
+    petShop.addEspecialidades(esp2);
+    petShop.addEspecialidades(esp3);
+
+    // Veterinários
+    Veterinario vet1 = new Veterinario("Marcos", "123", "marcos.vet@gmail.com", 7199100, esp1, 123, "08h as 12h");
+    Veterinario vet2 = new Veterinario("Bianca", "100002", "bianca.vet@gmail.com", 7199200, esp2, 7788, "14h as 18h");
+    Veterinario vet3 = new Veterinario("Rita", "100003", "rita.vet@gmail.com", 719300, esp3, 8899, "08h as 12h");
+
+    petShop.addVeterinarios(vet1);
+    petShop.addVeterinarios(vet2);
+    petShop.addVeterinarios(vet3);
+
+    // Datas e horários para agendamento
+    LocalDate data1 = LocalDate.of(2025, 7, 15);
+    LocalDate data2 = LocalDate.of(2025, 7, 16);
+    LocalTime hora1 = LocalTime.of(8, 0);
+    LocalTime hora2 = LocalTime.of(10, 20);
+    LocalTime hora3 = LocalTime.of(14, 0);
+
+    // Agendamentos
+    Agendamento ag1 = new Agendamento(data1, hora1, esp1, a1);
+    Agendamento ag2 = new Agendamento(data1, hora2, esp2, a3);
+    Agendamento ag3 = new Agendamento(data2, hora3, esp3, a4);
+
+    // Adicionando agendamentos aos animais
+    a1.addListaAgendamentos(ag1);
+    a3.addListaAgendamentos(ag2);
+    a4.addListaAgendamentos(ag3);
+}
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,10 +126,10 @@ public class teste extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         Consultar = new javax.swing.JButton();
-        Agendamento1 = new javax.swing.JButton();
         Veterinario1 = new javax.swing.JButton();
         criar = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
+        Adm = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
@@ -94,18 +138,10 @@ public class teste extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         Consultar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Consultar.setText("Consulta");
+        Consultar.setText("Tutor");
         Consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarActionPerformed(evt);
-            }
-        });
-
-        Agendamento1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Agendamento1.setText("Agendamento");
-        Agendamento1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Agendamento1ActionPerformed(evt);
             }
         });
 
@@ -136,6 +172,14 @@ public class teste extends javax.swing.JPanel {
             }
         }.getIcon());
 
+        Adm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Adm.setText("Administração");
+        Adm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdmActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -145,15 +189,11 @@ public class teste extends javax.swing.JPanel {
                 .addComponent(criar)
                 .addGap(96, 96, 96)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Agendamento1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 260, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Veterinario1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Veterinario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Consultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Adm, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -161,18 +201,19 @@ public class teste extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Agendamento1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(criar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Veterinario1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(criar)
+                        .addGap(55, 55, 55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Adm, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addComponent(Veterinario1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 121, Short.MAX_VALUE)
                 .addComponent(jLabel30))
         );
 
@@ -203,7 +244,7 @@ public class teste extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel32)
-                        .addGap(126, 126, 126)
+                        .addGap(156, 156, 156)
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -225,8 +266,8 @@ public class teste extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
-        // dentro do seu método de ação
-         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+        
+         Window window = SwingUtilities.getWindowAncestor(this);
 
          if (window != null) {
            window.dispose(); // fecha a janela que contém esse painel
@@ -237,31 +278,11 @@ public class teste extends javax.swing.JPanel {
         frame.setSize(700, 500);// ajusta tamanho da janela ao tamanho do painel e componentes
         frame.setLocationRelativeTo(null); // centraliza
 
-        SolicitarConsulta painel = new SolicitarConsulta(petShop);
+        LoginTutor painel = new LoginTutor(petShop);
         frame.add(painel);
 
         frame.setVisible(true);
     }//GEN-LAST:event_ConsultarActionPerformed
-
-    private void Agendamento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agendamento1ActionPerformed
-        // dentro do seu método de ação
-         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
-
-         if (window != null) {
-           window.dispose(); // fecha a janela que contém esse painel
-          }
-         
-        JFrame frame = new JFrame("Agendamento");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
-        frame.setLocationRelativeTo(null); // centraliza
-
-        TelaAgendamento painel = new TelaAgendamento(petShop);
-        frame.add(painel);
-
-        frame.setVisible(true);
-        
-    }//GEN-LAST:event_Agendamento1ActionPerformed
 
     private void Veterinario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Veterinario1ActionPerformed
        // dentro do seu método de ação
@@ -276,7 +297,7 @@ public class teste extends javax.swing.JPanel {
         frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
         frame.setLocationRelativeTo(null); // centraliza
 
-        TelaCadastroVeterinario painel = new TelaCadastroVeterinario(petShop);
+        LoginVeterinario painel = new LoginVeterinario(petShop);
         frame.add(painel);
 
         frame.setVisible(true);
@@ -284,11 +305,31 @@ public class teste extends javax.swing.JPanel {
 
     private void criarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarActionPerformed
         criarObjetos();
+        JOptionPane.showMessageDialog(this, "Objetos criados com sucesso!");
     }//GEN-LAST:event_criarActionPerformed
+
+    private void AdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdmActionPerformed
+        // dentro do seu método de ação
+         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+         if (window != null) {
+           window.dispose(); // fecha a janela que contém esse painel
+          }
+         
+        JFrame frame = new JFrame("Agendamento");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 500);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        MenuAdministração painel = new MenuAdministração(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_AdmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Agendamento1;
+    private javax.swing.JButton Adm;
     private javax.swing.JButton Consultar;
     private javax.swing.JButton Veterinario1;
     private javax.swing.JButton criar;

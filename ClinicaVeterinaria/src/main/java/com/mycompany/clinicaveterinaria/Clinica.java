@@ -68,13 +68,22 @@ public class Clinica {
         return total;
     }
     
+    public Veterinario buscarVeterinarioPorCpf(String cpf) {
+        for (Veterinario vet : listaVeterinarios) {
+            if (vet.getCpf().equals(cpf)) {
+                return vet;
+            }
+        }
+        return null; 
+    }
+    
     public Veterinario buscarVeterinarioPorNome(String nome) {
         for (Veterinario vet : listaVeterinarios) {
             if (vet.getNome().equals(nome)) {
                 return vet;
             }
         }
-        return null; // não encontrado
+        return null;
     }
 
     public Tutor buscarTutorPorNome(String nome) {

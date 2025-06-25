@@ -1,28 +1,36 @@
 
-package Visual;
-
+package Visual.Adm;
+import Visual.*;
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
-
+import javax.swing.SwingUtilities;
 
 /**
  *
- * @author Ana
+ * @author pauli
  */
-public class SolicitarConsulta extends javax.swing.JPanel {
-
+public class EditarVeterinarios extends javax.swing.JPanel {
     Clinica petShop;
-    
-    public SolicitarConsulta(Clinica clinica) {
-        initComponents();
+    Veterinario vet;
+    /**
+     * Creates new form ModeloJFrame
+     */
+    public EditarVeterinarios(Clinica clinica, Veterinario vet) {
         this.petShop = clinica;
+        this.vet = vet;
+        initComponents();
+        carregarEspecialidades();
+        preencherCampos();
+    }
+    
+    private void carregarEspecialidades() {
+       EspecialidadeSelecao4.removeAllItems();
+
+    for (Especialidade esp : petShop.getListaEspecialidades()) {
+        EspecialidadeSelecao4.addItem(esp.getNome()); // ou esp diretamente se tiver toString()
+    }
     }
 
     /**
@@ -76,23 +84,28 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        Voltar1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        nomeTutor = new javax.swing.JTextField();
-        Buscar = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
-        Voltar2 = new javax.swing.JButton();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        DataAgendada = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        HoraAgendada = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        NomeAnimal = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        EspecialidadeSelecao4 = new javax.swing.JComboBox<>();
+        email = new javax.swing.JTextField();
+        cpf = new javax.swing.JTextField();
+        nome = new javax.swing.JTextField();
+        Atualizar = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        cfmv = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        Telefone = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        comboTurno = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
+        Voltar = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -128,8 +141,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Documents\\MeuProjetos\\Clinica-veterinaria\\ClinicaVeterinaria\\src\\Imagens\\Veterinaria.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -222,8 +233,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
             }
         });
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Documents\\MeuProjetos\\Clinica-veterinaria\\ClinicaVeterinaria\\src\\Imagens\\Veterinaria.png")); // NOI18N
-
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("XXX:");
 
@@ -246,8 +255,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         DataUser2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jButton3.setText("Botao");
-
-        jLabel16.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Documents\\MeuProjetos\\Clinica-veterinaria\\ClinicaVeterinaria\\src\\Imagens\\Veterinaria.png")); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setText("XXX:");
@@ -272,86 +279,97 @@ public class SolicitarConsulta extends javax.swing.JPanel {
 
         jButton4.setText("Botao");
 
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Documents\\MeuProjetos\\Clinica-veterinaria\\ClinicaVeterinaria\\src\\Imagens\\Veterinaria.png")); // NOI18N
-
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel22.setText("XXX:");
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel23.setText("XXX:");
 
-        Voltar1.setText("Voltar ao Menu");
-        Voltar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Voltar1ActionPerformed(evt);
+        jLabel33.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/Ifajv0U.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
             }
-        });
+        }.getIcon());
 
         setBackground(new java.awt.Color(215, 245, 245));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setText("Solicitar Consulta");
+        jLabel3.setText("Cadastrar Veterinario");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel24.setText("Email:");
+
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel25.setText("Data:");
+        jLabel25.setText("Especialidade");
 
-        nomeTutor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nomeTutor.addActionListener(new java.awt.event.ActionListener() {
+        EspecialidadeSelecao4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EspecialidadeSelecao4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeTutorActionPerformed(evt);
+                EspecialidadeSelecao4ActionPerformed(evt);
             }
         });
 
-        Buscar.setText("Buscar");
-        Buscar.addActionListener(new java.awt.event.ActionListener() {
+        email.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        cpf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        nome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarActionPerformed(evt);
+                nomeActionPerformed(evt);
             }
         });
+
+        Atualizar.setText("Atualizar");
+        Atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtualizarActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel27.setText("Nome:");
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setText("Seu Nome:");
+        jLabel28.setText("CPF:");
 
-        Voltar2.setText("Voltar ao Menu");
-        Voltar2.addActionListener(new java.awt.event.ActionListener() {
+        cfmv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel29.setText("TelefoneContato");
+
+        Telefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Telefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Voltar2ActionPerformed(evt);
-            }
-        });
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel29.setText("Olá Seja bem vindo novamente");
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel30.setText("Preencha as Informações");
-
-        DataAgendada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DataAgendadaActionPerformed(evt);
+                TelefoneActionPerformed(evt);
             }
         });
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel31.setText("Hora");
+        jLabel31.setText("Turno");
 
-        HoraAgendada.addActionListener(new java.awt.event.ActionListener() {
+        comboTurno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        comboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08h as 12h", "14h as 18h" }));
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel32.setText("CFMV:");
+
+        Voltar.setText("Voltar ao Menu");
+        Voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HoraAgendadaActionPerformed(evt);
+                VoltarActionPerformed(evt);
             }
         });
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel24.setText("Nome do Animal");
-
-        NomeAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NomeAnimalActionPerformed(evt);
-            }
-        });
-
-        jLabel33.setIcon(new javax.swing.JLabel() {
+        jLabel30.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
@@ -368,79 +386,96 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(29, 29, 29))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(DataAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel31)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(HoraAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel28)
-                                    .addComponent(jLabel24))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jLabel33))
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(208, 208, 208)
-                                .addComponent(jLabel29))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel28)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel32)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(246, 246, 246)
+                                        .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addGap(21, 21, 21)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(225, 225, 225)
-                                .addComponent(jLabel30)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addGap(65, 65, 65)
+                                .addComponent(jLabel24)
+                                .addGap(18, 18, 18)
+                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel25)
+                                .addGap(29, 29, 29)
+                                .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel29)
+                                    .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addComponent(Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel30)
-                .addGap(26, 26, 26)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27)
                     .addComponent(jLabel24)
-                    .addComponent(NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32)
                     .addComponent(jLabel25)
-                    .addComponent(DataAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31)
-                    .addComponent(HoraAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel33))
+                    .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel30)))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        jLabel32.setIcon(new javax.swing.JLabel() {
+        jLabel34.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
@@ -457,29 +492,29 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel32)
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel34)
+                .addGap(112, 112, 112)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -499,156 +534,103 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void Voltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Voltar1ActionPerformed
-        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+    private void TelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TelefoneActionPerformed
 
-        if (window != null) {
-            window.dispose(); // fecha a janela que contém esse painel
-        }
+    private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
 
-        JFrame frame = new JFrame("Tela Inicial");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
-        frame.setLocationRelativeTo(null); // centraliza
-
-        teste painel = new teste(petShop);
-        frame.add(painel);
-
-        frame.setVisible(true);
-    }//GEN-LAST:event_Voltar1ActionPerformed
-
-    private void Voltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Voltar2ActionPerformed
-        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
-
-        if (window != null) {
-            window.dispose(); // fecha a janela que contém esse painel
-        }
-
-        JFrame frame = new JFrame("Tela Inicial");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
-        frame.setLocationRelativeTo(null); // centraliza
-
-        teste painel = new teste(petShop);
-        frame.add(painel);
-
-        frame.setVisible(true);
-    }//GEN-LAST:event_Voltar2ActionPerformed
-
-    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-                                             
-    String NomeTutor = nomeTutor.getText();
-    String nomeAnimal = NomeAnimal.getText();
-    String dataTexto = DataAgendada.getText();
-    String horaTexto = HoraAgendada.getText();
-
-    // Validação de campos vazios
-    if (NomeTutor.isEmpty() || nomeAnimal.isEmpty() || dataTexto.isEmpty() || horaTexto.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos!");
-        return;
-    }
-    
-    LocalDate dataAgendada = converterData(dataTexto);
-    LocalTime horaAgendada = converterHora(horaTexto);
-    
-    if (dataAgendada == null && horaAgendada == null) {
-      return;
-    }
-    
-    if(!petShop.verificarTurno(horaAgendada, 8, 12) && !petShop.verificarTurno(horaAgendada, 14, 18)){
-        JOptionPane.showMessageDialog(this, "Digite um horario das 08h as 12h ou das 14h as 18h!");
-        return;
-    }
-    
-    Animal animalAchado = validar(NomeTutor, nomeAnimal);
-    if(animalAchado == null){
-        return;
-    }
- 
-    Agendamento ag1 = animalAchado.buscarAgendamentoPorDataHora(dataAgendada, horaAgendada);
-    if(ag1 == null){
-      JOptionPane.showMessageDialog(this, "Nao encontramos o agendamento!\n" + "Marque o agendamento para conseguir uma consulta!");
-      return;
-    }
-    Consulta consul = new Consulta(ag1);
-                 
-    if(consul.verificarDisponibilidade(petShop) == false){
-        if(consul.DisponibilidadeQualquerHorario(petShop, horaAgendada)){
-            JOptionPane.showMessageDialog(this, "Todos os nossos veterinarios estao em atendimento agora, mas temos outros horarios disponiveis... ");
-            //ajeitar a outra função porque ela obriga a pessoa ja ser agendada em outro horario kkkk
-        } else{
-            JOptionPane.showMessageDialog(this, "Todos os nossos veterinarios estao em atendimento o dia todo! Teremos que agendar para outro dia!");
-        }
+        String nomeVet = nome.getText();
+        String cpfVet = cpf.getText();
+        String emailVet = email.getText();
+        String telefoneTexto = Telefone.getText();
+        String cfmvTexto = cfmv.getText();
+        String turno = (String) comboTurno.getSelectedItem();
+        Especialidade especialidade = petShop.buscarEspecialidadePorNome((String) EspecialidadeSelecao4.getSelectedItem());
         
-    } else{
-      JOptionPane.showMessageDialog(this, "Se dirija a Sala do Doutor(a) " + consul.getVeterinario().getNome() + " que ira te atender agora!");
-      // Limpa os campos
-      nomeTutor.setText("");
-      NomeAnimal.setText("");
-      DataAgendada.setText("");
-      HoraAgendada.setText("");
-      }
-    
-    }//GEN-LAST:event_BuscarActionPerformed
+        if (telefoneTexto.length() > 10 ||cfmvTexto.length() > 10) {
+          JOptionPane.showMessageDialog(this, "O telefone deve ter no máximo 10 dígitos.");
+           return;
+           }
+        
+        
+        if (nomeVet.isEmpty() || cpfVet.isEmpty() || emailVet.isEmpty() ||telefoneTexto.isEmpty() || cfmvTexto.isEmpty() || turno == null || especialidade == null) {
 
-    public LocalDate converterData(String dataTexto) {
-        if (!dataTexto.matches("\\d{2}/\\d{2}/\\d{4}")) {
-             JOptionPane.showMessageDialog(null, 
-            "Data inválida! Use o formato dd/MM/yyyy.");
-             return null;
-         } else {
-            DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            return LocalDate.parse(dataTexto, formatoData);
-            }
-    }
-    
-    public LocalTime converterHora(String horaTexto) {
-      if (!horaTexto.matches("\\d{2}:\\d{2}")) {
-         JOptionPane.showMessageDialog(null, 
-            "Hora inválida! Use o formato HH:mm.");
-          return null;
-      }
-        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
-        return LocalTime.parse(horaTexto, formatoHora);
-        
-    }
+         JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
 
-    public Animal validar(String nomeTutor, String nomeAnimal){
-        
-        Tutor tutorAchado = petShop.buscarTutorPorNome(nomeTutor);
-        if(tutorAchado == null){
-          JOptionPane.showMessageDialog(this, "Tutor nao encontrado, se cadastre no sistema ou tente novamente!");
-          return null;
-        }
-        
-         Animal animalAchado = tutorAchado.buscarAnimal(nomeAnimal);
-            
-         if(animalAchado == null){
-             JOptionPane.showMessageDialog(this, "Animal de " + tutorAchado.getNome() + " Nao encontrado!\n Digite corretamente ou cadastre seu bichinho no sistema!");
-             return null;
-        }
+    } else if(!telefoneTexto.matches("\\d+") || !cfmvTexto.matches("\\d+")) {
+         JOptionPane.showMessageDialog(this, "Telefone e CFMV devem ser números. Tente novamente!");
+         return;
          
-        return animalAchado; 
- }    
-    
-    
-    
-    
-    private void DataAgendadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAgendadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DataAgendadaActionPerformed
+       } else {
+         // Convertendo os textos pra inteiro
+         int telefoneContato = Integer.parseInt(telefoneTexto);
+         int cfmvVet = Integer.parseInt(cfmvTexto);
 
-    private void HoraAgendadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoraAgendadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HoraAgendadaActionPerformed
+         // Atualizando o veterinário
+         vet.setNome(nomeVet);
+         vet.setCpf(cpfVet);
+         vet.setEmail(emailVet);
+         vet.setTelefoneContato(telefoneContato);
+         vet.setCfmv(cfmvVet);
+         vet.setTurnoTrabalho(turno);
+         vet.setEspecialidade(especialidade);
 
-    private void nomeTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeTutorActionPerformed
 
-    private void NomeAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeAnimalActionPerformed
+         JOptionPane.showMessageDialog(this, "Veterinário Atualizado com sucesso!");
+         
+         JOptionPane.showMessageDialog(this, vet.Imprimir());
+         
+         nome.setText("");
+         cpf.setText("");
+         email.setText("");
+         Telefone.setText("");
+         cfmv.setText("");
+         comboTurno.setSelectedIndex(0);
+         EspecialidadeSelecao4.setSelectedIndex(0);
+}
+
+    }//GEN-LAST:event_AtualizarActionPerformed
+    
+    public void preencherCampos(){
+        
+        nome.setText(vet.getNome());
+        cpf.setText(vet.getCpf());
+        email.setText(vet.getEmail());
+        Telefone.setText(Integer.toString(vet.getTelefoneContato()));
+        cfmv.setText(Integer.toString(vet.getCfmv()));
+        comboTurno.setSelectedItem(vet.getTurnoTrabalho());
+        EspecialidadeSelecao4.setSelectedItem(vet.getEspecialidade().getNome());
+        
+
+
+    }
+    
+    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NomeAnimalActionPerformed
+    }//GEN-LAST:event_nomeActionPerformed
+
+    private void EspecialidadeSelecao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecao4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EspecialidadeSelecao4ActionPerformed
+
+    private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
+        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+            if (window != null) {
+                window.dispose(); // fecha a janela que contém esse painel
+            }
+
+            JFrame frame = new JFrame("Tela Inicial");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+            frame.setLocationRelativeTo(null); // centraliza
+
+             GerenciaVeterinarios painel = new  GerenciaVeterinarios(petShop);
+            frame.add(painel);
+
+            frame.setVisible(true);
+    }//GEN-LAST:event_VoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -656,8 +638,7 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     private javax.swing.JTextField AnimalUser1;
     private javax.swing.JTextField AnimalUser2;
     private javax.swing.JTextField AnimalUser3;
-    private javax.swing.JButton Buscar;
-    private javax.swing.JTextField DataAgendada;
+    private javax.swing.JButton Atualizar;
     private javax.swing.JTextField DataUser;
     private javax.swing.JTextField DataUser1;
     private javax.swing.JTextField DataUser2;
@@ -666,19 +647,23 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> EspecialidadeSelecao1;
     private javax.swing.JComboBox<String> EspecialidadeSelecao2;
     private javax.swing.JComboBox<String> EspecialidadeSelecao3;
-    private javax.swing.JTextField HoraAgendada;
+    private javax.swing.JComboBox<String> EspecialidadeSelecao4;
     private javax.swing.JTextField HoraUser;
     private javax.swing.JTextField HoraUser1;
     private javax.swing.JTextField HoraUser2;
     private javax.swing.JTextField HoraUser3;
-    private javax.swing.JTextField NomeAnimal;
-    private javax.swing.JButton Voltar1;
-    private javax.swing.JButton Voltar2;
+    private javax.swing.JTextField Telefone;
+    private javax.swing.JButton Voltar;
+    private javax.swing.JTextField cfmv;
+    private javax.swing.JComboBox<String> comboTurno;
+    private javax.swing.JTextField cpf;
+    private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -695,6 +680,7 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -702,6 +688,7 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -710,6 +697,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField nomeTutor;
+    private javax.swing.JTextField nome;
     // End of variables declaration//GEN-END:variables
 }
