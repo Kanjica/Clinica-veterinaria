@@ -6,11 +6,11 @@ public class Tutor {
 	private String nome;
 	private String cpf;
 	private String email;
-	private int telefoneContato;
+	private String telefoneContato;
 	private String endereco;
 	private ArrayList<Animal> listaAnimais;
 	
-	public Tutor(String nome, String cpf, String email, int telefoneContato, String endereco) {
+	public Tutor(String nome, String cpf, String email, String telefoneContato, String endereco) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
@@ -55,11 +55,11 @@ public class Tutor {
 		this.email = email;
 	}
 
-	public int getTelefoneContato() {
+	public String getTelefoneContato() {
 		return telefoneContato;
 	}
 
-	public void setTelefoneContato(int telefoneContato) {
+	public void setTelefoneContato(String telefoneContato) {
 		this.telefoneContato = telefoneContato;
 	}
 
@@ -67,7 +67,7 @@ public class Tutor {
 		return endereco;
 	}
 
-	public void setEndereço(String endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
         

@@ -10,8 +10,8 @@ public class Main {
         // Testes de kessia:
         System.out.println("Bem vindo a Clinica Veterinaria");
       
-        Tutor t = new Tutor("Alexandre", "12346789", "Alexandre@gmail.com", 90739274, "Rua Alagoas");
-        Tutor t2 = new Tutor("Rafael", "89473740", "Rafael@gmail.com", 8248364, "Rua Lordes");
+        Tutor t = new Tutor("Alexandre", "12346789", "Alexandre@gmail.com", "90739274", "Rua Alagoas");
+        Tutor t2 = new Tutor("Rafael", "89473740", "Rafael@gmail.com", "8248364", "Rua Lordes");
         
         Animal a1 = new Animal("Bob", "Lulu da Pomerania", "20/04/2020", t);
         Animal a2 = new Animal("Principe", "Pincher", "20/01/2000", t);

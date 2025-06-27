@@ -78,7 +78,7 @@
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="BuscarNome" min="-2" pref="295" max="-2" attributes="0"/>
+                                  <Component id="BuscarPeloCpf" min="-2" pref="295" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -106,7 +106,7 @@
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="ListarTutores" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="BuscarNome" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="BuscarPeloCpf" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="EditarVeterinario" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace pref="112" max="32767" attributes="0"/>
@@ -136,15 +136,15 @@
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="agendar"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="BuscarNome">
+        <Component class="javax.swing.JButton" name="BuscarPeloCpf">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Por Nome"/>
+            <Property name="text" type="java.lang.String" value="Procurar pelo Cpf"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarNomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarPeloCpfActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="agendar"/>

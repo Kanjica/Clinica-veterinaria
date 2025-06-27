@@ -4,6 +4,8 @@ package Visual.Adm;
 import Visual.Adm.MenuAdministração;
 import Visual.Adm.CadastroVeterinarios;
 import Visual.*;
+import Visual.Adm.CadastroTutor;
+import Visual.Adm.CadastroVacinas;
 
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
@@ -178,8 +180,7 @@ public class MenuCadastrosGerais extends javax.swing.JPanel {
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -222,7 +223,22 @@ public class MenuCadastrosGerais extends javax.swing.JPanel {
     }//GEN-LAST:event_VeterinarioActionPerformed
 
     private void EspecialidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadesActionPerformed
-       
+        // dentro do seu método de ação
+         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+         if (window != null) {
+           window.dispose(); // fecha a janela que contém esse painel
+          }
+         
+        JFrame frame = new JFrame("Cadastro Especialidade");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        CadastroEspecialidade painel = new CadastroEspecialidade(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
     }//GEN-LAST:event_EspecialidadesActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -245,7 +261,22 @@ public class MenuCadastrosGerais extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void TutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TutoresActionPerformed
-        // TODO add your handling code here:
+         Window window = SwingUtilities.getWindowAncestor(this);
+
+         if (window != null) {
+           window.dispose(); // fecha a janela que contém esse painel
+          }
+         
+        JFrame frame = new JFrame("Cadastro Tutor");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(700, 500);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        CadastroTutor painelTutor = new CadastroTutor(petShop);
+        frame.add(painelTutor);
+
+        frame.setVisible(true);   
+                                        // TODO add your handling code here:
     }//GEN-LAST:event_TutoresActionPerformed
 
 

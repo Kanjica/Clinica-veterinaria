@@ -112,6 +112,32 @@ public class Clinica {
         return null;
     }
     
+    public Tutor procurarTutorPeloCpf(String cpf){
+        for(Tutor tutor: listaTutores){
+            if(tutor.getCpf().equals(cpf)){
+                return tutor;
+            }     
+        }
+        return null;   
+    }
+    
+     public void editarTutor(String cpfAntigo, String novocpf, String novoNome, String novoEmail, String novoTelefoneContato, String novoEndereco){
+        for(Tutor t: listaTutores){
+            if(cpfAntigo.equalsIgnoreCase(t.getCpf())){
+                t.setCpf(novocpf);
+                t.setNome(novoNome);
+                t.setEmail(novoEmail);
+                t.setTelefoneContato(novoTelefoneContato);
+                t.setEndereco(novoEndereco);
+                System.out.println("Tutor alterado com sucesso");
+                return;
+            }
+        }
+        System.out.println("Tutor não encontrado");     
+     }        
+         
+     
+    
     /*
     public boolean jaPodeOutraDose(Animal ani, Vacina vac){
         return ;

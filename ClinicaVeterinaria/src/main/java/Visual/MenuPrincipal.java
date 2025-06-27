@@ -1,5 +1,6 @@
     
 package Visual;
+import Visual.Adm.CadastroTutor;
 import Visual.Veterinario.LoginVeterinario;
 import Visual.Tutor.LoginTutor;
 import Visual.Adm.MenuAdministração;
@@ -37,6 +38,10 @@ public class MenuPrincipal extends javax.swing.JPanel {
         // Cria o objeto da clínica (ou recebe de onde você quiser)
         Clinica clinica = new Clinica("Vida Animal");
         
+        CadastroTutor cadastro = new CadastroTutor(clinica);
+      
+        LoginTutor login = new LoginTutor(clinica);
+        
         JFrame frame = new JFrame("Tela de Teste");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -67,11 +72,11 @@ public class MenuPrincipal extends javax.swing.JPanel {
     }
     public void criarObjetos() {
     // Tutores
-    Tutor t1 = new Tutor("Juliana Silva", "123", "juliana.silva@gmail.com", 7199123, "Rua das Acácias, 101");
-    Tutor t2 = new Tutor("Carlos Eduardo", "98765432100", "carlos.edu@gmail.com", 71997654, "Avenida Central, 200");
-    Tutor t3 = new Tutor("Fernanda Moura", "45678912300", "fernanda.moura@gmail.com", 7199876, "Rua São Jorge, 85");
+   /* Tutor t1 = new Tutor("Juliana Silva", "123", "juliana.silva@gmail.com", "7199123", "Rua das Acácias, 101");
+    Tutor t2 = new Tutor("Carlos Eduardo", "98765432100", "carlos.edu@gmail.com", "71997654", "Avenida Central, 200");
+    Tutor t3 = new Tutor("Fernanda Moura", "45678912300", "fernanda.moura@gmail.com", "7199876", "Rua São Jorge, 85");
     
-    Tutor t4 = new Tutor("a", "1", "a@gmail.com", 719999, "Rua a, 12");
+    Tutor t4 = new Tutor("a", "1", "a@gmail.com", "719999", "Rua a, 12");
 
     // Animais
     Animal a1 = new Animal("Luna", "Golden Retriever", "15/03/2019", t1);
@@ -101,7 +106,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
     petShop.addTutor(t1);
     petShop.addTutor(t2);
     petShop.addTutor(t3);
-    petShop.addTutor(t4);
+    petShop.addTutor(t4);*/
 
     // Especialidades
     Especialidade esp1 = new Especialidade("Cardiologista", 80);
@@ -131,14 +136,14 @@ public class MenuPrincipal extends javax.swing.JPanel {
     LocalTime hora3 = LocalTime.of(14, 0);
 
     // Agendamentos
-    Agendamento ag1 = new Agendamento(data1, hora1, esp1, a1);
+ /*   Agendamento ag1 = new Agendamento(data1, hora1, esp1, a1);
     Agendamento ag2 = new Agendamento(data1, hora2, esp2, a3);
     Agendamento ag3 = new Agendamento(data2, hora3, esp3, a4);
 
     // Adicionando agendamentos aos animais
     a1.addListaAgendamentos(ag1);
     a3.addListaAgendamentos(ag2);
-    a4.addListaAgendamentos(ag3);
+    a4.addListaAgendamentos(ag3);*/
     
     Vacina vacina1 = new Vacina("Vacina1", LocalDate.of(2025, 6, 18), 10.0f, 10);
     Vacina vacina2 = new Vacina("Vacina2", LocalDate.of(2025, 6, 10), 10.0f, 10);
