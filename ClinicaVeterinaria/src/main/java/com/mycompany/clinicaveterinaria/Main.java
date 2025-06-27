@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 
-public class ClinicaVeterinaria {
+public class Main {
 
     public static void main(String[] args) {
         // Testes de kessia:
@@ -26,8 +26,8 @@ public class ClinicaVeterinaria {
         
         Consulta c1 = new Consulta(ag);
         
-        Vacina vacina1 = new Vacina("Vacina1", LocalDate.of(2025, 6, 18), 10.0f);
-        Vacina vacina2 = new Vacina("Vacina2", LocalDate.of(2025, 6, 10), 10.0f);
+        Vacina vacina1 = new Vacina("Vacina1", LocalDate.of(2025, 6, 18), 10.0f, 10);
+        Vacina vacina2 = new Vacina("Vacina2", LocalDate.of(2025, 6, 10), 10.0f, 10);
         VacinaAplicada VA1 = new VacinaAplicada(vacina1, LocalDate.of(2025, 6, 10), LocalDate.of(2025, 6, 20), 80.0f);
         VacinaAplicada VA2 = new VacinaAplicada(vacina2, LocalDate.of(2025, 6, 8), LocalDate.of(2025, 6, 28), 50.0f);
       
@@ -36,8 +36,8 @@ public class ClinicaVeterinaria {
         t.addAnimais(a1);
         t.addAnimais(a2);
         
-        a1.addVacinasAplicada(VA1);
-        a1.addVacinasAplicada(VA2);
+        a1.addVacinaAplicada(VA1);
+        a1.addVacinaAplicada(VA2);
         a1.addConsultas(c1);
         
         

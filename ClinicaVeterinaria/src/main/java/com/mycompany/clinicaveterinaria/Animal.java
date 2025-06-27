@@ -11,31 +11,31 @@ import java.util.stream.Collectors;
 
 public class Animal{
 	
-	private String nome;
-	private String raca;
-	private String dataNascimento;
-	private Tutor tutor;
-        private ArrayList<Consulta> listaConsultas;
-        private ArrayList<VacinaAplicada> listaVacinasAplicada;
-        private ArrayList<Agendamento> listaAgendamentos;
-	
-	
-	public Animal(String nome, String raca, String dataNascimento, Tutor tutor) {
-		this.nome = nome;
-		this.raca = raca;
-		this.dataNascimento = dataNascimento;
-		this.tutor = tutor;
-                this.listaConsultas = new ArrayList<>();
-                this.listaVacinasAplicada = new ArrayList<>();	
-                this.listaAgendamentos = new ArrayList<>();
-	}
+    private String nome;
+    private String raca;
+    private String dataNascimento;
+    private Tutor tutor;
+    private ArrayList<Consulta> listaConsultas;
+    private ArrayList<VacinaAplicada> listaVacinasAplicada;
+    private ArrayList<Agendamento> listaAgendamentos;
+
+
+    public Animal(String nome, String raca, String dataNascimento, Tutor tutor) {
+            this.nome = nome;
+            this.raca = raca;
+            this.dataNascimento = dataNascimento;
+            this.tutor = tutor;
+            this.listaConsultas = new ArrayList<>();
+            this.listaVacinasAplicada = new ArrayList<>();	
+            this.listaAgendamentos = new ArrayList<>();
+    }
     
     private List<VacinaAplicada> vacinasVencendoNoMes(String mesStr) {
     	try {
-		    int mesDesejado = Month.valueOf(mesStr.toUpperCase()).getValue();
-		    return listaVacinasAplicada.stream()
-		        .filter(v -> v.getProxAplicacao().getMonthValue() == mesDesejado)
-		        .collect(Collectors.toList());
+            int mesDesejado = Month.valueOf(mesStr.toUpperCase()).getValue();
+            return listaVacinasAplicada.stream()
+                .filter(v -> v.getProxAplicacao().getMonthValue() == mesDesejado)
+                .collect(Collectors.toList());
     	}catch(IllegalArgumentException e) {
     		System.out.println(e.getStackTrace());
     		return Collections.emptyList();
@@ -141,48 +141,45 @@ public class Animal{
         return null;
     }
 
-    
-    // Gets e sets
     public void addConsultas(Consulta c){
         listaConsultas.add(c);         
     }
     
-    public void addVacinasAplicada(VacinaAplicada va){
+    public void addVacinaAplicada(VacinaAplicada va){
         listaVacinasAplicada.add(va);
     }
-    
 
-	public String getNome() {
-		return nome;
-	}
+    public String getNome() {
+            return nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setNome(String nome) {
+            this.nome = nome;
+    }
 
-	public String getRaca() {
-		return raca;
-	}
+    public String getRaca() {
+            return raca;
+    }
 
-	public void setRaca(String raca) {
-		this.raca = raca;
-	}
+    public void setRaca(String raca) {
+            this.raca = raca;
+    }
 
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
+    public String getDataNascimento() {
+            return dataNascimento;
+    }
 
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    public void setDataNascimento(String dataNascimento) {
+            this.dataNascimento = dataNascimento;
+    }
 
-	public Tutor getTutor() {
-		return tutor;
-	}
+    public Tutor getTutor() {
+            return tutor;
+    }
 
-	public void setTutor(Tutor tutor) {
-		this.tutor = tutor;
-	}
+    public void setTutor(Tutor tutor) {
+            this.tutor = tutor;
+    }
 
     public ArrayList<Consulta> getListaConsultas() {
         return listaConsultas;
@@ -208,6 +205,4 @@ public class Animal{
         this.listaAgendamentos.add(agendado);
     }
     
-    
-
 }

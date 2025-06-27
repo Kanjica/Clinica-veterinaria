@@ -35,7 +35,6 @@ public class Clinica {
          return false;
     }
       
-    
     public Veterinario EncontrarVeterinario(String especialidade,LocalDate data, LocalTime hora){
          String turno;
          if(this.verificarTurno(hora, 8, 12)){
@@ -112,8 +111,12 @@ public class Clinica {
         }
         return null;
     }
-
     
+    /*
+    public boolean jaPodeOutraDose(Animal ani, Vacina vac){
+        return ;
+    }
+    */
     
     public String getNome() {
         return nome;
@@ -166,11 +169,14 @@ public class Clinica {
     public void setListaConsultas(ArrayList<Consulta> listaConsultas) {
         this.listaConsultas = listaConsultas;
     }
-
+    
+    public void addVacina(Vacina vacina){
+        listaVacinas.add(vacina);
+    }
     public ArrayList<Vacina> getListaVacinas() {
         return listaVacinas;
     }
-
+    
     public void setListaVacinas(ArrayList<Vacina> listaVacinas) {
         this.listaVacinas = listaVacinas;
     }

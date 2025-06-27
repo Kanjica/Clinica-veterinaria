@@ -82,7 +82,8 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
+        cadastrarVeterinario = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -102,6 +103,7 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         jLabel32 = new javax.swing.JLabel();
         Voltar = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
+        veterinarioIntro = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -294,10 +296,12 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
             }
         }.getIcon());
 
-        setBackground(new java.awt.Color(215, 245, 245));
+        setBackground(new java.awt.Color(106, 27, 154));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setText("Cadastrar Veterinario");
+        cadastrarVeterinario.setBackground(new java.awt.Color(255, 255, 255));
+        cadastrarVeterinario.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        cadastrarVeterinario.setForeground(new java.awt.Color(255, 255, 255));
+        cadastrarVeterinario.setText("Cadastrar Veterinario");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -305,7 +309,7 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         jLabel24.setText("Email:");
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel25.setText("Especialidade");
+        jLabel25.setText("Especialidade:");
 
         EspecialidadeSelecao4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         EspecialidadeSelecao4.addActionListener(new java.awt.event.ActionListener() {
@@ -341,7 +345,7 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         cfmv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel29.setText("TelefoneContato");
+        jLabel29.setText("Telefone:");
 
         Telefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Telefone.addActionListener(new java.awt.event.ActionListener() {
@@ -378,63 +382,70 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
             }
         }.getIcon());
 
+        veterinarioIntro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        veterinarioIntro.setText("Informe os Dados do novo Veterinário");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel27)
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cfmv))
+                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel28)
+                                        .addGap(31, 31, 31)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cpf)
+                                    .addComponent(nome, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))))
+                        .addGap(56, 56, 56))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel28)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel32)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel31)
-                                    .addGap(15, 15, 15)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(246, 246, 246)
-                                .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel24)
-                                .addGap(18, 18, 18)
-                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel25)
-                                .addGap(29, 29, 29)
-                                .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel29)
-                                    .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 0, 0))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addComponent(Telefone)))
+                    .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(389, 389, 389)
+                .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(veterinarioIntro)
+                .addGap(214, 214, 214))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(16, 16, 16)
+                .addComponent(veterinarioIntro)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
@@ -446,26 +457,26 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
                     .addComponent(jLabel29)
                     .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel25)
-                    .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel30))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel31)
-                            .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel30)))
-                .addGap(0, 12, Short.MAX_VALUE))
+                            .addComponent(jLabel25)
+                            .addComponent(EspecialidadeSelecao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cfmv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(65, 65, 65))))
         );
 
         jLabel34.setIcon(new javax.swing.JLabel() {
@@ -489,12 +500,9 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel34)
                 .addGap(112, 112, 112)
-                .addComponent(jLabel3)
+                .addComponent(cadastrarVeterinario)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -504,10 +512,9 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cadastrarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -527,6 +534,24 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
+        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
+
+        if (window != null) {
+            window.dispose(); // fecha a janela que contém esse painel
+        }
+
+        JFrame frame = new JFrame("Tela Inicial");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
+        frame.setLocationRelativeTo(null); // centraliza
+
+        MenuCadastrosGerais painel = new  MenuCadastrosGerais(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_VoltarActionPerformed
+
     private void TelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TelefoneActionPerformed
@@ -539,45 +564,43 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         String cfmvTexto = cfmv.getText();
         String turno = (String) comboTurno.getSelectedItem();
         Especialidade especialidade = petShop.buscarEspecialidadePorNome((String) EspecialidadeSelecao4.getSelectedItem());
-        
+
         if (telefoneTexto.length() > 10 ||cfmvTexto.length() > 10) {
-          JOptionPane.showMessageDialog(this, "O telefone deve ter no máximo 10 dígitos.");
-           return;
-           }
-        
-        
+            JOptionPane.showMessageDialog(this, "O telefone deve ter no máximo 10 dígitos.");
+            return;
+        }
+
         if (nomeVet.isEmpty() || cpfVet.isEmpty() || emailVet.isEmpty() ||telefoneTexto.isEmpty() || cfmvTexto.isEmpty() || turno == null || especialidade == null) {
 
-         JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
 
-    } else if(!telefoneTexto.matches("\\d+") || !cfmvTexto.matches("\\d+")) {
-         JOptionPane.showMessageDialog(this, "Telefone e CFMV devem ser números. Tente novamente!");
-         return;
-         
-       } else {
-         // Convertendo os textos pra inteiro
-         int telefoneContato = Integer.parseInt(telefoneTexto);
-         int cfmvVet = Integer.parseInt(cfmvTexto);
+        } else if(!telefoneTexto.matches("\\d+") || !cfmvTexto.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "Telefone e CFMV devem ser números. Tente novamente!");
+            return;
 
-         // Criando o veterinário
-         Veterinario novoVet = new Veterinario(
-         nomeVet, cpfVet, emailVet, telefoneContato, especialidade, cfmvVet, turno);
+        } else {
+            // Convertendo os textos pra inteiro
+            int telefoneContato = Integer.parseInt(telefoneTexto);
+            int cfmvVet = Integer.parseInt(cfmvTexto);
 
-         petShop.addVeterinarios(novoVet);
+            // Criando o veterinário
+            Veterinario novoVet = new Veterinario(
+                nomeVet, cpfVet, emailVet, telefoneContato, especialidade, cfmvVet, turno);
 
-         JOptionPane.showMessageDialog(this, "Veterinário cadastrado com sucesso!");
-         
-         JOptionPane.showMessageDialog(this, novoVet.Imprimir());
-         
-         nome.setText("");
-         cpf.setText("");
-         email.setText("");
-         Telefone.setText("");
-         cfmv.setText("");
-         comboTurno.setSelectedIndex(0);
-         EspecialidadeSelecao4.setSelectedIndex(0);
-}
+            petShop.addVeterinarios(novoVet);
 
+            JOptionPane.showMessageDialog(this, "Veterinário cadastrado com sucesso!");
+
+            JOptionPane.showMessageDialog(this, novoVet.Imprimir());
+
+            nome.setText("");
+            cpf.setText("");
+            email.setText("");
+            Telefone.setText("");
+            cfmv.setText("");
+            comboTurno.setSelectedIndex(0);
+            EspecialidadeSelecao4.setSelectedIndex(0);
+        }
     }//GEN-LAST:event_criarVeterinarioActionPerformed
 
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
@@ -587,24 +610,6 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
     private void EspecialidadeSelecao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecao4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EspecialidadeSelecao4ActionPerformed
-
-    private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
-        Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
-
-            if (window != null) {
-                window.dispose(); // fecha a janela que contém esse painel
-            }
-
-            JFrame frame = new JFrame("Tela Inicial");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
-            frame.setLocationRelativeTo(null); // centraliza
-
-             MenuCadastrosGerais painel = new  MenuCadastrosGerais(petShop);
-            frame.add(painel);
-
-            frame.setVisible(true);
-    }//GEN-LAST:event_VoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -627,6 +632,7 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
     private javax.swing.JTextField HoraUser3;
     private javax.swing.JTextField Telefone;
     private javax.swing.JButton Voltar;
+    private javax.swing.JLabel cadastrarVeterinario;
     private javax.swing.JTextField cfmv;
     private javax.swing.JComboBox<String> comboTurno;
     private javax.swing.JTextField cpf;
@@ -657,7 +663,6 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -671,6 +676,8 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JTextField nome;
+    private javax.swing.JLabel veterinarioIntro;
     // End of variables declaration//GEN-END:variables
 }

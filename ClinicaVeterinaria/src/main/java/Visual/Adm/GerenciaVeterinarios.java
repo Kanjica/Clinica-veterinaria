@@ -37,18 +37,34 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         EditarVeterinario = new javax.swing.JButton();
         BuscarNome = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
-        ListarVeterinario = new javax.swing.JButton();
+        ListarVacinas2 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
 
         jButton1.setText("Voltar");
 
-        setBackground(new java.awt.Color(223, 250, 250));
+        setBackground(new java.awt.Color(106, 27, 154));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(242, 242, 242));
+        jLabel3.setText("Veterinários");
+
+        jLabel32.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/Ifajv0U.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -80,11 +96,11 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
             }
         }.getIcon());
 
-        ListarVeterinario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ListarVeterinario.setText("Listar");
-        ListarVeterinario.addActionListener(new java.awt.event.ActionListener() {
+        ListarVacinas2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ListarVacinas2.setText("Listar");
+        ListarVacinas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarVeterinarioActionPerformed(evt);
+                ListarVacinas2ActionPerformed(evt);
             }
         });
 
@@ -102,52 +118,36 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BuscarNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EditarVeterinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ListarVeterinario, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
                         .addComponent(jButton2)
-                        .addGap(139, 139, 139)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(244, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(EditarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(BuscarNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                                .addComponent(ListarVacinas2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(43, 43, 43)))
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(ListarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(EditarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jButton2)
-                .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(jLabel30))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(ListarVacinas2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(BuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(EditarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        EditarVeterinario.getAccessibleContext().setAccessibleDescription("");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setText("Veterinarios");
-
-        jLabel32.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://i.imgur.com/Ifajv0U.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,137 +155,81 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel32)
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel32)
+                .addGap(193, 193, 193)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarVeterinarioActionPerformed
-        String nome = JOptionPane.showInputDialog(null, "Digite o nome do veterinario:");
-        if (nome == null || nome.trim().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Digite nome do medico!");
-        return;
-       
-     } else {
-       Veterinario vet = petShop.buscarVeterinarioPorNome(nome);
-       if(vet == null){
-           JOptionPane.showMessageDialog(null, "Veterinario não encontrado!");
-       } else{
-            Window window = SwingUtilities.getWindowAncestor(this); 
 
-            if (window != null) {
-              window.dispose();
-             }
-         
-            JFrame frame = new JFrame("Menu de Gerenciamento");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setSize(800, 600);
-            frame.setLocationRelativeTo(null); 
-
-            EditarVeterinarios painel = new EditarVeterinarios(petShop,vet);
-            frame.add(painel);
-
-            frame.setVisible(true);    
-           }       
-      }
-        
     }//GEN-LAST:event_EditarVeterinarioActionPerformed
 
     private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed
-        String nome = JOptionPane.showInputDialog(null, "Digite o nome do veterinario:");
 
-    if (nome == null || nome.trim().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Digite nome do medico!");
-        return;
-       
-     } else {
-       Veterinario vet = petShop.buscarVeterinarioPorNome(nome);
-       if(vet == null){
-           JOptionPane.showMessageDialog(null, "Veterinario não encontrado!");
-       } else{
-           JOptionPane.showMessageDialog(null, vet.Imprimir());
-       }
-       
-      }
-
-        
     }//GEN-LAST:event_BuscarNomeActionPerformed
 
-    private void ListarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarVeterinarioActionPerformed
-      // Supondo que você tenha isso:
-   List<Veterinario> listaVets = petShop.getListaVeterinarios();
-   
-   if (listaVets.isEmpty()) {
-    JOptionPane.showMessageDialog(null, "Nenhum veterinário cadastrado ainda!", "Aviso", JOptionPane.WARNING_MESSAGE);
-    return; // sai da função
-    }
-   
-   StringBuilder mensagem = new StringBuilder("Veterinários da Clínica:\n\n");
+    private void ListarVacinas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarVacinas2ActionPerformed
 
-   // Monta o texto com o método imprimir() de cada veterinário
-      for (Veterinario vet : listaVets) {
-       mensagem.append(vet.Imprimir()).append("\n\n");
-      }
-
-      // Cria a área de texto e coloca no scroll
-        JTextArea areaTexto = new JTextArea(mensagem.toString());
-        areaTexto.setEditable(false);  // impede edição
-        areaTexto.setLineWrap(true);   // quebra linha automática
-        areaTexto.setWrapStyleWord(true); // quebra respeitando as palavras
-
-        JScrollPane scroll = new JScrollPane(areaTexto);
-        scroll.setPreferredSize(new Dimension(500, 400)); // tamanho da janelinha
-
-       // Mostra no JOptionPane com rolagem
-        JOptionPane.showMessageDialog(null, scroll, "Veterinários da Clínica", JOptionPane.INFORMATION_MESSAGE);
-
-    }//GEN-LAST:event_ListarVeterinarioActionPerformed
+    }//GEN-LAST:event_ListarVacinas2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           Window window = SwingUtilities.getWindowAncestor(this); 
+        Window window = SwingUtilities.getWindowAncestor(this);
 
-         if (window != null) {
-           window.dispose();
-          }
-         
+        if (window != null) {
+            window.dispose();
+        }
+
         JFrame frame = new JFrame("Menu de Gerenciamento");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null); 
+        frame.setLocationRelativeTo(null);
 
         MenuGerenciamento painel = new MenuGerenciamento(petShop);
         frame.add(painel);
 
-        frame.setVisible(true);     
+        frame.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarNome;
+    private javax.swing.JButton BuscarNome1;
+    private javax.swing.JButton BuscarNome2;
     private javax.swing.JButton EditarVeterinario;
-    private javax.swing.JButton ListarVeterinario;
+    private javax.swing.JButton EditarVeterinario1;
+    private javax.swing.JButton EditarVeterinario2;
+    private javax.swing.JButton ListarVacinas;
+    private javax.swing.JButton ListarVacinas1;
+    private javax.swing.JButton ListarVacinas2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
