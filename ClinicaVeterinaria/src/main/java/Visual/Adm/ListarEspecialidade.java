@@ -5,41 +5,32 @@
 package Visual.Adm;
 
 import com.mycompany.clinicaveterinaria.Clinica;
-import com.mycompany.clinicaveterinaria.Tutor;
+import com.mycompany.clinicaveterinaria.Especialidade;
 import java.awt.Color;
 import java.awt.Window;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+public class ListarEspecialidade extends javax.swing.JPanel {
 
-/**
- *
- * @author kessi
- */
-public class ListarTutor extends javax.swing.JPanel {
+   
     private Clinica clinica;
-    /**
-     * Creates new form ListarTutor
-     */
-    public ListarTutor(Clinica clinica) {
+    public ListarEspecialidade(Clinica clinica) {
         initComponents();
-        jTextArea1.setForeground(Color.decode("#E6E51D"));
         this.clinica = clinica;
-        listarTutores(); // preenche na criação
+        jTextArea1.setForeground(Color.decode("#E6E51D"));
+        listarEspecialidades(); // preenche na criação
     }
     
-    private void listarTutores(){
+    private void listarEspecialidades(){
         jTextArea1.setText("");//limpar
-        for(Tutor tutor: clinica.getListaTutores()){
+        for(Especialidade especialidade: clinica.getListaEspecialidades()){
             jTextArea1.append(
-            "\t\t\tNome: " + tutor.getNome() +
-            "\n\t\t\tCPF: " + tutor.getCpf() +
-            "\n\t\t\tEmail: " + tutor.getEmail() +
-            "\n\t\t\tTelefone: " + tutor.getTelefoneContato() +
-            "\n\t\t\tEndereço: " + tutor.getEndereco() +
+            "\t\t\tNome: " + especialidade.getNome() +
+            "\n\t\t\tPreço: " + especialidade.getPreco() +
             "\n\t--------------------------------------------------------------------------------------------------\n"
         );
-        }
+    }
     }
 
     /**
@@ -51,7 +42,6 @@ public class ListarTutor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPasswordField1 = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         voltar = new javax.swing.JButton();
@@ -59,10 +49,6 @@ public class ListarTutor extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-
-        jPasswordField1.setText("jPasswordField1");
-
-        setBackground(new java.awt.Color(204, 102, 255));
 
         jPanel1.setBackground(new java.awt.Color(106, 27, 154));
 
@@ -97,7 +83,7 @@ public class ListarTutor extends javax.swing.JPanel {
                         .addComponent(voltar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -112,7 +98,7 @@ public class ListarTutor extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel3.setText("Listar Tutores");
+        jLabel3.setText("Listar Especialidades");
 
         jLabel32.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -133,9 +119,9 @@ public class ListarTutor extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
-                .addGap(212, 212, 212)
+                .addGap(119, 119, 119)
                 .addComponent(jLabel3)
-                .addContainerGap(380, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,7 +132,7 @@ public class ListarTutor extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(24, 24, 24)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,7 +163,7 @@ public class ListarTutor extends javax.swing.JPanel {
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
 
-        GerenciaTutores painel = new GerenciaTutores(clinica);
+        GerenciaEspecialidades painel = new GerenciaEspecialidades(clinica);
         frame.add(painel);
 
         frame.setVisible(true);
@@ -189,7 +175,6 @@ public class ListarTutor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton voltar;

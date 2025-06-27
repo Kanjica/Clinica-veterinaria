@@ -11,10 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author kessi
- */
+
 public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
 
     /**
@@ -24,8 +21,7 @@ public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
     public ProcurarTutorPeloCpf(Clinica clinica) {
         initComponents();
         this.clinica = clinica;
-        
-        
+               
     }
 
     /**
@@ -39,10 +35,10 @@ public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        txtCpf = new javax.swing.JTextField();
+        voltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        procurar = new javax.swing.JButton();
+        txtCpf = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
@@ -50,29 +46,22 @@ public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        voltar.setText("Voltar");
+        voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        txtCpf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfActionPerformed(evt);
+                voltarActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Cpf:");
 
-        jButton1.setBackground(new java.awt.Color(204, 102, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton1.setText("Procurar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        procurar.setBackground(new java.awt.Color(204, 102, 255));
+        procurar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        procurar.setText("Procurar");
+        procurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                procurarActionPerformed(evt);
             }
         });
 
@@ -84,30 +73,30 @@ public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(voltar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(136, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(298, 298, 298))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(102, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(procurar)
+                        .addGap(298, 298, 298))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(voltar)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addComponent(jButton1)
+                .addGap(66, 66, 66)
+                .addComponent(procurar)
                 .addContainerGap(378, Short.MAX_VALUE))
         );
 
@@ -168,7 +157,7 @@ public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         Window window = SwingUtilities.getWindowAncestor(this);
 
         if (window != null) {
@@ -184,13 +173,9 @@ public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
         frame.add(painel);
 
         frame.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_voltarActionPerformed
 
-    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-
-    }//GEN-LAST:event_txtCpfActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void procurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procurarActionPerformed
         String cpf = txtCpf.getText();
         Tutor tutor = clinica.procurarTutorPeloCpf(cpf);
         if(tutor == null){
@@ -199,22 +184,22 @@ public class ProcurarTutorPeloCpf extends javax.swing.JPanel {
         }
         else
             JOptionPane.showMessageDialog(this, "Tutor encontrado: "+
-            "\t\t\tNome: " + tutor.getNome() +
+            "\n\t\t\tNome: " + tutor.getNome() +
             "\n\t\t\tCPF: " + tutor.getCpf() +
             "\n\t\t\tEmail: " + tutor.getEmail() +
             "\n\t\t\tTelefone: " + tutor.getTelefoneContato() +
             "\n\t\t\tEndereço: " + tutor.getEndereco());      
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_procurarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton procurar;
     private javax.swing.JTextField txtCpf;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

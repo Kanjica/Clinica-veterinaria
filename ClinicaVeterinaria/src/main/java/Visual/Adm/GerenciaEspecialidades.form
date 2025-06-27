@@ -78,11 +78,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="ListarVeterinario" pref="316" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="BuscarNome" alignment="0" pref="316" max="32767" attributes="0"/>
-                                  <Component id="EditarVeterinario" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="ListarEspecialidade" pref="316" max="32767" attributes="0"/>
+                              <Component id="ProcurarPeloNome" alignment="0" pref="316" max="32767" attributes="0"/>
+                              <Component id="EditarEspecialidade" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
@@ -98,11 +96,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="voltar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="ListarVeterinario" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="ListarEspecialidade" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="BuscarNome" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="ProcurarPeloNome" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="EditarVeterinario" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="EditarEspecialidade" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace pref="105" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -113,7 +111,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="EditarVeterinario">
+        <Component class="javax.swing.JButton" name="EditarEspecialidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -124,21 +122,21 @@
             <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
           </AccessibilityProperties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditarVeterinarioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditarEspecialidadeActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="agendar"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="BuscarNome">
+        <Component class="javax.swing.JButton" name="ProcurarPeloNome">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Por Nome"/>
+            <Property name="text" type="java.lang.String" value="Procurar pelo Nome"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarNomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProcurarPeloNomeActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="agendar"/>
@@ -151,7 +149,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="ListarVeterinario">
+        <Component class="javax.swing.JButton" name="ListarEspecialidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -159,7 +157,7 @@
             <Property name="text" type="java.lang.String" value="Listar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarVeterinarioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarEspecialidadeActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="agendar"/>

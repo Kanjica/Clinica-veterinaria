@@ -5,41 +5,18 @@
 package Visual.Adm;
 
 import com.mycompany.clinicaveterinaria.Clinica;
-import com.mycompany.clinicaveterinaria.Tutor;
-import java.awt.Color;
+import com.mycompany.clinicaveterinaria.Especialidade;
 import java.awt.Window;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+public class ProcurarEspecialidadePeloNome extends javax.swing.JPanel {
 
-/**
- *
- * @author kessi
- */
-public class ListarTutor extends javax.swing.JPanel {
     private Clinica clinica;
-    /**
-     * Creates new form ListarTutor
-     */
-    public ListarTutor(Clinica clinica) {
+    public ProcurarEspecialidadePeloNome(Clinica clinica) {
         initComponents();
-        jTextArea1.setForeground(Color.decode("#E6E51D"));
         this.clinica = clinica;
-        listarTutores(); // preenche na criação
-    }
-    
-    private void listarTutores(){
-        jTextArea1.setText("");//limpar
-        for(Tutor tutor: clinica.getListaTutores()){
-            jTextArea1.append(
-            "\t\t\tNome: " + tutor.getNome() +
-            "\n\t\t\tCPF: " + tutor.getCpf() +
-            "\n\t\t\tEmail: " + tutor.getEmail() +
-            "\n\t\t\tTelefone: " + tutor.getTelefoneContato() +
-            "\n\t\t\tEndereço: " + tutor.getEndereco() +
-            "\n\t--------------------------------------------------------------------------------------------------\n"
-        );
-        }
     }
 
     /**
@@ -51,18 +28,14 @@ public class ListarTutor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPasswordField1 = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         voltar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        Procurar = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-
-        jPasswordField1.setText("jPasswordField1");
-
-        setBackground(new java.awt.Color(204, 102, 255));
 
         jPanel1.setBackground(new java.awt.Color(106, 27, 154));
 
@@ -75,16 +48,17 @@ public class ListarTutor extends javax.swing.JPanel {
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(106, 27, 154));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setWrapStyleWord(true);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(150, 150, 150)));
-        jTextArea1.setMargin(new java.awt.Insets(8, 8, 8, 8));
-        jScrollPane1.setViewportView(jTextArea1);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Nome");
+
+        Procurar.setBackground(new java.awt.Color(204, 102, 255));
+        Procurar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Procurar.setText("Procurar");
+        Procurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcurarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -97,22 +71,33 @@ public class ListarTutor extends javax.swing.JPanel {
                         .addComponent(voltar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(105, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Procurar)
+                        .addGap(298, 298, 298))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(voltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(35, 35, 35)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addComponent(Procurar)
+                .addContainerGap(378, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel3.setText("Listar Tutores");
+        jLabel3.setText("Procurar Especialidade");
 
         jLabel32.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -133,10 +118,10 @@ public class ListarTutor extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
-                .addGap(212, 212, 212)
+                .addGap(66, 66, 66)
                 .addComponent(jLabel3)
-                .addContainerGap(380, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +131,7 @@ public class ListarTutor extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(22, 22, 22)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,7 +142,9 @@ public class ListarTutor extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,21 +164,33 @@ public class ListarTutor extends javax.swing.JPanel {
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
 
-        GerenciaTutores painel = new GerenciaTutores(clinica);
+        GerenciaEspecialidades painel = new GerenciaEspecialidades(clinica);
         frame.add(painel);
 
         frame.setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
+    private void ProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarActionPerformed
+        String nome = txtNome.getText();
+        Especialidade especialidade = clinica.buscarEspecialidadePorNome(nome);
+        if(especialidade == null){
+            JOptionPane.showMessageDialog(this, "Especialidade não encontrada");
+        }
+        else
+        JOptionPane.showMessageDialog(this, "Especialidade encontrada: "+
+            "\n\t\t\tNome: " + especialidade.getNome() +
+            "\n\t\t\tPreço: " + especialidade.getPreco());                
+    }//GEN-LAST:event_ProcurarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Procurar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField txtNome;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

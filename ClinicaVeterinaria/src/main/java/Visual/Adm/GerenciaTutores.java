@@ -24,24 +24,20 @@ public class GerenciaTutores extends javax.swing.JPanel {
     public GerenciaTutores(Clinica clinica) {
         initComponents();
         this.clinica = clinica;
-        
-        
-        
-        
+                        
     }
     
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        EditarVeterinario = new javax.swing.JButton();
+        EditarTutor = new javax.swing.JButton();
         BuscarPeloCpf = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         ListarTutores = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        voltar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
@@ -51,11 +47,11 @@ public class GerenciaTutores extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        EditarVeterinario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EditarVeterinario.setText("Editar");
-        EditarVeterinario.addActionListener(new java.awt.event.ActionListener() {
+        EditarTutor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EditarTutor.setText("Editar");
+        EditarTutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarVeterinarioActionPerformed(evt);
+                EditarTutorActionPerformed(evt);
             }
         });
 
@@ -87,10 +83,10 @@ public class GerenciaTutores extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        voltar.setText("Voltar");
+        voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                voltarActionPerformed(evt);
             }
         });
 
@@ -104,7 +100,7 @@ public class GerenciaTutores extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(EditarVeterinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(EditarTutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(42, 42, 42))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(BuscarPeloCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,27 +112,27 @@ public class GerenciaTutores extends javax.swing.JPanel {
                         .addGap(223, 223, 223))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(voltar)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(voltar)
                 .addGap(47, 47, 47)
                 .addComponent(ListarTutores, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(BuscarPeloCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(EditarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EditarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(112, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel30))
         );
 
-        EditarVeterinario.getAccessibleContext().setAccessibleDescription("");
+        EditarTutor.getAccessibleContext().setAccessibleDescription("");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(242, 242, 242));
@@ -181,7 +177,7 @@ public class GerenciaTutores extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EditarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarVeterinarioActionPerformed
+    private void EditarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarTutorActionPerformed
 
          Window window = SwingUtilities.getWindowAncestor(this); 
 
@@ -197,7 +193,7 @@ public class GerenciaTutores extends javax.swing.JPanel {
         EditarTutor lista = new EditarTutor(clinica);
         frame.add(lista);
         frame.setVisible(true);
-    }//GEN-LAST:event_EditarVeterinarioActionPerformed
+    }//GEN-LAST:event_EditarTutorActionPerformed
 
     private void BuscarPeloCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPeloCpfActionPerformed
         Window window = SwingUtilities.getWindowAncestor(this); 
@@ -235,7 +231,7 @@ public class GerenciaTutores extends javax.swing.JPanel {
         frame.setVisible(true);
     }//GEN-LAST:event_ListarTutoresActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
            Window window = SwingUtilities.getWindowAncestor(this); 
 
          if (window != null) {
@@ -251,18 +247,18 @@ public class GerenciaTutores extends javax.swing.JPanel {
         frame.add(painel);
 
         frame.setVisible(true);     
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_voltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarPeloCpf;
-    private javax.swing.JButton EditarVeterinario;
+    private javax.swing.JButton EditarTutor;
     private javax.swing.JButton ListarTutores;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

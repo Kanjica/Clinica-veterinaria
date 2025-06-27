@@ -5,22 +5,19 @@
 package Visual.Adm;
 
 import com.mycompany.clinicaveterinaria.Clinica;
-import com.mycompany.clinicaveterinaria.Tutor;
+import com.mycompany.clinicaveterinaria.Especialidade;
 import java.awt.Window;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-public class EditarTutor extends javax.swing.JPanel {
-    private Tutor tutor;
-
-    /**
-     * Creates new form EditarTutor
-     */
+public class EditarEspecialidade extends javax.swing.JPanel {
+ Especialidade especialidade;
     private Clinica clinica;
-    public EditarTutor(Clinica clinica) {
+    public EditarEspecialidade(Clinica clinica) {
         initComponents();
         this.clinica = clinica;
+       
     }
 
     /**
@@ -36,19 +33,13 @@ public class EditarTutor extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         voltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        procurarTutor = new javax.swing.JButton();
-        editarTutor = new javax.swing.JButton();
+        procurarEspecialidade = new javax.swing.JButton();
+        editarEspecialidade = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        txtCpf = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        jLabel35 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JFormattedTextField();
-        txtEndereco = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        txtCpfAntigo = new javax.swing.JTextField();
+        txtNomeAntigo = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
+        txtPreco = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
@@ -64,23 +55,23 @@ public class EditarTutor extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Cpf do Tutor que deseja editar:");
+        jLabel1.setText("Nome da Especialidade que deseja editar:");
 
-        procurarTutor.setBackground(new java.awt.Color(204, 102, 255));
-        procurarTutor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        procurarTutor.setText("Procurar");
-        procurarTutor.addActionListener(new java.awt.event.ActionListener() {
+        procurarEspecialidade.setBackground(new java.awt.Color(204, 102, 255));
+        procurarEspecialidade.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        procurarEspecialidade.setText("Procurar");
+        procurarEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                procurarTutorActionPerformed(evt);
+                procurarEspecialidadeActionPerformed(evt);
             }
         });
 
-        editarTutor.setBackground(new java.awt.Color(204, 102, 255));
-        editarTutor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        editarTutor.setText("Editar");
-        editarTutor.addActionListener(new java.awt.event.ActionListener() {
+        editarEspecialidade.setBackground(new java.awt.Color(204, 102, 255));
+        editarEspecialidade.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        editarEspecialidade.setText("Editar");
+        editarEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarTutorActionPerformed(evt);
+                editarEspecialidadeActionPerformed(evt);
             }
         });
 
@@ -89,29 +80,9 @@ public class EditarTutor extends javax.swing.JPanel {
         jLabel31.setName("nome"); // NOI18N
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel33.setText("Cpf:");
+        jLabel33.setText("Preço");
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setText("Email:");
-
-        txtCpf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtCpf.setName("txtCpf"); // NOI18N
-
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel35.setText("Telefone: ");
-
-        try {
-            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        txtEndereco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel36.setText("Endereço:");
+        txtPreco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,46 +93,29 @@ public class EditarTutor extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCpfAntigo, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel31)
-                                    .addComponent(jLabel28)
-                                    .addComponent(jLabel33))
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jLabel36)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtEndereco))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jLabel35)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(66, 66, 66))
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel33))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(voltar)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(voltar)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(306, 306, 306)
-                        .addComponent(procurarTutor))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomeAntigo, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(procurarEspecialidade)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addComponent(editarTutor)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(314, 314, 314)
+                        .addComponent(editarEspecialidade)))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,33 +125,25 @@ public class EditarTutor extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCpfAntigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNomeAntigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(procurarTutor)
+                .addComponent(procurarEspecialidade)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel35)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel36))
+                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addComponent(editarTutor)
-                .addGap(157, 157, 157))
+                .addComponent(editarEspecialidade)
+                .addGap(208, 208, 208))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel3.setText("Editar Tutor");
+        jLabel3.setText("Editar Especialidade");
 
         jLabel32.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -218,7 +164,7 @@ public class EditarTutor extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
-                .addGap(192, 192, 192)
+                .addGap(115, 115, 115)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -266,73 +212,60 @@ public class EditarTutor extends javax.swing.JPanel {
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
 
-        GerenciaTutores painel = new GerenciaTutores(clinica);
+        GerenciaEspecialidades painel = new GerenciaEspecialidades(clinica);
         frame.add(painel);
 
         frame.setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
-    private void procurarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procurarTutorActionPerformed
-        String cpf = txtCpfAntigo.getText().trim();
-        tutor = clinica.procurarTutorPeloCpf(cpf);
-        if(tutor == null){
-            JOptionPane.showMessageDialog(this, "Tutor não encontrado");
-
+    private void procurarEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procurarEspecialidadeActionPerformed
+        String nome = txtNomeAntigo.getText().trim();
+        especialidade = clinica.buscarEspecialidadePorNome(nome);
+        if(especialidade == null){
+            JOptionPane.showMessageDialog(this, "Especialidade não encontrada");
         }
         else {
-            JOptionPane.showMessageDialog(this, "Tutor encontrado: ");
-            txtNome.setText(tutor.getNome());
-            txtCpf.setText(tutor.getCpf());
-            txtEmail.setText(tutor.getEmail());
-            txtTelefone.setText(tutor.getTelefoneContato());
-            txtEndereco.setText(tutor.getEndereco()); 
+            JOptionPane.showMessageDialog(this, "Especialidade encontrada: ");
+            txtNome.setText(especialidade.getNome());         
+            txtPreco.setText(String.valueOf(especialidade.getPreco()));
         }
-        
-          
-    }//GEN-LAST:event_procurarTutorActionPerformed
 
-    private void editarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarTutorActionPerformed
-        if(tutor == null){
-            JOptionPane.showMessageDialog(this, "Esse tutor não existe");
+    }//GEN-LAST:event_procurarEspecialidadeActionPerformed
+
+    private void editarEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarEspecialidadeActionPerformed
+        if(especialidade == null){
+            JOptionPane.showMessageDialog(this, "Essa especialidade não existe");
         }
         else{
-            String novoNome = txtNome.getText().trim(); 
-            String novoCpf = txtCpf.getText().trim();
-            String novoEmail = txtEmail.getText().trim();
-            String novoTelefone = txtTelefone.getText().trim();
-            String novoEndereco = txtEndereco.getText().trim();
-            
-            if (novoNome.isEmpty() || novoCpf.isEmpty() || novoEmail.isEmpty() || 
-            novoTelefone.isEmpty() || novoEndereco.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.");
-            return;
-}
-            
-            clinica.editarTutor(tutor.getCpf(), novoCpf, novoNome, novoEmail, novoTelefone, novoEndereco);
-            JOptionPane.showMessageDialog(this, "Tutor atualizado com sucesso!");
+            String novoNome = txtNome.getText().trim();
+            String novoPrecoStr = txtPreco.getText().trim().replace(',', '.');
+
+            if (novoNome.isEmpty() || novoPrecoStr.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.");
+                return;
+            }
+            float novoPreco;
+            novoPreco = Float.parseFloat(novoPrecoStr);
+
+            clinica.editarEspecialidade(especialidade.getNome(), novoNome, novoPreco);
+            JOptionPane.showMessageDialog(this, "Especialidade atualizada com sucesso!");
         }
-    }//GEN-LAST:event_editarTutorActionPerformed
+    }//GEN-LAST:event_editarEspecialidadeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton editarTutor;
+    private javax.swing.JButton editarEspecialidade;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton procurarTutor;
-    private javax.swing.JTextField txtCpf;
-    private javax.swing.JTextField txtCpfAntigo;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JButton procurarEspecialidade;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JFormattedTextField txtTelefone;
+    private javax.swing.JTextField txtNomeAntigo;
+    private javax.swing.JFormattedTextField txtPreco;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

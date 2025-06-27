@@ -134,7 +134,19 @@ public class Clinica {
             }
         }
         System.out.println("Tutor não encontrado");     
-     }        
+     }
+     
+     public void editarEspecialidade(String nomeAntigo, String novoNome, float novoPreco){
+         for(Especialidade e: listaEspecialidades){
+             if(nomeAntigo.equalsIgnoreCase(e.getNome())){
+                 e.setNome(novoNome);
+                 e.setPreco(novoPreco);
+                 System.out.println("Especialidade alterada com sucesso");                
+                 return;
+             }
+         }
+         System.out.println("especiliade não encontrada");
+     }
          
      
     
