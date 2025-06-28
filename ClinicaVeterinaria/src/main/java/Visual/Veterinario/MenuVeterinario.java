@@ -36,7 +36,6 @@ public class MenuVeterinario extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         Sair = new javax.swing.JButton();
         RegistrarConsulta = new javax.swing.JButton();
-        Vacinas = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -61,14 +60,6 @@ public class MenuVeterinario extends javax.swing.JPanel {
             }
         });
 
-        Vacinas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Vacinas.setText("Vacinas");
-        Vacinas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VacinasActionPerformed(evt);
-            }
-        });
-
         jLabel30.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -86,29 +77,26 @@ public class MenuVeterinario extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(262, Short.MAX_VALUE)
+                .addContainerGap(263, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(Sair))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Vacinas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RegistrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(66, 66, 66)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(Sair)
+                        .addGap(163, 163, 163))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(RegistrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)))
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 199, Short.MAX_VALUE)
                 .addComponent(jLabel30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(RegistrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Vacinas, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(74, 74, 74)
                 .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62))
         );
@@ -179,10 +167,6 @@ public class MenuVeterinario extends javax.swing.JPanel {
         
     }//GEN-LAST:event_RegistrarConsultaActionPerformed
 
-    private void VacinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VacinasActionPerformed
-       
-    }//GEN-LAST:event_VacinasActionPerformed
-
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
         // dentro do seu método de ação
         Window window = SwingUtilities.getWindowAncestor(this);
@@ -206,7 +190,6 @@ public class MenuVeterinario extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton RegistrarConsulta;
     private javax.swing.JButton Sair;
-    private javax.swing.JButton Vacinas;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
