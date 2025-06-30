@@ -20,11 +20,13 @@ public class SolicitarConsulta extends javax.swing.JPanel {
 
     Clinica petShop;
     Tutor dono;
+    Animal pet;
     
-    public SolicitarConsulta(Clinica clinica, Tutor dono) {
+    public SolicitarConsulta(Clinica clinica, Tutor dono, Animal pet) {
         initComponents();
         this.petShop = clinica;
         this.dono = dono;
+        this.pet = pet;
     }
 
     /**
@@ -89,8 +91,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         DataAgendada = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         HoraAgendada = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        NomeAnimal = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
@@ -287,8 +287,8 @@ public class SolicitarConsulta extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel25.setText("Data");
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel25.setText("Data:");
 
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -310,27 +310,20 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel30.setText("Preencha as Informações");
 
+        DataAgendada.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         DataAgendada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DataAgendadaActionPerformed(evt);
             }
         });
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel31.setText("Hora");
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel31.setText("Hora:");
 
+        HoraAgendada.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         HoraAgendada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HoraAgendadaActionPerformed(evt);
-            }
-        });
-
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel24.setText("Nome do Animal");
-
-        NomeAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NomeAnimalActionPerformed(evt);
             }
         });
 
@@ -351,37 +344,33 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
+                .addContainerGap(105, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(DataAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(HoraAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel30)))
-                        .addGap(246, 246, 246))
+                        .addComponent(jLabel29)
+                        .addGap(242, 242, 242))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel25)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(DataAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel31)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(HoraAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel24)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(jLabel30)
+                        .addGap(271, 271, 271))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,25 +378,21 @@ public class SolicitarConsulta extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel30)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(NomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(DataAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31)
                     .addComponent(HoraAgendada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addGap(0, 153, Short.MAX_VALUE))
         );
 
         jLabel32.setIcon(new javax.swing.JLabel() {
@@ -501,13 +486,12 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     }//GEN-LAST:event_Voltar2ActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-                                             
-    String nomeAnimal = NomeAnimal.getText();
+
     String dataTexto = DataAgendada.getText();
     String horaTexto = HoraAgendada.getText();
 
     // Validação de campos vazios
-    if (nomeAnimal.isEmpty() || dataTexto.isEmpty() || horaTexto.isEmpty()) {
+    if ( dataTexto.isEmpty() || horaTexto.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos!");
         return;
     }
@@ -524,12 +508,8 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         return;
     }
     
-    Animal animalAchado = validar(nomeAnimal);
-    if(animalAchado == null){
-        return;
-    }
  
-    Agendamento ag1 = animalAchado.buscarAgendamentoPorDataHora(dataAgendada, horaAgendada);
+    Agendamento ag1 = pet.buscarAgendamentoPorDataHora(dataAgendada, horaAgendada);
     if(ag1 == null){
       JOptionPane.showMessageDialog(this, "Nao encontramos o agendamento!\n" + "Marque o agendamento para conseguir uma consulta!");
       return;
@@ -540,16 +520,14 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         LocalTime hora = consul.ProximoHorario(petShop, horaAgendada);
         if(hora != null){
             int resposta = JOptionPane.showConfirmDialog(this,
-            "Nao temos Veterinários disponíveis nesse horário.\nMas temos veterinarios disponiveis as: " + hora + "h",
-            "Deseja marcar uma consulta?",
+            "Nao temos Veterinários disponíveis nesse horário.\nMas temos veterinarios disponiveis as:" + hora + "h  \n Deseja marcar a consulta para esse horario?",
+            "Marcação de consulta",
              JOptionPane.YES_NO_OPTION);
       
             
             if (resposta == JOptionPane.YES_OPTION) {
               // Usuário quer procurar outro horário
               consul.getAgendado().setHora(hora);
-              consul.verificarDisponibilidade(petShop);
-              consul.getAgendado().getAnimal().addConsultas(consul);
               JOptionPane.showMessageDialog(this, "Horario da consulta remarcada com sucesso!!\n te vemos as " + hora);
               
                  
@@ -568,7 +546,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     }
 
       // Limpa os campos
-      NomeAnimal.setText("");
       DataAgendada.setText("");
       HoraAgendada.setText("");
 
@@ -619,10 +596,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_HoraAgendadaActionPerformed
 
-    private void NomeAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NomeAnimalActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AnimalUser;
@@ -644,7 +617,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     private javax.swing.JTextField HoraUser1;
     private javax.swing.JTextField HoraUser2;
     private javax.swing.JTextField HoraUser3;
-    private javax.swing.JTextField NomeAnimal;
     private javax.swing.JButton Voltar1;
     private javax.swing.JButton Voltar2;
     private javax.swing.JButton jButton1;
@@ -666,7 +638,6 @@ public class SolicitarConsulta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;

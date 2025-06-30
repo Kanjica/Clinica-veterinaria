@@ -37,7 +37,7 @@ public class GerenciaVacinas extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        EditarVeterinario = new javax.swing.JButton();
+        EditarVacinas = new javax.swing.JButton();
         BuscarNome = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         ListarVacinas = new javax.swing.JButton();
@@ -51,11 +51,11 @@ public class GerenciaVacinas extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        EditarVeterinario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EditarVeterinario.setText("Editar");
-        EditarVeterinario.addActionListener(new java.awt.event.ActionListener() {
+        EditarVacinas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EditarVacinas.setText("Editar");
+        EditarVacinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarVeterinarioActionPerformed(evt);
+                EditarVacinasActionPerformed(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class GerenciaVacinas extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(244, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(EditarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EditarVacinas, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(BuscarNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                                 .addComponent(ListarVacinas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -128,11 +128,11 @@ public class GerenciaVacinas extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(BuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(EditarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EditarVacinas, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        EditarVeterinario.getAccessibleContext().setAccessibleDescription("");
+        EditarVacinas.getAccessibleContext().setAccessibleDescription("");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(242, 242, 242));
@@ -179,7 +179,7 @@ public class GerenciaVacinas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EditarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarVeterinarioActionPerformed
+    private void EditarVacinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarVacinasActionPerformed
             String nomeBusca = JOptionPane.showInputDialog(null, "Digite o nome da vacina que deseja editar:", "Editar Vacina", JOptionPane.QUESTION_MESSAGE);
 
         if (nomeBusca == null || nomeBusca.trim().isEmpty()) {
@@ -259,7 +259,7 @@ public class GerenciaVacinas extends javax.swing.JPanel {
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado durante a edição: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_EditarVeterinarioActionPerformed
+    }//GEN-LAST:event_EditarVacinasActionPerformed
 
     private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed
         String nomeBusca = JOptionPane.showInputDialog(null, "Digite o nome da vacina para procurar:", "Procurar Vacina", JOptionPane.QUESTION_MESSAGE);
@@ -335,7 +335,7 @@ public class GerenciaVacinas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarNome;
-    private javax.swing.JButton EditarVeterinario;
+    private javax.swing.JButton EditarVacinas;
     private javax.swing.JButton ListarVacinas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

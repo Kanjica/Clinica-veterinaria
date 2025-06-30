@@ -604,12 +604,12 @@ public class EditarVeterinarios extends javax.swing.JPanel {
             window.dispose(); // fecha a janela que contém esse painel
         }
 
-        JFrame frame = new JFrame("Tela Inicial");
+        JFrame frame = new JFrame("Menu Gerenciamento");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
         frame.setLocationRelativeTo(null); // centraliza
 
-        MenuCadastrosGerais painel = new  MenuCadastrosGerais(petShop);
+        GerenciaVeterinarios painel = new  GerenciaVeterinarios(petShop);
         frame.add(painel);
 
         frame.setVisible(true);

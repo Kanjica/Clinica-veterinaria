@@ -6,6 +6,7 @@ import Visual.*;
 import com.mycompany.clinicaveterinaria.*;
 import java.awt.Dimension;
 import java.awt.Window;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -43,8 +44,8 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
         EditarVeterinario = new javax.swing.JButton();
         BuscarNome = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
-        ListarVacinas2 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        ListarVeterinarios = new javax.swing.JButton();
+        Voltar = new javax.swing.JButton();
 
         jButton1.setText("Voltar");
 
@@ -96,18 +97,18 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
             }
         }.getIcon());
 
-        ListarVacinas2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ListarVacinas2.setText("Listar");
-        ListarVacinas2.addActionListener(new java.awt.event.ActionListener() {
+        ListarVeterinarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ListarVeterinarios.setText("Listar");
+        ListarVeterinarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarVacinas2ActionPerformed(evt);
+                ListarVeterinariosActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Voltar.setText("Voltar");
+        Voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                VoltarActionPerformed(evt);
             }
         });
 
@@ -119,7 +120,7 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2)
+                        .addComponent(Voltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(244, Short.MAX_VALUE)
@@ -127,7 +128,7 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
                             .addComponent(EditarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(BuscarNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                                .addComponent(ListarVacinas2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(ListarVeterinarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(43, 43, 43)))
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -136,12 +137,12 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(Voltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(jLabel30))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(ListarVacinas2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ListarVeterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(BuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -179,18 +180,77 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarVeterinarioActionPerformed
+    String nomeBusca = JOptionPane.showInputDialog(null, "Digite o nome do veterinario que deseja editar:", "Editar Vacina", JOptionPane.QUESTION_MESSAGE);
 
+        if (nomeBusca == null || nomeBusca.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nome do veterinario não pode ser vazio ou a operação foi cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Veterinario vet = petShop.buscarVeterinarioPorNome(nomeBusca);
+
+        if (vet == null) {
+            JOptionPane.showMessageDialog(null, "Veterinario: '" + nomeBusca + "' não encontrada para edição.",
+                                            "Veterinario Não Encontrado", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Window window = SwingUtilities.getWindowAncestor(this);
+
+        if (window != null) {
+            window.dispose();
+        }
+
+        JFrame frame = new JFrame("Editar");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+
+        EditarVeterinarios painel = new EditarVeterinarios(petShop, vet);
+        frame.add(painel);
+
+        frame.setVisible(true);
+        
+     
     }//GEN-LAST:event_EditarVeterinarioActionPerformed
 
     private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed
+           String nomeBusca = JOptionPane.showInputDialog(null, "Digite o nome do veterinario para procurar:", "Procurar veterinario", JOptionPane.QUESTION_MESSAGE);
 
+        if (nomeBusca == null || nomeBusca.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nome do veterinario não pode ser vazio ou a operação foi cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Veterinario vet = petShop.buscarVeterinarioPorNome(nomeBusca);
+
+        if (vet != null) {
+            String detalhes = String.format( vet.Imprimir());
+            JOptionPane.showMessageDialog(null, detalhes, "Veterinario Encontrado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Veterinario '" + nomeBusca + "' não encontrado.", "Veterinario Não Encontrado", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_BuscarNomeActionPerformed
 
-    private void ListarVacinas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarVacinas2ActionPerformed
+    private void ListarVeterinariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarVeterinariosActionPerformed
+       Window window = SwingUtilities.getWindowAncestor(this);
 
-    }//GEN-LAST:event_ListarVacinas2ActionPerformed
+        if (window != null) {
+            window.dispose();
+        }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JFrame frame = new JFrame("Listar Veterinarios");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+
+        ListarVeterinarios painel = new ListarVeterinarios(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_ListarVeterinariosActionPerformed
+
+    private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
         Window window = SwingUtilities.getWindowAncestor(this);
 
         if (window != null) {
@@ -206,30 +266,18 @@ public class GerenciaVeterinarios extends javax.swing.JPanel {
         frame.add(painel);
 
         frame.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_VoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarNome;
-    private javax.swing.JButton BuscarNome1;
-    private javax.swing.JButton BuscarNome2;
     private javax.swing.JButton EditarVeterinario;
-    private javax.swing.JButton EditarVeterinario1;
-    private javax.swing.JButton EditarVeterinario2;
-    private javax.swing.JButton ListarVacinas;
-    private javax.swing.JButton ListarVacinas1;
-    private javax.swing.JButton ListarVacinas2;
+    private javax.swing.JButton ListarVeterinarios;
+    private javax.swing.JButton Voltar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

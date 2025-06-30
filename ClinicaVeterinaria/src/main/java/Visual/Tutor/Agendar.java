@@ -18,15 +18,17 @@ import javax.swing.SwingUtilities;
 public class Agendar extends javax.swing.JPanel {
     Clinica petShop;
     Tutor dono;
+    Animal pet;
 
     
     /** 
      * Creates new form Agendamento
      */
-    public Agendar(Clinica clinica, Tutor dono) {
+    public Agendar(Clinica clinica, Tutor dono, Animal pet) {
         initComponents();
         this.petShop = clinica;
         this.dono = dono;
+        this.pet = pet;
         carregarEspecialidades();
         
     }
@@ -54,14 +56,12 @@ public class Agendar extends javax.swing.JPanel {
         jDialog2 = new javax.swing.JDialog();
         Voltar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         EspecialidadeSelecao = new javax.swing.JComboBox<>();
         HorarioAgen = new javax.swing.JTextField();
         DataAgen = new javax.swing.JTextField();
-        AnimalName = new javax.swing.JTextField();
         agendar = new javax.swing.JButton();
         Voltar2 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
@@ -101,16 +101,13 @@ public class Agendar extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Animal:");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel4.setText("Data:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setText("Horario:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel6.setText("Especialidade:");
 
         EspecialidadeSelecao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -122,14 +119,7 @@ public class Agendar extends javax.swing.JPanel {
 
         HorarioAgen.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        DataAgen.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        AnimalName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        AnimalName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnimalNameActionPerformed(evt);
-            }
-        });
+        DataAgen.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         agendar.setText("Agendar");
         agendar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,63 +152,53 @@ public class Agendar extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(6, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(EspecialidadeSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(HorarioAgen, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                                    .addComponent(AnimalName, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                                    .addComponent(DataAgen))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(HorarioAgen, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                            .addComponent(DataAgen)
+                            .addComponent(EspecialidadeSelecao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(245, 245, 245))))
+                        .addGap(18, 18, 18)
+                        .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DataAgen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HorarioAgen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(EspecialidadeSelecao, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(121, 121, 121)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel30)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(88, 88, 88))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(DataAgen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(HorarioAgen, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EspecialidadeSelecao, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 4, Short.MAX_VALUE)))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agendar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Voltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62))
         );
 
         HorarioAgen.getAccessibleContext().setAccessibleName("");
@@ -269,13 +249,12 @@ public class Agendar extends javax.swing.JPanel {
 
     private void agendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendarActionPerformed
 
-    String nomeAnimal = AnimalName.getText();
     String dataTexto = DataAgen.getText();
     String horaTexto = HorarioAgen.getText();
     Especialidade especialidade = petShop.buscarEspecialidadePorNome((String) EspecialidadeSelecao.getSelectedItem());
 
     // Validação de campos vazios
-    if ( nomeAnimal.isEmpty() || dataTexto.isEmpty() || horaTexto.isEmpty()) {
+    if (dataTexto.isEmpty() || horaTexto.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos!");
         return;
     }
@@ -292,16 +271,11 @@ public class Agendar extends javax.swing.JPanel {
         return;
     }
     
-    Animal animalAchado = validar(nomeAnimal);
-    if(animalAchado == null){
-        return;
-    }
-     Agendamento ag1 = new Agendamento(dataAgendada,horaAgendada, especialidade,animalAchado);
-     animalAchado.addListaAgendamentos(ag1);
+     Agendamento ag1 = new Agendamento(dataAgendada,horaAgendada, especialidade,pet);
+     pet.addListaAgendamentos(ag1);
      JOptionPane.showMessageDialog(this, "Agendamento feito com sucesso!");
      JOptionPane.showMessageDialog(this, ag1.imprimir());
      
-      AnimalName.setText("");
       DataAgen.setText("");
       HorarioAgen.setText("");
      
@@ -330,25 +304,9 @@ public class Agendar extends javax.swing.JPanel {
         return LocalTime.parse(horaTexto, formatoHora);
         
     }
-
-    public Animal validar(String nomeAnimal){
-        
-         Animal animalAchado = dono.buscarAnimal(nomeAnimal);
-            
-         if(animalAchado == null){
-             JOptionPane.showMessageDialog(this, "Animal de " + dono.getNome() + " Nao encontrado!\n Digite corretamente ou cadastre seu bichinho no sistema!");
-             return null;
-        }
-         
-        return animalAchado; 
- } 
     
     
     
-    private void AnimalNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnimalNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AnimalNameActionPerformed
-
     private void EspecialidadeSelecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EspecialidadeSelecaoActionPerformed
@@ -392,7 +350,6 @@ public class Agendar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AnimalName;
     private javax.swing.JTextField DataAgen;
     private javax.swing.JComboBox<String> EspecialidadeSelecao;
     private javax.swing.JTextField HorarioAgen;
@@ -401,7 +358,6 @@ public class Agendar extends javax.swing.JPanel {
     private javax.swing.JButton agendar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;

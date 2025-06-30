@@ -71,6 +71,9 @@ public class Animal{
         consultasOrdenadas.forEach(c -> c.ImprimirProntuario());
     }
     
+    
+    
+    
     public float CalcularPrecoDasVacinas(){
         float total = 0;
         for(VacinaAplicada v: listaVacinasAplicada){

@@ -93,7 +93,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="Voltar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -102,7 +102,7 @@
                               <Component id="EditarVeterinario" alignment="1" min="-2" pref="310" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="BuscarNome" alignment="0" pref="310" max="32767" attributes="0"/>
-                                  <Component id="ListarVacinas2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="ListarVeterinarios" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -117,13 +117,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="Voltar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="176" max="32767" attributes="0"/>
                   <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="ListarVacinas2" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="ListarVeterinarios" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="BuscarNome" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -169,7 +169,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="ListarVacinas2">
+        <Component class="javax.swing.JButton" name="ListarVeterinarios">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -177,18 +177,18 @@
             <Property name="text" type="java.lang.String" value="Listar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarVacinas2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarVeterinariosActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="agendar"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="Voltar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VoltarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

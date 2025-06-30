@@ -72,9 +72,9 @@ public class MenuPrincipal extends javax.swing.JPanel {
     }
     public void criarObjetos() {
     // Tutores
-    Tutor t1 = new Tutor("Juliana Silva", "123", "juliana.silva@gmail.com", "7199123", "Rua das Acácias, 101");
-    Tutor t2 = new Tutor("Carlos Eduardo", "98765432100", "carlos.edu@gmail.com", "71997654", "Avenida Central, 200");
-    Tutor t3 = new Tutor("Fernanda Moura", "45678912300", "fernanda.moura@gmail.com", "7199876", "Rua São Jorge, 85");
+    Tutor t1 = new Tutor("Lola", "123", "juliana.silva@gmail.com", "7199123", "Rua das Acácias, 101");
+    Tutor t2 = new Tutor("Carlos", "98765432100", "carlos.edu@gmail.com", "71997654", "Avenida Central, 200");
+    Tutor t3 = new Tutor("Fernanda", "45678912300", "fernanda.moura@gmail.com", "7199876", "Rua São Jorge, 85");
     
     Tutor t4 = new Tutor("a", "1", "a@gmail.com", "719999", "Rua a, 12");
 
@@ -121,7 +121,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
     Veterinario vet1 = new Veterinario("Marcos", "123", "marcos.vet@gmail.com", 7199100, esp1, 123, "08h as 12h");
     Veterinario vet2 = new Veterinario("Bianca", "100002", "bianca.vet@gmail.com", 7199200, esp2, 7788, "14h as 18h");
     Veterinario vet3 = new Veterinario("Rita", "100003", "rita.vet@gmail.com", 719300, esp3, 8899, "08h as 12h");
-    Veterinario vet4 = new Veterinario("a", "1","a@gmail.com", 719111, esp1, 1, "08h as 12h");
+    Veterinario vet4 = new Veterinario("Ana Clara", "1","a@gmail.com", 719111, esp1, 1, "08h as 12h");
 
     petShop.addVeterinarios(vet1);
     petShop.addVeterinarios(vet2);
@@ -145,8 +145,8 @@ public class MenuPrincipal extends javax.swing.JPanel {
     a3.addListaAgendamentos(ag2);
     a4.addListaAgendamentos(ag3);
     
-    Vacina vacina1 = new Vacina("Vacina1", LocalDate.of(2025, 6, 18), 10.0f, 10);
-    Vacina vacina2 = new Vacina("Vacina2", LocalDate.of(2025, 6, 10), 10.0f, 10);
+    Vacina vacina1 = new Vacina("Raiva", LocalDate.of(2025, 6, 18), 10.0f, 10);
+    Vacina vacina2 = new Vacina("Gripe", LocalDate.of(2025, 6, 10), 10.0f, 10);
     
     petShop.addVacina(vacina1);
     petShop.addVacina(vacina2);
@@ -170,6 +170,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         boasVindas1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         tituloPrincipal = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
 
@@ -215,6 +216,13 @@ public class MenuPrincipal extends javax.swing.JPanel {
 
         jLabel1.setText("Clínica Vida Animal | (XX) XXXX-XXXX | Aberto de Seg-Sex: 8h-18h, Sáb: 9h-13h");
 
+        jButton1.setText("criar objetos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout principalPanelLayout = new javax.swing.GroupLayout(principalPanel);
         principalPanel.setLayout(principalPanelLayout);
         principalPanelLayout.setHorizontalGroup(
@@ -239,7 +247,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
                         .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(principalPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,11 +259,17 @@ public class MenuPrincipal extends javax.swing.JPanel {
                                         .addGap(110, 110, 110)))))
                         .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(principalPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jButton1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         principalPanelLayout.setVerticalGroup(
             principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(principalPanelLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(boasVindas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(boasVindas1)
@@ -358,10 +372,15 @@ public class MenuPrincipal extends javax.swing.JPanel {
         frame.setVisible(true);
     }//GEN-LAST:event_prosseguirButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        criarObjetos();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel boasVindas;
     private javax.swing.JLabel boasVindas1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel30;
