@@ -374,6 +374,8 @@ public class MenuPrincipal extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         criarObjetos();
+        
+        JOptionPane.showMessageDialog(this, "Objetos criados com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

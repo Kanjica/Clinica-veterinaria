@@ -573,17 +573,7 @@ public class SolicitarConsulta extends javax.swing.JPanel {
         
     }
 
-    public Animal validar(String nomeAnimal){
-        
-         Animal animalAchado = dono.buscarAnimal(nomeAnimal);
-            
-         if(animalAchado == null){
-             JOptionPane.showMessageDialog(this, "Seu animal nao foi encontrado!\n Digite corretamente ou cadastre seu bichinho no sistema!");
-             return null;
-        }
-         
-        return animalAchado; 
- }    
+   
     
     
     
