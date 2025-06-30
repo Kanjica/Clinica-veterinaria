@@ -163,7 +163,6 @@ public class MenuPrincipal extends javax.swing.JPanel {
     private void initComponents() {
 
         principalPanel = new javax.swing.JPanel();
-        criar = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         opcoes = new javax.swing.JComboBox<>();
         boasVindas = new javax.swing.JLabel();
@@ -179,13 +178,6 @@ public class MenuPrincipal extends javax.swing.JPanel {
         principalPanel.setBackground(new java.awt.Color(255, 255, 255));
         principalPanel.setToolTipText("");
         principalPanel.setPreferredSize(new java.awt.Dimension(774, 414));
-
-        criar.setText("criar Objetos");
-        criar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarActionPerformed(evt);
-            }
-        });
 
         jLabel30.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -246,31 +238,24 @@ public class MenuPrincipal extends javax.swing.JPanel {
                     .addGroup(principalPanelLayout.createSequentialGroup()
                         .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(principalPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(principalPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                                                .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(59, 59, 59))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
-                                                .addComponent(prosseguirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(110, 110, 110)))))
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(principalPanelLayout.createSequentialGroup()
-                                .addComponent(criar)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalPanelLayout.createSequentialGroup()
+                                        .addComponent(prosseguirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(110, 110, 110)))))
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         principalPanelLayout.setVerticalGroup(
             principalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(principalPanelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(criar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(boasVindas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(boasVindas1)
@@ -333,11 +318,6 @@ public class MenuPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void criarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarActionPerformed
-        criarObjetos();
-        JOptionPane.showMessageDialog(this, "Objetos criados com sucesso!");
-    }//GEN-LAST:event_criarActionPerformed
-
     private void prosseguirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prosseguirButtonActionPerformed
         Window window = SwingUtilities.getWindowAncestor(this); // 'this' é o painel onde está o botão
 
@@ -384,7 +364,6 @@ public class MenuPrincipal extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel boasVindas;
     private javax.swing.JLabel boasVindas1;
-    private javax.swing.JButton criar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel30;
