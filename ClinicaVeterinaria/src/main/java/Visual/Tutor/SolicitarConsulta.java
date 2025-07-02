@@ -539,10 +539,12 @@ public class SolicitarConsulta extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Todos os nossos veterinarios estarão em atendimento o dia todo! Remarque sua consulta para outro dia!");
         }
         
-    } else{
+    } 
+    else{
         JOptionPane.showMessageDialog(this, "Se dirija a Sala do Doutor(a) " + consul.getVeterinario().getNome() + " que ira te atender agora!");
         consul.getAgendado().getAnimal().addConsultas(consul);
         petShop.addConsultas(consul);
+        pet.retirarAgendamento(ag1);
     }
 
       // Limpa os campos

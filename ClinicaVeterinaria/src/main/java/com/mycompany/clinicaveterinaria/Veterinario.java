@@ -108,7 +108,5 @@ private ArrayList<Consulta> listaConsultas;
     public ArrayList<Consulta> getListaConsultas() {
          return listaConsultas;
     }
-
-    
-        
+  
 }

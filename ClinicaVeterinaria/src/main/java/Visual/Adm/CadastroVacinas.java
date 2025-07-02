@@ -6,6 +6,7 @@ import com.mycompany.clinicaveterinaria.*;
 import java.awt.Window;
 import static java.lang.Float.NaN;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -89,6 +90,8 @@ public class CadastroVacinas extends javax.swing.JPanel {
         Voltar = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         veterinarioIntro = new javax.swing.JLabel();
+        qtdDoseMinima = new javax.swing.JLabel();
+        quantidadeDoseMinimaField = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -349,50 +352,67 @@ public class CadastroVacinas extends javax.swing.JPanel {
         veterinarioIntro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         veterinarioIntro.setText("Informe os Dados da nova Vacina");
 
+        qtdDoseMinima.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        qtdDoseMinima.setText("Doses minimas");
+
+        quantidadeDoseMinimaField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        quantidadeDoseMinimaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantidadeDoseMinimaFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(qtdDoseMinima)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addGap(17, 17, 17)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(precoField)
-                            .addComponent(nomeField, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                        .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel28)
+                                        .addGap(17, 17, 17)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(precoField)
+                                    .addComponent(nomeField, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))))
+                        .addGap(56, 56, 56)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addGap(9, 9, 9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(validadeField, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                            .addComponent(quantidadeField))
-                        .addGap(0, 39, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(criarVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel24)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(6, 6, 6)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(validadeField, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                    .addComponent(quantidadeField))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(veterinarioIntro)
                 .addGap(244, 244, 244))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(389, 389, 389)
+                        .addComponent(criarVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(quantidadeDoseMinimaField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,6 +436,10 @@ public class CadastroVacinas extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel30))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(qtdDoseMinima)
+                            .addComponent(quantidadeDoseMinimaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -505,46 +529,50 @@ public class CadastroVacinas extends javax.swing.JPanel {
         LocalDate validade = null;
         float preco = -1;
         int quantidade = -1;
-        
+        int qtdDoseMinima = -1;
+
+        DateTimeFormatter formatadorEntrada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try{
             nome = nomeField.getText();
-            validade = LocalDate.parse(validadeField.getText());    
-            preco = Float.parseFloat(precoField.getText());   
+            validade = LocalDate.parse(validadeField.getText(), formatadorEntrada);
+            preco = Float.parseFloat(precoField.getText());
             quantidade = Integer.parseInt(quantidadeField.getText());
+            qtdDoseMinima = Integer.parseInt(quantidadeDoseMinimaField.getText());
         }catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this,
-                    "Erro de formato numérico: Verifique se Preço e Quantidade são números válidos.\n" + e.getMessage(),
-                    "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
+                "Erro de formato numérico: Verifique se Preço e Quantidade são números válidos.\n" + e.getMessage(),
+                "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
 
         } catch (DateTimeParseException e) {
             JOptionPane.showMessageDialog(this,
-                    "Erro de formato de data: Verifique o formato da Validade (ex: AAAA-MM-DD).\n" + e.getMessage(),
-                    "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
+                "Erro de formato de data: Verifique o formato da Validade (ex: AAAA-MM-DD).\n" + e.getMessage(),
+                "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,
-                    "Ocorreu um erro inesperado: " + e.getMessage(),
-                    "Erro", JOptionPane.ERROR_MESSAGE);
+                "Ocorreu um erro inesperado: " + e.getMessage(),
+                "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        
-        if (nome.isEmpty() || validade == null || preco < 0.0f || quantidade < 1){    
-            nomeField.setText("");
-            validadeField.setText("");
-            precoField.setText("");
-            quantidadeField.setText("");
+
+        if (nome.isEmpty() || validade == null || preco < 0.0f || quantidade < 1 || qtdDoseMinima < 1){
+            JOptionPane.showMessageDialog(this, "Preencha corretamente.");
         }
         else{
             JOptionPane.showMessageDialog(this,
-                    "Vacina \"" + nome + "\" adicionada!",
-                    "", JOptionPane.INFORMATION_MESSAGE);
-            
-            petShop.addVacina(new Vacina(nome, validade, 
-                preco, quantidade));}
+                "Vacina \"" + nome + "\" adicionada!",
+                "", JOptionPane.INFORMATION_MESSAGE);
+
+            petShop.addVacina(new Vacina(nome, validade,
+                preco, quantidade, qtdDoseMinima));}
     }//GEN-LAST:event_criarVacinaActionPerformed
 
     private void nomeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeFieldActionPerformed
+
+    private void quantidadeDoseMinimaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeDoseMinimaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantidadeDoseMinimaFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -605,6 +633,8 @@ public class CadastroVacinas extends javax.swing.JPanel {
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JTextField nomeField;
     private javax.swing.JTextField precoField;
+    private javax.swing.JLabel qtdDoseMinima;
+    private javax.swing.JTextField quantidadeDoseMinimaField;
     private javax.swing.JTextField quantidadeField;
     private javax.swing.JTextField validadeField;
     private javax.swing.JLabel veterinarioIntro;

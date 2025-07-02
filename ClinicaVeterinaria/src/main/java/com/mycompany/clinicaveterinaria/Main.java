@@ -26,8 +26,8 @@ public class Main {
         
         Consulta c1 = new Consulta(ag);
         
-        Vacina vacina1 = new Vacina("Vacina1", LocalDate.of(2025, 6, 18), 10.0f, 10);
-        Vacina vacina2 = new Vacina("Vacina2", LocalDate.of(2025, 6, 10), 10.0f, 10);
+        Vacina vacina1 = new Vacina("Vacina1", LocalDate.of(2025, 6, 18), 10.0f, 10, 1);
+        Vacina vacina2 = new Vacina("Vacina2", LocalDate.of(2025, 6, 10), 10.0f, 10, 1);
         VacinaAplicada VA1 = new VacinaAplicada(vacina1, LocalDate.of(2025, 6, 10), LocalDate.of(2025, 6, 20), 80.0f);
         VacinaAplicada VA2 = new VacinaAplicada(vacina2, LocalDate.of(2025, 6, 8), LocalDate.of(2025, 6, 28), 50.0f);
       

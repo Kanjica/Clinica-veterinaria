@@ -5,10 +5,10 @@ import java.time.format.DateTimeFormatter;
 
 public class Consulta{
     
-	private Agendamento agendado;
-	private String problema;
-	private String diagnostico;
-	private String medicamento;
+    private Agendamento agendado;
+    private String problema;
+    private String diagnostico;
+    private String medicamento;
     private Veterinario veterinario;
     
     public Consulta(Agendamento agendado) {

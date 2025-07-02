@@ -5,48 +5,48 @@
 package Visual.Tutor;
 
 import Visual.Adm.*;
-import com.mycompany.clinicaveterinaria.Agendamento;
 import com.mycompany.clinicaveterinaria.Animal;
 import com.mycompany.clinicaveterinaria.Clinica;
 import com.mycompany.clinicaveterinaria.Consulta;
 import com.mycompany.clinicaveterinaria.Especialidade;
 import com.mycompany.clinicaveterinaria.Tutor;
+import com.mycompany.clinicaveterinaria.VacinaAplicada;
 import java.awt.Color;
 import java.awt.Window;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-public class AgendaAnimal extends javax.swing.JPanel {
+public class ProxVacinasAnimal extends javax.swing.JPanel {
 
-   
     private Clinica clinica;
     private Animal pet;
     private Tutor dono;
     
-    public AgendaAnimal(Clinica clinica, Animal pet, Tutor dono) {
+    public ProxVacinasAnimal(Clinica clinica, Animal pet, Tutor dono) {
         initComponents();
         this.clinica = clinica;
         this.pet = pet;
         this.dono = dono;
         jTextArea1.setForeground(Color.decode("#E6E51D"));
-        agenda(); // preenche na criação
+        proxVacinas(); // preenche na criação
     }
     
-    private void agenda(){
+    private void proxVacinas(){
         jTextArea1.setText("");//limpar
-        if(!pet.getListaAgendamentos().isEmpty()){
-            for(Agendamento agen: pet.getListaAgendamentos()){
-                jTextArea1.append(
-                agen.imprimir() +
-                "\n\t--------------------------------------------------------------------------------------------------\n"
-            );
+        
+        if(!pet.getListaVacinasAplicada().isEmpty()){
+                for(VacinaAplicada aplicada: pet.getListaVacinasAplicada()){
+                    jTextArea1.append(
+                    aplicada.proxApli() +
+                    "\n\t--------------------------------------------------------------------------------------------------\n"
+                );
             }
-    }
-    else{
-        jTextArea1.append(
-                "Sem próximos agendamentos "+
-                "\n\t--------------------------------------------------------------------------------------------------\n"
-            );
+        }
+        else{
+            jTextArea1.append(
+                    "Sem Próximas Doses" +
+                    "\n\t--------------------------------------------------------------------------------------------------\n"
+                );
         }
     }
 
@@ -104,13 +104,14 @@ public class AgendaAnimal extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(voltar)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel3.setText("Agenda");
+        jLabel3.setText("Próximas Vacinas ");
 
         jLabel32.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -131,7 +132,7 @@ public class AgendaAnimal extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
-                .addGap(275, 275, 275)
+                .addGap(220, 220, 220)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,11 +143,12 @@ public class AgendaAnimal extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

@@ -16,8 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class HistoricoAnimal extends javax.swing.JPanel {
-
-   
+    
     private Clinica clinica;
     private Animal pet;
     private Tutor dono;

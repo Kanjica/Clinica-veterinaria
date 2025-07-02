@@ -6,8 +6,10 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 
 public class Animal{
 	
@@ -70,9 +72,6 @@ public class Animal{
         System.out.println("Consultas do animal " + this.nome + " :");
         consultasOrdenadas.forEach(c -> c.ImprimirProntuario());
     }
-    
-    
-    
     
     public float CalcularPrecoDasVacinas(){
         float total = 0;
@@ -144,6 +143,72 @@ public class Animal{
         return null;
     }
 
+public boolean podeProxDose(Vacina vacina){
+        LocalDate hoje = LocalDate.now();
+        
+        boolean encontrada = false;
+        int contagemDoses= 0;
+        
+        for (VacinaAplicada aplicacao : listaVacinasAplicada) {
+            if (aplicacao.getVacina().getNomeVacina().equals(vacina.getNomeVacina())) {
+                contagemDoses++; 
+                
+                encontrada = true;
+            }
+        }
+        
+        if(contagemDoses < vacina.getDosesMinimas()){
+            
+            if(contagemDoses == 0){
+                JOptionPane.showMessageDialog(null, 
+                    "Vacina " + vacina.getNomeVacina() + ": Nenhuma dose anterior registrada ou próxima dose agendada para este animal.", 
+                    "Verificação de Vacina", JOptionPane.INFORMATION_MESSAGE);
+                return true;
+            }
+            
+            LocalDate dataProximaAplicacao = null;
+            
+            for (VacinaAplicada aplicacao : listaVacinasAplicada) {
+            if (aplicacao.getVacina().getNomeVacina().equals(vacina.getNomeVacina())) {
+                    dataProximaAplicacao = aplicacao.getProxAplicacao();
+                    
+                }
+            }
+            DateTimeFormatter formatadorBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            
+            
+            if(hoje.isAfter(dataProximaAplicacao) || hoje.isEqual(dataProximaAplicacao)){
+                JOptionPane.showMessageDialog(null, 
+                    "Vacina " + vacina.getNomeVacina() + ": O animal pode receber a próxima dose.\n" +
+                    "Data agendada: " + dataProximaAplicacao.format(formatadorBR), 
+                    "Verificação de Vacina", JOptionPane.INFORMATION_MESSAGE);
+                return true; 
+            } 
+            else{
+                JOptionPane.showMessageDialog(null, 
+                    "Vacina " + vacina.getNomeVacina() + ": A próxima dose está agendada para:\n" + 
+                    dataProximaAplicacao.format(formatadorBR) + ".", 
+                    "Verificação de Vacina", JOptionPane.WARNING_MESSAGE);
+                return false; 
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
+    public void retirarAgendamento(Agendamento agendamentoRemover){
+    Iterator<Agendamento>iterator = listaAgendamentos.iterator();
+
+        while(iterator.hasNext()){
+            Agendamento agendamento = iterator.next();
+
+            if(agendamento == agendamentoRemover){
+                iterator.remove();
+            }
+        }
+    }
+    
     public void addConsultas(Consulta c){
         listaConsultas.add(c);         
     }

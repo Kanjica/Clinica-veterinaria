@@ -269,7 +269,7 @@ public class GerenciaVacinas extends javax.swing.JPanel {
             return;
         }
 
-        Vacina vacinaEncontrada = petShop.buscarVacinaPorNome(nomeBusca); // Usa o método que você já tem na Clinica
+        Vacina vacinaEncontrada = petShop.buscarVacinaPorNome(nomeBusca); // 
 
         if (vacinaEncontrada != null) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -291,7 +291,7 @@ public class GerenciaVacinas extends javax.swing.JPanel {
     }//GEN-LAST:event_BuscarNomeActionPerformed
 
     private void ListarVacinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarVacinasActionPerformed
-    ArrayList<Vacina> vacinas = petShop.getListaVacinas();
+    /*ArrayList<Vacina> vacinas = petShop.getListaVacinas();
 
         if (vacinas.isEmpty()){
             JOptionPane.showMessageDialog(null, "Não há vacinas cadastradas na clínica.", "Lista de Vacinas", JOptionPane.INFORMATION_MESSAGE);
@@ -312,6 +312,22 @@ public class GerenciaVacinas extends javax.swing.JPanel {
         }
         
         JOptionPane.showMessageDialog(null, listaFormatada.toString(), "Todas as Vacinas", JOptionPane.PLAIN_MESSAGE);
+*/
+      Window window = SwingUtilities.getWindowAncestor(this);
+
+        if (window != null) {
+            window.dispose();
+        }
+
+        JFrame frame = new JFrame("Listar Veterinarios");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+
+        ListarVacinas painel = new ListarVacinas(petShop);
+        frame.add(painel);
+
+        frame.setVisible(true);
     }//GEN-LAST:event_ListarVacinasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

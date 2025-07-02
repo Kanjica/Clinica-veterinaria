@@ -145,8 +145,8 @@ public class MenuPrincipal extends javax.swing.JPanel {
     a3.addListaAgendamentos(ag2);
     a4.addListaAgendamentos(ag3);
     
-    Vacina vacina1 = new Vacina("Raiva", LocalDate.of(2025, 6, 18), 10.0f, 10);
-    Vacina vacina2 = new Vacina("Gripe", LocalDate.of(2025, 6, 10), 10.0f, 10);
+    Vacina vacina1 = new Vacina("Raiva", LocalDate.of(2025, 6, 18), 10.0f, 10, 3);
+    Vacina vacina2 = new Vacina("Gripe", LocalDate.of(2025, 6, 10), 10.0f, 10, 2);
     
     petShop.addVacina(vacina1);
     petShop.addVacina(vacina2);

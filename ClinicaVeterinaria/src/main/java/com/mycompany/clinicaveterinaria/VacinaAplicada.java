@@ -7,7 +7,7 @@ public class VacinaAplicada {
     private LocalDate dataMinistrada;
     private LocalDate proxAplicacao;
     private float preco;
-
+    
     public VacinaAplicada(Vacina vacina, LocalDate dataMinistrada, LocalDate proxAplicacao, float preco) {
         this.vacina = vacina;
         this.dataMinistrada = dataMinistrada;
@@ -47,4 +47,21 @@ public class VacinaAplicada {
         this.preco = preco;
     }
     
+    public String proxApli(){
+        return "Nome: " + this.vacina.getNomeVacina() +
+            "\nData ministrada: " + this.dataMinistrada +
+            "\n**Próxima aplicação**: " + this.proxAplicacao +
+            "\nPreço da aplicação: " + this.preco;
+    }
+    
+    @Override
+    public String toString(){
+        return "Nome: " + this.vacina.getNomeVacina() +
+            "\nValidade: " + this.vacina.getValidadeVacina() +
+            "\nPreço da vacina: " + this.vacina.getPreco() + 
+            "\nQuantidade: " + this.vacina.getQuantidade() +
+            "\nData ministrada: " + this.dataMinistrada +
+            "\nPróxima aplicação" + this.proxAplicacao +
+            "\nPreço da aplicação" + this.preco;
+    }
 }
