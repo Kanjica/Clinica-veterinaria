@@ -99,15 +99,16 @@ public class Animal{
     
     
     // Cancelar um agendamento que o animal tinha
-    public void cancelarAgendamento(LocalDate data, LocalTime hora ) {
+    public boolean cancelarAgendamento(LocalDate data, LocalTime hora ) {
         
         Agendamento agendamento = buscarAgendamentoPorDataHora(data, hora);
 
        if (agendamento != null) {
          listaAgendamentos.remove(agendamento);
-         System.out.println("Agendamento cancelado com sucesso.");
+         return true;
+         
        } else {
-        System.out.println("Agendamento não encontrado para essa data e horário.");
+        return false;
         
        }   
      }

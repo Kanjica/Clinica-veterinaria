@@ -1,6 +1,7 @@
 package com.mycompany.clinicaveterinaria;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Vacina{
 	 
@@ -61,8 +62,11 @@ private int dosesMinimas;
     
     @Override
     public String toString(){
+        DateTimeFormatter formatoBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada1 = this.getValidadeVacina().format(formatoBR);
+        
     return"Nome: " + this.nomeVacina +
-            "\nValidade: " + this.validadeVacina +
+            "\nValidade: " + dataFormatada1 +
             "\nPreço: " + this.preco + 
             "\nQuantidade: " + this.quantidade;
     }

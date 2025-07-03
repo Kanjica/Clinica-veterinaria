@@ -1,19 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Visual.Tutor;
-
-import Visual.Adm.*;
 import com.mycompany.clinicaveterinaria.Agendamento;
 import com.mycompany.clinicaveterinaria.Animal;
 import com.mycompany.clinicaveterinaria.Clinica;
-import com.mycompany.clinicaveterinaria.Consulta;
-import com.mycompany.clinicaveterinaria.Especialidade;
 import com.mycompany.clinicaveterinaria.Tutor;
 import java.awt.Color;
 import java.awt.Window;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class AgendaAnimal extends javax.swing.JPanel {
@@ -34,6 +30,7 @@ public class AgendaAnimal extends javax.swing.JPanel {
     
     private void agenda(){
         jTextArea1.setText("");//limpar
+        
         if(!pet.getListaAgendamentos().isEmpty()){
             for(Agendamento agen: pet.getListaAgendamentos()){
                 jTextArea1.append(
@@ -108,7 +105,7 @@ public class AgendaAnimal extends javax.swing.JPanel {
                         .addComponent(voltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
-                        .addGap(39, 39, 39))))
+                        .addGap(58, 58, 58))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +144,7 @@ public class AgendaAnimal extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
-                .addGap(275, 275, 275)
+                .addGap(143, 143, 143)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -160,7 +157,7 @@ public class AgendaAnimal extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(23, 23, 23)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,10 +195,64 @@ public class AgendaAnimal extends javax.swing.JPanel {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String dataCancelar = JOptionPane.showInputDialog(this, "Qual a data que gostaria de cancelar? (dd/MM/yyyy)", "Cancelar Agendamento", JOptionPane.QUESTION_MESSAGE);
+
+   if (dataCancelar != null && !dataCancelar.trim().isEmpty()) {
+      LocalDate dataAgendada = converterData(dataCancelar);
+
+     if (dataAgendada == null) {
+         return; // já mostrou o JOptionPane dentro do converterData
+        }
+
+    String horaCancelar = JOptionPane.showInputDialog(this, "Qual o horário que gostaria de cancelar? (HH:mm)", "Cancelar Agendamento", JOptionPane.QUESTION_MESSAGE);
+
+    if (horaCancelar != null && !horaCancelar.trim().isEmpty()) {
+        LocalTime horaAgendada = converterHora(horaCancelar);
+
+        if (horaAgendada == null) {
+            return;
+        }
+        
+        // Se chegou aqui, data e hora são válidos
+        if(pet.cancelarAgendamento(dataAgendada, horaAgendada)){
+            JOptionPane.showMessageDialog(this, "Agendamento cancelado com sucesso.");
+        } else{
+            JOptionPane.showMessageDialog(this, "Agendamento não encontrado para essa data e horário.");
+        }
+
+    } else {
+        JOptionPane.showMessageDialog(this, "Nenhum horário foi informado.");
+    }
+
+} else {
+    JOptionPane.showMessageDialog(this, "Nenhuma data foi informada.");
+}
+
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
-
+    
+    public LocalDate converterData(String dataTexto) {
+        if (!dataTexto.matches("\\d{2}/\\d{2}/\\d{4}")) {
+             JOptionPane.showMessageDialog(null, 
+            "Data inválida! Use o formato dd/MM/yyyy.");
+             return null;
+         } else {
+            DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            return LocalDate.parse(dataTexto, formatoData);
+            }
+    }
+    
+    public LocalTime converterHora(String horaTexto) {
+      if (!horaTexto.matches("\\d{2}:\\d{2}")) {
+         JOptionPane.showMessageDialog(null, 
+            "Hora inválida! Use o formato HH:mm.");
+          return null;
+      }
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
+        return LocalTime.parse(horaTexto, formatoHora);
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;

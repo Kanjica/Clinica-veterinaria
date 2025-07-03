@@ -1,6 +1,7 @@
 package com.mycompany.clinicaveterinaria;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class VacinaAplicada {
     private Vacina vacina;
@@ -48,20 +49,28 @@ public class VacinaAplicada {
     }
     
     public String proxApli(){
+        DateTimeFormatter formatoBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada1 = this.getDataMinistrada().format(formatoBR);
+        String dataFormatada2 = this.getProxAplicacao().format(formatoBR);
+        
         return "Nome: " + this.vacina.getNomeVacina() +
-            "\nData ministrada: " + this.dataMinistrada +
-            "\n**Próxima aplicação**: " + this.proxAplicacao +
+            "\nData ministrada: " + dataFormatada1 +
+            "\nPróxima aplicação: " + dataFormatada2 +
             "\nPreço da aplicação: " + this.preco;
     }
     
     @Override
     public String toString(){
+        DateTimeFormatter formatoBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada1 = this.getDataMinistrada().format(formatoBR);
+        String dataFormatada2 = this.getProxAplicacao().format(formatoBR);
+        
         return "Nome: " + this.vacina.getNomeVacina() +
             "\nValidade: " + this.vacina.getValidadeVacina() +
             "\nPreço da vacina: " + this.vacina.getPreco() + 
             "\nQuantidade: " + this.vacina.getQuantidade() +
-            "\nData ministrada: " + this.dataMinistrada +
-            "\nPróxima aplicação" + this.proxAplicacao +
-            "\nPreço da aplicação" + this.preco;
+            "\nData ministrada: " + dataFormatada1 +
+            "\nPróxima aplicação: " + dataFormatada2 +
+            "\nPreço da aplicação: " + this.preco;
     }
 }

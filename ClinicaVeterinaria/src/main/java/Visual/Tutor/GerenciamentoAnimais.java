@@ -14,7 +14,9 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 /**
  *
@@ -68,6 +70,7 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
         HistoricoAnimal = new javax.swing.JButton();
         proximasVacinas = new javax.swing.JButton();
         removerAnimal1 = new javax.swing.JButton();
+        agendaAnimal1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
@@ -95,7 +98,7 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
         });
 
         agendaAnimal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        agendaAnimal.setText("Agenda");
+        agendaAnimal.setText("Cartão Vacina");
         agendaAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agendaActionPerformed(evt);
@@ -186,6 +189,14 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
             }
         });
 
+        agendaAnimal1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        agendaAnimal1.setText("Agenda");
+        agendaAnimal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agendaAnimal1agendaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -193,68 +204,73 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(agendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HistoricoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(solicitarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CadastrarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(vacinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(aplicarVacinaJButton))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vacinarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(vacinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(proximasVacinas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(agendaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(aplicarVacinaJButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(removerAnimal1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(solicitarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CadastrarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(agendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(agendaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(HistoricoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vacinarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(proximasVacinas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(agendaAnimal1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(removerAnimal1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 51, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(vacinasComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-                            .addComponent(aplicarVacinaJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(vacinasComboBox)
+                            .addComponent(aplicarVacinaJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(vacinarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(proximasVacinas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(agendaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(removerAnimal1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(vacinarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(proximasVacinas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(agendaAnimal1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(removerAnimal1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(2, 2, 2)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(CadastrarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CadastrarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(solicitarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(solicitarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(agendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(agendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HistoricoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(HistoricoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(agendaAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -285,10 +301,10 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
                 .addComponent(jLabel32)
                 .addGap(150, 150, 150)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(234, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,32 +325,38 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
     }
     
     private void agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendaActionPerformed
-    int selectedRow = tabelaAnimais.getSelectedRow(); // obtém o índice da linha selecionada
+     int selectedRow = tabelaAnimais.getSelectedRow(); // obtém o índice da linha selecionada
 
     if (selectedRow != -1) { // verifica se alguma linha foi realmente selecionada
         AnimalTableModel model = (AnimalTableModel) tabelaAnimais.getModel();
         Animal pet = model.getAnimalAt(selectedRow); 
        
-        Window window = SwingUtilities.getWindowAncestor(this);
+        StringBuilder cartao = new StringBuilder();
+    cartao.append("Cartão de Vacina do ").append(pet.getNome())
+          .append("\nTutor: ").append(pet.getTutor().getNome())
+          .append("\n\n");
 
-        if (window != null) {
-            window.dispose(); // fecha a janela que contém esse painel
+    if (pet.getListaVacinasAplicada().isEmpty()) {
+        cartao.append("Este animal não possui vacinas cadastradas.");
+    } else {
+        for (VacinaAplicada vac : pet.getListaVacinasAplicada()) {
+            cartao.append(vac.toString())
+                  .append("\n------------------------------\n");
         }
-         
-        JFrame frame = new JFrame("Mostrar o Historico do Animal");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null); // centraliza
+    }
 
-        AgendaAnimal painel = new AgendaAnimal(petShop,pet,dono);
-        frame.add(painel);
+    JTextArea area = new JTextArea(cartao.toString());
+    area.setEditable(false);
+    area.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 13));
+    JScrollPane scrollPane = new JScrollPane(area);
+    scrollPane.setPreferredSize(new java.awt.Dimension(400, 300));
 
-        frame.setVisible(true);   
+    JOptionPane.showMessageDialog(this, scrollPane, "Cartão de Vacina", JOptionPane.INFORMATION_MESSAGE);   
     
     } 
     else {
         JOptionPane.showMessageDialog(this, "Por favor, selecione um animal na tabela.");
-    }
+    }    
     }//GEN-LAST:event_agendaActionPerformed
 
     private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
@@ -435,7 +457,7 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
                     vacinaEmEstoque.setQuantidade(vacinaEmEstoque.getQuantidade() - 1);
                     
 
-                    JOptionPane.showMessageDialog(this, "Vacina '" + vacinaEmEstoque.getNomeVacina() + "' aplicada com sucesso ao animal " + animalSelecionado.getNome() + "!\n" +
+                    JOptionPane.showMessageDialog(this, "Vacina '" + vacinaEmEstoque.getNomeVacina() + "' aplicada com sucesso ao animal " + animalSelecionado.getNome() + "!\n Valor pago será de: "+ vacinaEmEstoque.getPreco() + "\n" +
                                                "Quantidade restante no estoque: " + vacinaEmEstoque.getQuantidade());
                     }
                 }catch(Exception e){
@@ -570,7 +592,7 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
            window.dispose(); // fecha a janela que contém esse painel
         }
          
-        JFrame frame = new JFrame("Mostrar o Historico do Animal");
+        JFrame frame = new JFrame("Proximas Vacinas");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null); // centraliza
@@ -609,11 +631,41 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_removerAnimal1RemoverActionPerformed
 
+    private void agendaAnimal1agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendaAnimal1agendaActionPerformed
+       int selectedRow = tabelaAnimais.getSelectedRow(); // obtém o índice da linha selecionada
+
+    if (selectedRow != -1) { // verifica se alguma linha foi realmente selecionada
+        AnimalTableModel model = (AnimalTableModel) tabelaAnimais.getModel();
+        Animal pet = model.getAnimalAt(selectedRow); 
+       
+        Window window = SwingUtilities.getWindowAncestor(this);
+
+        if (window != null) {
+            window.dispose(); // fecha a janela que contém esse painel
+        }
+         
+        JFrame frame = new JFrame("Mostrar o Historico do Animal");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null); // centraliza
+
+        AgendaAnimal painel = new AgendaAnimal(petShop,pet,dono);
+        frame.add(painel);
+
+        frame.setVisible(true);   
+    
+    } 
+    else {
+        JOptionPane.showMessageDialog(this, "Por favor, selecione um animal na tabela.");
+    }
+    }//GEN-LAST:event_agendaAnimal1agendaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CadastrarAnimal;
     private javax.swing.JButton HistoricoAnimal;
     private javax.swing.JButton Voltar;
     private javax.swing.JButton agendaAnimal;
+    private javax.swing.JButton agendaAnimal1;
     private javax.swing.JButton agendarConsulta;
     private javax.swing.JButton aplicarVacinaJButton;
     private javax.swing.JButton editarButton;

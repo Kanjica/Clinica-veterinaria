@@ -1,6 +1,7 @@
 package com.mycompany.clinicaveterinaria;
 import java.time.LocalTime;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Agendamento{
     
@@ -18,7 +19,10 @@ public class Agendamento{
     }
     
     public String imprimir() {
-    return "Data: " + date + "\n" +
+        DateTimeFormatter formatoBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada1 = this.getDate().format(formatoBR);
+        
+    return "Data: " + dataFormatada1 + "\n" +
            "Hora: " + hora + "\n" +
            "Especialidade: " + especialidade.getNome() + "\n" +
            "Animal: " + animal.getNome() + "\n" +
