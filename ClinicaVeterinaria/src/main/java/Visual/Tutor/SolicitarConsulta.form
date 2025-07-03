@@ -517,14 +517,17 @@
               <Group type="102" attributes="0">
                   <EmptySpace pref="105" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="Voltar2" min="-2" pref="125" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="DataAgendada" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="DataAgendada" min="-2" pref="188" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="Voltar2" min="-2" pref="125" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
@@ -568,7 +571,7 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DataAgendada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="DataAgendada" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="HoraAgendada" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>

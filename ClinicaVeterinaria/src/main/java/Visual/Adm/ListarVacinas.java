@@ -98,7 +98,7 @@ public class ListarVacinas extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel3.setText("Listar Veterinarios");
+        jLabel3.setText("Listar Vacinas");
 
         jLabel32.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
