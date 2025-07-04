@@ -13,7 +13,6 @@
                 <version>3.11.0</version>
                 <configuration>
                     <compilerArgs>
-                        
                     </compilerArgs>
                 </configuration>
             </plugin>

@@ -120,6 +120,11 @@ public class Agendar extends javax.swing.JPanel {
         HorarioAgen.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         DataAgen.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        DataAgen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataAgenActionPerformed(evt);
+            }
+        });
 
         agendar.setText("Agendar");
         agendar.addActionListener(new java.awt.event.ActionListener() {
@@ -346,6 +351,10 @@ public class Agendar extends javax.swing.JPanel {
 
         frame.setVisible(true);
     }//GEN-LAST:event_Voltar2ActionPerformed
+
+    private void DataAgenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAgenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataAgenActionPerformed
     
 
 

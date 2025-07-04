@@ -97,7 +97,6 @@ public class EditarVeterinarios extends javax.swing.JPanel {
         cfmv = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        Telefone = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         EspecialidadeSelecao4 = new javax.swing.JComboBox<>();
@@ -107,6 +106,7 @@ public class EditarVeterinarios extends javax.swing.JPanel {
         jLabel32 = new javax.swing.JLabel();
         cpf = new javax.swing.JTextField();
         Voltar = new javax.swing.JButton();
+        Telefone = new javax.swing.JFormattedTextField();
         jLabel34 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -350,13 +350,6 @@ public class EditarVeterinarios extends javax.swing.JPanel {
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel24.setText("Email:");
 
-        Telefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Telefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TelefoneActionPerformed(evt);
-            }
-        });
-
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setText("Especialidade:");
 
@@ -389,6 +382,12 @@ public class EditarVeterinarios extends javax.swing.JPanel {
                 VoltarActionPerformed(evt);
             }
         });
+
+        try {
+            Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -431,7 +430,7 @@ public class EditarVeterinarios extends javax.swing.JPanel {
                             .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                             .addComponent(Telefone)))
                     .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(389, 389, 389)
                 .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,8 +456,8 @@ public class EditarVeterinarios extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29)
-                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
+                    .addComponent(jLabel28)
+                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -474,7 +473,7 @@ public class EditarVeterinarios extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel31))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -589,10 +588,6 @@ public class EditarVeterinarios extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_criarVeterinarioActionPerformed
 
-    private void TelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TelefoneActionPerformed
-
     private void EspecialidadeSelecao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EspecialidadeSelecao4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EspecialidadeSelecao4ActionPerformed
@@ -648,7 +643,7 @@ public class EditarVeterinarios extends javax.swing.JPanel {
     private javax.swing.JTextField HoraUser1;
     private javax.swing.JTextField HoraUser2;
     private javax.swing.JTextField HoraUser3;
-    private javax.swing.JTextField Telefone;
+    private javax.swing.JFormattedTextField Telefone;
     private javax.swing.JButton Voltar;
     private javax.swing.JTextField cfmv;
     private javax.swing.JComboBox<String> comboTurno;

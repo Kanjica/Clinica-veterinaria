@@ -97,13 +97,13 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         jLabel28 = new javax.swing.JLabel();
         cfmv = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        Telefone = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         comboTurno = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
         Voltar = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         veterinarioIntro = new javax.swing.JLabel();
+        Telefone = new javax.swing.JFormattedTextField();
         jLabel34 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -347,13 +347,6 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel29.setText("Telefone:");
 
-        Telefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Telefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TelefoneActionPerformed(evt);
-            }
-        });
-
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel31.setText("Turno");
 
@@ -384,6 +377,17 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
 
         veterinarioIntro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         veterinarioIntro.setText("Informe os Dados do novo Veterinário");
+
+        try {
+            Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        Telefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TelefoneActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -429,7 +433,7 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
                             .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                             .addComponent(Telefone)))
                     .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(389, 389, 389)
                 .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -455,8 +459,8 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29)
-                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
+                    .addComponent(jLabel28)
+                    .addComponent(Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -472,7 +476,7 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel31))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(criarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -552,10 +556,6 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         frame.setVisible(true);
     }//GEN-LAST:event_VoltarActionPerformed
 
-    private void TelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TelefoneActionPerformed
-
     private void criarVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarVeterinarioActionPerformed
         String nomeVet = nome.getText();
         String cpfVet = cpf.getText();
@@ -611,6 +611,10 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_EspecialidadeSelecao4ActionPerformed
 
+    private void TelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TelefoneActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AnimalUser;
@@ -630,7 +634,7 @@ public class CadastroVeterinarios extends javax.swing.JPanel {
     private javax.swing.JTextField HoraUser1;
     private javax.swing.JTextField HoraUser2;
     private javax.swing.JTextField HoraUser3;
-    private javax.swing.JTextField Telefone;
+    private javax.swing.JFormattedTextField Telefone;
     private javax.swing.JButton Voltar;
     private javax.swing.JLabel cadastrarVeterinario;
     private javax.swing.JTextField cfmv;
