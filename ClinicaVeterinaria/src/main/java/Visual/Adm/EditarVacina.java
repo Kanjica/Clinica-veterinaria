@@ -16,13 +16,15 @@ import javax.swing.SwingUtilities;
  *
  * @author pauli
  */
-public class CadastroVacinas extends javax.swing.JPanel {
-    Clinica petShop;
+public class EditarVacina extends javax.swing.JPanel {
+    private Clinica petShop;
+    private String nomeBusca;
     /**
      * Creates new form ModeloJFrame
      */
-    public CadastroVacinas(Clinica clinica) {
+    public EditarVacina(Clinica clinica, String nomeBusca) {
         this.petShop = clinica;
+        this.nomeBusca = nomeBusca;
         initComponents();
         
     }
@@ -82,7 +84,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
         validadeField = new javax.swing.JTextField();
         precoField = new javax.swing.JTextField();
         nomeField = new javax.swing.JTextField();
-        criarVacina = new javax.swing.JButton();
+        editarVacina = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -289,7 +291,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
         cadastrarVeterinario.setBackground(new java.awt.Color(255, 255, 255));
         cadastrarVeterinario.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         cadastrarVeterinario.setForeground(new java.awt.Color(255, 255, 255));
-        cadastrarVeterinario.setText("Cadastrar Vacina");
+        cadastrarVeterinario.setText("Editar Vacina");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -307,10 +309,10 @@ public class CadastroVacinas extends javax.swing.JPanel {
             }
         });
 
-        criarVacina.setText("Cadastrar");
-        criarVacina.addActionListener(new java.awt.event.ActionListener() {
+        editarVacina.setText("Editar");
+        editarVacina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarVacinaActionPerformed(evt);
+                editarVacinaActionPerformed(evt);
             }
         });
 
@@ -350,7 +352,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
         }.getIcon());
 
         veterinarioIntro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        veterinarioIntro.setText("Informe os Dados da nova Vacina");
+        veterinarioIntro.setText("Informe os novos dados da Vacina");
 
         qtdDoseMinima.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         qtdDoseMinima.setText("Doses minimas:");
@@ -399,27 +401,27 @@ public class CadastroVacinas extends javax.swing.JPanel {
                     .addComponent(validadeField, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                     .addComponent(quantidadeField))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(veterinarioIntro)
-                .addGap(244, 244, 244))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(389, 389, 389)
-                        .addComponent(criarVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editarVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(390, 390, 390)
                         .addComponent(quantidadeDoseMinimaField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(247, 247, 247)
+                .addComponent(veterinarioIntro)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(17, 17, 17)
                 .addComponent(veterinarioIntro)
-                .addGap(33, 33, 33)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
@@ -433,7 +435,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
                     .addComponent(jLabel28))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 52, Short.MAX_VALUE)
                         .addComponent(jLabel30))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -443,7 +445,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(criarVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(editarVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(65, 65, 65))))
         );
 
@@ -467,9 +469,9 @@ public class CadastroVacinas extends javax.swing.JPanel {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel34)
-                .addGap(153, 153, 153)
+                .addGap(180, 180, 180)
                 .addComponent(cadastrarVeterinario)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -479,7 +481,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(19, 19, 19)
                         .addComponent(cadastrarVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -514,7 +516,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
         frame.setSize(800, 600);// ajusta tamanho da janela ao tamanho do painel e componentes
         frame.setLocationRelativeTo(null); // centraliza
 
-        MenuCadastrosGerais painel = new  MenuCadastrosGerais(petShop);
+        GerenciaVacinas painel = new  GerenciaVacinas(petShop);
         frame.add(painel);
 
         frame.setVisible(true);
@@ -524,7 +526,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_quantidadeFieldActionPerformed
 
-    private void criarVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarVacinaActionPerformed
+    private void editarVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarVacinaActionPerformed
         String nome = "";
         LocalDate validade = null;
         float preco = -1;
@@ -558,14 +560,44 @@ public class CadastroVacinas extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Preencha corretamente.");
         }
         else{
-            JOptionPane.showMessageDialog(this,
-                "Vacina \"" + nome + "\" adicionada!",
-                "", JOptionPane.INFORMATION_MESSAGE);
+            
+            Vacina vacina = new Vacina(nome, validade, preco, quantidade, qtdDoseMinima);
+            
+            for(int i=0; i<petShop.getListaVacinas().size(); i++){
+                String vacNome = petShop.getListaVacinas().get(i).getNomeVacina().trim();
+                Vacina vacProcurada = petShop.buscarVacinaPorNome(nomeBusca.trim());
+                
+                if(vacNome.equalsIgnoreCase(vacProcurada.getNomeVacina())){
+                    petShop.getListaVacinas().set(i, vacina);
+                    
+                    JOptionPane.showMessageDialog(this,
+                        "Vacina \"" + nome + "\" editada!",
+                        "", JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+                System.out.println("Nome da Vacina No Vetor: " + vacNome + " Nome da Vacina Alvo: " + nomeBusca);
+            }
+            
+            int resposta = JOptionPane.showConfirmDialog(
+                null,
+                "Vacina não encontrada para edição. Deseja a adicionar como uma nova vacina?",
+                "Vacina não encontrada",
+                JOptionPane.YES_NO_OPTION
+            );
 
-            petShop.addVacina(new Vacina(nome, validade,
-                preco, quantidade, qtdDoseMinima));
+            switch (resposta) {
+                case JOptionPane.YES_OPTION -> { 
+                    petShop.addVacina(new Vacina(nome, validade, preco, quantidade, qtdDoseMinima));
+                }
+                case JOptionPane.NO_OPTION -> {
+                    JOptionPane.showMessageDialog(this, "Tenha certeza do nome.", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                default -> {
+                    VoltarActionPerformed(evt);
+                }
+            }
         }
-    }//GEN-LAST:event_criarVacinaActionPerformed
+    }//GEN-LAST:event_editarVacinaActionPerformed
 
     private void nomeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFieldActionPerformed
         // TODO add your handling code here:
@@ -595,7 +627,7 @@ public class CadastroVacinas extends javax.swing.JPanel {
     private javax.swing.JTextField HoraUser3;
     private javax.swing.JButton Voltar;
     private javax.swing.JLabel cadastrarVeterinario;
-    private javax.swing.JButton criarVacina;
+    private javax.swing.JButton editarVacina;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

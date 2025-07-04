@@ -180,85 +180,23 @@ public class GerenciaVacinas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditarVacinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarVacinasActionPerformed
-            String nomeBusca = JOptionPane.showInputDialog(null, "Digite o nome da vacina que deseja editar:", "Editar Vacina", JOptionPane.QUESTION_MESSAGE);
+        String nomeBusca = JOptionPane.showInputDialog(null, "Digite o nome da vacina que deseja editar:", "Editar Vacina", JOptionPane.QUESTION_MESSAGE);
+        System.out.println(nomeBusca);
+        Window window = SwingUtilities.getWindowAncestor(this);
 
-        if (nomeBusca == null || nomeBusca.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Nome da vacina não pode ser vazio ou a operação foi cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
-            return;
+        if (window != null) {
+            window.dispose(); // fecha a janela que contém esse painel
         }
+         
+        JFrame frame = new JFrame("Tela Tutor");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
 
-        Vacina vacinaParaEditar = petShop.buscarVacinaPorNome(nomeBusca);
+        EditarVacina painel = new EditarVacina(petShop, nomeBusca);
+        frame.add(painel);
 
-        if (vacinaParaEditar == null) {
-            JOptionPane.showMessageDialog(null, "Vacina '" + nomeBusca + "' não encontrada para edição.",
-                                            "Vacina Não Encontrada", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        // vacina encontrada, agora pedir os novos dados
-        boolean edicaoBemSucedida = false;
-        try {
-            // editar Validade
-            String novaValidadeStr = JOptionPane.showInputDialog(
-                null,
-                "Nova Validade (dd/MM/yyyy) para '" + vacinaParaEditar.getNomeVacina() + "' (Atual: " + vacinaParaEditar.getValidadeVacina().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "):",
-                "Editar Validade",
-                JOptionPane.QUESTION_MESSAGE
-            );
-            if (novaValidadeStr != null && !novaValidadeStr.trim().isEmpty()) {
-                vacinaParaEditar.setValidadeVacina(LocalDate.parse(novaValidadeStr, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                edicaoBemSucedida = true;
-            } else if (novaValidadeStr == null) { // usuário cancelou
-                JOptionPane.showMessageDialog(null, "Edição cancelada pelo usuário.", "Cancelado", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-
-            // editar Preço
-            String novoPrecoStr = JOptionPane.showInputDialog(
-                null,
-                "Novo Preço para '" + vacinaParaEditar.getNomeVacina() + "' (Atual: " + String.format("%.2f", vacinaParaEditar.getPreco()) + "):",
-                "Editar Preço",
-                JOptionPane.QUESTION_MESSAGE
-            );
-            if (novoPrecoStr != null && !novoPrecoStr.trim().isEmpty()) {
-                vacinaParaEditar.setPreco(Float.parseFloat(novoPrecoStr));
-                edicaoBemSucedida = true;
-            } else if (novoPrecoStr == null) { // usuário cancelou
-                JOptionPane.showMessageDialog(null, "Edição cancelada pelo usuário.", "Cancelado", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-
-            // editar Quantidade
-            String novaQuantidadeStr = JOptionPane.showInputDialog(
-                null,
-                "Nova Quantidade em Estoque para '" + vacinaParaEditar.getNomeVacina() + "' (Atual: " + vacinaParaEditar.getQuantidade() + "):",
-                "Editar Quantidade",
-                JOptionPane.QUESTION_MESSAGE
-            );
-            if (novaQuantidadeStr != null && !novaQuantidadeStr.trim().isEmpty()) {
-                vacinaParaEditar.setQuantidade(Integer.parseInt(novaQuantidadeStr));
-                edicaoBemSucedida = true;
-            } 
-            else if (novaQuantidadeStr == null) { // usuário cancelou
-                JOptionPane.showMessageDialog(null, "Edição cancelada pelo usuário.", "Cancelado", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-
-
-            if (edicaoBemSucedida){
-                JOptionPane.showMessageDialog(null, "Vacina '" + vacinaParaEditar.getNomeVacina() + "' editada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            } 
-            else {
-                JOptionPane.showMessageDialog(null, "Nenhuma alteração foi feita ou a edição foi cancelada.", "Edição Concluída", JOptionPane.INFORMATION_MESSAGE);
-            }
-
-        } catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Erro: Preço ou Quantidade digitados não são números válidos.", "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
-        } catch (DateTimeParseException e){
-            JOptionPane.showMessageDialog(null, "Erro: Formato de data inválido. Use dd/MM/yyyy.", "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado durante a edição: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+        frame.setVisible(true);
     }//GEN-LAST:event_EditarVacinasActionPerformed
 
     private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed

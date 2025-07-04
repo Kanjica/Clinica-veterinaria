@@ -10,6 +10,7 @@ import com.mycompany.clinicaveterinaria.Clinica;
 import com.mycompany.clinicaveterinaria.Consulta;
 import com.mycompany.clinicaveterinaria.Especialidade;
 import com.mycompany.clinicaveterinaria.Tutor;
+import com.mycompany.clinicaveterinaria.VacinaAplicada;
 import java.awt.Color;
 import java.awt.Window;
 import javax.swing.JFrame;
@@ -31,13 +32,20 @@ public class HistoricoAnimal extends javax.swing.JPanel {
     }
     
     private void historico(){
-        jTextArea1.setText("");//limpar
+        jTextArea1.setText("\n\t-----------------------------------------Consultas-----------------------------------------");//limpar
         for(Consulta con: pet.getListaConsultas()){
             jTextArea1.append(
             con.ImprimirProntuario() +
             "\n\t--------------------------------------------------------------------------------------------------\n"
-        );
-    }
+            );
+        }
+        jTextArea1.append("\n\t------------------------------------------Vacinas-------------------------------------------------\n");
+        for(VacinaAplicada vac: pet.getListaVacinasAplicada()){
+            jTextArea1.append(
+            vac.proxApli() + 
+            "\n\t--------------------------------------------------------------------------------------------------\n"
+            );
+        }
     }
 
 
@@ -82,12 +90,10 @@ public class HistoricoAnimal extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(voltar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(0, 817, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

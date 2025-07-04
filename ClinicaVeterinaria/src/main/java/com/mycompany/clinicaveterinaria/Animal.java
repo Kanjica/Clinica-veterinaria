@@ -6,8 +6,10 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
@@ -207,6 +209,29 @@ public boolean podeProxDose(Vacina vacina){
                 iterator.remove();
             }
         }
+    }
+    
+    public Map<VacinaAplicada, Integer> getContagemVacinas(){
+        Map<VacinaAplicada, Integer> aplicadas = new HashMap<>();
+
+        if(this.listaVacinasAplicada.isEmpty()){
+            return aplicadas; 
+        }
+
+        for (VacinaAplicada doseAdministrada : this.listaVacinasAplicada) {
+            int contagemAtual = aplicadas.getOrDefault(doseAdministrada, 0);
+           
+            aplicadas.remove(doseAdministrada);
+            aplicadas.put(doseAdministrada, contagemAtual + 1);
+        }
+        return aplicadas;
+    }
+    
+    public int dosesTomadasDaVacina(VacinaAplicada vacApli){
+        Map<VacinaAplicada, Integer> aplicadas = getContagemVacinas();
+        
+        if(aplicadas.containsKey(vacApli)) return aplicadas.get(vacApli);
+        return -1;
     }
     
     public void addConsultas(Consulta c){

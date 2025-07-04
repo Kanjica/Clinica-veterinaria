@@ -10,9 +10,12 @@ import com.mycompany.clinicaveterinaria.Clinica;
 import com.mycompany.clinicaveterinaria.Consulta;
 import com.mycompany.clinicaveterinaria.Especialidade;
 import com.mycompany.clinicaveterinaria.Tutor;
+import com.mycompany.clinicaveterinaria.Vacina;
 import com.mycompany.clinicaveterinaria.VacinaAplicada;
 import java.awt.Color;
 import java.awt.Window;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -32,14 +35,21 @@ public class ProxVacinasAnimal extends javax.swing.JPanel {
     }
     
     private void proxVacinas(){
+        // mapa com vacinas 
+        Map<VacinaAplicada, Integer> aplicadas = pet.getContagemVacinas();
+
         jTextArea1.setText("");//limpar
         
-        if(!pet.getListaVacinasAplicada().isEmpty()){
-                for(VacinaAplicada aplicada: pet.getListaVacinasAplicada()){
-                    jTextArea1.append(
-                    aplicada.proxApli() +
-                    "\n\t--------------------------------------------------------------------------------------------------\n"
-                );
+        if(!aplicadas.isEmpty()){
+            for (Map.Entry<VacinaAplicada, Integer> entrada : aplicadas.entrySet()) {
+                VacinaAplicada vac = entrada.getKey(); 
+                Integer contagem = entrada.getValue();
+                
+                if(vac.getVacina().getDosesMinimas() != contagem)
+                jTextArea1.append(
+                            vac.proxApli() + "\nDoses Aplicadas: " + contagem + "/" + vac.getVacina().getDosesMinimas()+
+                            "\n\t--------------------------------------------------------------------------------------------------\n"
+                        );
             }
         }
         else{
@@ -132,7 +142,7 @@ public class ProxVacinasAnimal extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
-                .addGap(220, 220, 220)
+                .addGap(186, 186, 186)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -143,12 +153,11 @@ public class ProxVacinasAnimal extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)))
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

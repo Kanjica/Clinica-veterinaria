@@ -171,7 +171,7 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
         });
 
         proximasVacinas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        proximasVacinas.setText("Proxima Vacina");
+        proximasVacinas.setText("Próximas Doses");
         proximasVacinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proximasVacinasVacinarActionPerformed(evt);
@@ -350,7 +350,7 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
 
-        MenuPrincipal painel = new MenuPrincipal(petShop);
+        LoginTutor painel = new LoginTutor(petShop);
         frame.add(painel);
 
         frame.setVisible(true);
@@ -421,8 +421,9 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
             }
             try {
                 LocalDate dataMinistrada = LocalDate.now();
+                
                 if(animalSelecionado.podeProxDose(vacinaEmEstoque)){
-                    LocalDate proxAplicacao = dataMinistrada.plusYears(1); 
+                    LocalDate proxAplicacao = dataMinistrada; 
 
                     VacinaAplicada novaVacinaAplicada = new VacinaAplicada(
                         vacinaEmEstoque,
@@ -437,6 +438,22 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
 
                     JOptionPane.showMessageDialog(this, "Vacina '" + vacinaEmEstoque.getNomeVacina() + "' aplicada com sucesso ao animal " + animalSelecionado.getNome() + "!\n" +
                                                "Quantidade restante no estoque: " + vacinaEmEstoque.getQuantidade());
+                    
+                    if(animalSelecionado.dosesTomadasDaVacina(novaVacinaAplicada) == vacinaEmEstoque.getDosesMinimas())
+                    JOptionPane.showMessageDialog(
+                            null,                          
+                            "Animal " + animalSelecionado.getNome() + " tomou todas a última das doses mínimas de " + vacinaEmEstoque.getNomeVacina() + ".", 
+                            "Doses mínimas preenchidas", 
+                            JOptionPane.WARNING_MESSAGE 
+                        );
+                    }
+                else{
+                    JOptionPane.showMessageDialog(
+                            null,                          
+                            "Animal " + animalSelecionado.getNome() + " já tomou todas as doses mínimas de " + vacinaEmEstoque.getNomeVacina() + ".", 
+                            "Doses mínimas preenchidas", 
+                            JOptionPane.WARNING_MESSAGE 
+                        );
                     }
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(this, "Erro ao aplicar vacina: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

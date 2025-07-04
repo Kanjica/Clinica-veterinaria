@@ -1,6 +1,7 @@
 package com.mycompany.clinicaveterinaria;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Vacina{
 	 
@@ -64,6 +65,24 @@ private int dosesMinimas;
     return"Nome: " + this.nomeVacina +
             "\nValidade: " + this.validadeVacina +
             "\nPreço: " + this.preco + 
-            "\nQuantidade: " + this.quantidade;
+            "\nQuantidade: " + this.quantidade +
+            "\nDoses Mínimas: " + this.dosesMinimas;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true; 
+        if (o == null || getClass() != o.getClass()) return false; 
+        Vacina vacina = (Vacina) o;
+        return Objects.equals(nomeVacina, vacina.nomeVacina) &&
+               Objects.equals(validadeVacina, vacina.validadeVacina) &&
+               Objects.equals(preco, vacina.preco) &&
+               Objects.equals(quantidade, vacina.quantidade) &&
+               Objects.equals(dosesMinimas, vacina.dosesMinimas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomeVacina, validadeVacina, preco, quantidade, dosesMinimas);
     }
 }

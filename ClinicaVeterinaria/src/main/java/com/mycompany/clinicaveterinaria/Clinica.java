@@ -96,7 +96,7 @@ public class Clinica {
 
     public Vacina buscarVacinaPorNome(String nome) {
         for (Vacina vacina : listaVacinas) {
-            if (vacina.getNomeVacina().equals(nome)) {
+            if (vacina.getNomeVacina().trim().equalsIgnoreCase(nome)) {
                 return vacina;
             }
         }
@@ -148,8 +148,6 @@ public class Clinica {
          System.out.println("especiliade não encontrada");
      }
          
-     
-    
     /*
     public boolean jaPodeOutraDose(Animal ani, Vacina vac){
         return ;

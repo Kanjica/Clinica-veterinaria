@@ -1,6 +1,7 @@
 package com.mycompany.clinicaveterinaria;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class VacinaAplicada {
     private Vacina vacina;
@@ -52,6 +53,22 @@ public class VacinaAplicada {
             "\nData ministrada: " + this.dataMinistrada +
             "\n**Próxima aplicação**: " + this.proxAplicacao +
             "\nPreço da aplicação: " + this.preco;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false; 
+        
+        VacinaAplicada that = (VacinaAplicada) o; 
+
+        return Float.compare(that.preco, preco) == 0 &&
+               Objects.equals(vacina, that.vacina);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vacina, preco);
     }
     
     @Override
