@@ -5,10 +5,10 @@ public class Funcionario{
 	protected String nome;
 	protected String cpf;
 	protected String email;
-	protected int telefoneContato;
+	protected String telefoneContato;
 	protected String turnoTrabalho;
 	
-	public Funcionario(String nome, String cpf, String email, int telefoneContato, String turnoTrabalho) {
+	public Funcionario(String nome, String cpf, String email, String telefoneContato, String turnoTrabalho) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
@@ -40,11 +40,11 @@ public class Funcionario{
 		this.email = email;
 	}
 
-	public int getTelefoneContato() {
+	public String getTelefoneContato() {
 		return telefoneContato;
 	}
 
-	public void setTelefoneContato(int telefoneContato) {
+	public void setTelefoneContato(String telefoneContato) {
 		this.telefoneContato = telefoneContato;
 	}
 

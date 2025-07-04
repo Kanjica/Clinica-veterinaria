@@ -32,26 +32,36 @@ public class HistoricoAnimal extends javax.swing.JPanel {
     }
     
     private void historico(){
+        jTextArea1.setText(""); // limpa o texto antigo
         
-        jTextArea1.setText("\n\t-----------------------------------------Consultas-----------------------------------------");//limpar
+        if (pet.getListaConsultas().isEmpty() && pet.getListaVacinasAplicada().isEmpty()) {
+        jTextArea1.append("Este animal ainda não possui consultas e nem vacinas aplicadas na clínica.");
+        } 
         
-        if (pet.getListaConsultas().isEmpty()) {
-        jTextArea1.setText("Este animal ainda não possui consultas na clínica.");
-        return;
-        }
-        
-        for(Consulta con: pet.getListaConsultas()){
-            jTextArea1.append(
-            con.ImprimirProntuario() +
-            "\n\t--------------------------------------------------------------------------------------------------\n"
-            );
-        }
         jTextArea1.append("\n\t------------------------------------------Vacinas-------------------------------------------------\n");
-        for(VacinaAplicada vac: pet.getListaVacinasAplicada()){
-            jTextArea1.append(
-            vac.proxApli() + 
-            "\n\t--------------------------------------------------------------------------------------------------\n"
-            );
+        
+        if(pet.getListaVacinasAplicada().isEmpty()){
+            jTextArea1.append("Este animal ainda não possui vacinas aplicadas na clínica.");
+        } else{
+                for(VacinaAplicada vac: pet.getListaVacinasAplicada()){
+                 jTextArea1.append(
+                 vac.proxApli() + 
+                 "\n\t--------------------------------------------------------------------------------------------------\n"
+                  );
+        }
+        }
+        
+        jTextArea1.append("\n\t-----------------------------------------Consultas-----------------------------------------\n");//limpar
+        
+        if(pet.getListaConsultas().isEmpty()){
+             jTextArea1.append("Este animal ainda não possui consultas feitas na clínica.");
+        } else{
+            for(Consulta con: pet.getListaConsultas()){
+              jTextArea1.append(
+              con.ImprimirProntuario() +
+              "\n\t--------------------------------------------------------------------------------------------------\n"
+               );
+        }
         }
     }
 

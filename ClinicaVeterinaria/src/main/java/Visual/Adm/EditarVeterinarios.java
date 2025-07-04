@@ -550,27 +550,21 @@ public class EditarVeterinarios extends javax.swing.JPanel {
         String turno = (String) comboTurno.getSelectedItem();
         Especialidade especialidade = petShop.buscarEspecialidadePorNome((String) EspecialidadeSelecao4.getSelectedItem());
 
-        if (telefoneTexto.length() > 10 ||cfmvTexto.length() > 10) {
-            JOptionPane.showMessageDialog(this, "O telefone deve ter no máximo 10 dígitos.");
-            return;
-        }
-
         if (nomeVet.isEmpty() || cpfVet.isEmpty() || emailVet.isEmpty() ||telefoneTexto.isEmpty() || cfmvTexto.isEmpty() || turno == null || especialidade == null) {
 
             JOptionPane.showMessageDialog(this, "Preencha todos os campos corretamente!");
 
-        } else if(!telefoneTexto.matches("\\d+") || !cfmvTexto.matches("\\d+")) {
-            JOptionPane.showMessageDialog(this, "Telefone e CFMV devem ser números. Tente novamente!");
+        } else if(!cfmvTexto.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "CFMV devem ser números. Tente novamente!");
             return;
 
         } else {
             // Convertendo os textos pra inteiro
-            int telefoneContato = Integer.parseInt(telefoneTexto);
             int cfmvVet = Integer.parseInt(cfmvTexto);
 
             // Criando o veterinário
             Veterinario novoVet = new Veterinario(
-                nomeVet, cpfVet, emailVet, telefoneContato, especialidade, cfmvVet, turno);
+                nomeVet, cpfVet, emailVet, telefoneTexto, especialidade, cfmvVet, turno);
 
             petShop.addVeterinarios(novoVet);
 
@@ -615,7 +609,7 @@ public class EditarVeterinarios extends javax.swing.JPanel {
         nome.setText(vet.getNome());
         cpf.setText(vet.getCpf());
         email.setText(vet.getEmail());
-        Telefone.setText(Integer.toString(vet.getTelefoneContato()));
+        Telefone.setText(vet.getTelefoneContato());
         cfmv.setText(Integer.toString(vet.getCfmv()));
         comboTurno.setSelectedItem(vet.getTurnoTrabalho());
         EspecialidadeSelecao4.setSelectedItem(vet.getEspecialidade().getNome());

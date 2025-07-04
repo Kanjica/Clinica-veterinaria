@@ -21,8 +21,8 @@ public class Main {
         
         Agendamento ag = new Agendamento(LocalDate.of(2025, 6, 20), LocalTime.of(10, 0), esp1, a1);
         
-        Veterinario vet1 = new Veterinario("Rogerio", "111335346096", "Rogerio@gmail.com", 9472923, esp1, 1, "matutino");
-        Veterinario vet = new Veterinario("João Silva", "123.456.789-00", "joao@vet.com", 11999999, esp2, 123456, "manhã");
+        Veterinario vet1 = new Veterinario("Rogerio", "111335346096", "Rogerio@gmail.com", "9472923", esp1, 1, "matutino");
+        Veterinario vet = new Veterinario("João Silva", "123.456.789-00", "joao@vet.com", "11999999", esp2, 123456, "manhã");
         
         Consulta c1 = new Consulta(ag);
         

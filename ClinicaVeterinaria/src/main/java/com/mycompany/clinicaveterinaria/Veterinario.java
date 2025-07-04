@@ -15,7 +15,7 @@ private int cfmv;
 private ArrayList<Agendamento> agenda;
 private ArrayList<Consulta> listaConsultas;
 
-	public Veterinario(String nome, String cpf, String email, int telefoneContato, Especialidade especialidade, int cfmv, String turno) {
+	public Veterinario(String nome, String cpf, String email, String telefoneContato, Especialidade especialidade, int cfmv, String turno) {
 		super(nome, cpf,email,telefoneContato, turno);
 		
 		this.especialidade = especialidade;
