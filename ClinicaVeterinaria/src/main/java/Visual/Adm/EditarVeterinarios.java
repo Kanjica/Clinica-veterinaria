@@ -561,16 +561,18 @@ public class EditarVeterinarios extends javax.swing.JPanel {
         } else {
             // Convertendo os textos pra inteiro
             int cfmvVet = Integer.parseInt(cfmvTexto);
+            
+            vet.setNome(nomeVet);
+            vet.setCpf(cpfVet);
+            vet.setEmail(emailVet);
+            vet.setCfmv(cfmvVet);
+            vet.setEspecialidade(especialidade);
+            vet.setTelefoneContato(telefoneTexto);
+            vet.setTurnoTrabalho(turno);
 
-            // Criando o veterinário
-            Veterinario novoVet = new Veterinario(
-                nomeVet, cpfVet, emailVet, telefoneTexto, especialidade, cfmvVet, turno);
+            JOptionPane.showMessageDialog(this, "Veterinário editado com sucesso!");
 
-            petShop.addVeterinarios(novoVet);
-
-            JOptionPane.showMessageDialog(this, "Veterinário cadastrado com sucesso!");
-
-            JOptionPane.showMessageDialog(this, novoVet.Imprimir());
+            JOptionPane.showMessageDialog(this, vet.Imprimir());
 
             nome.setText("");
             cpf.setText("");
