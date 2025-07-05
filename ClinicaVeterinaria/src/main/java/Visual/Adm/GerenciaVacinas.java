@@ -180,8 +180,22 @@ public class GerenciaVacinas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditarVacinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarVacinasActionPerformed
-        String nomeBusca = JOptionPane.showInputDialog(null, "Digite o nome da vacina que deseja editar:", "Editar Vacina", JOptionPane.QUESTION_MESSAGE);
-        System.out.println(nomeBusca);
+        String nomeBusca;
+        do {
+            nomeBusca = JOptionPane.showInputDialog(null, 
+                "Digite o nome da vacina que deseja editar:", 
+                "Editar Vacina", 
+                JOptionPane.QUESTION_MESSAGE);
+
+            if(nomeBusca == null){
+                JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário");
+                return;
+            }
+
+            nomeBusca = nomeBusca.trim();
+
+        }while (nomeBusca.isEmpty());
+        
         Window window = SwingUtilities.getWindowAncestor(this);
 
         if (window != null) {
