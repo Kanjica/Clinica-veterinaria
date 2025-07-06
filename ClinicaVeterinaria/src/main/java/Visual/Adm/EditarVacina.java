@@ -26,8 +26,9 @@ public class EditarVacina extends javax.swing.JPanel {
         this.petShop = clinica;
         this.nomeBusca = nomeBusca;
         initComponents();
-        
+
     }
+                                            
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

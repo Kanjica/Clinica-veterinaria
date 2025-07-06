@@ -408,7 +408,17 @@ public class GerenciamentoAnimais extends javax.swing.JPanel {
             
             for(int i=0; i<listaDeAnimais.size(); i++){
                 if(listaDeAnimais.get(i) == animalSelecionado){
-                    String novoNome = JOptionPane.showInputDialog(null, "Digite o novo nome do Animal:", "Entrada de Dados", JOptionPane.QUESTION_MESSAGE);
+                    String novoNome;
+                    do {
+                        novoNome = JOptionPane.showInputDialog(null, "Digite o novo nome do Animal:", "Entrada de Dados", JOptionPane.QUESTION_MESSAGE);
+                        if(novoNome == null){
+                            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário");
+                            return;
+                        }
+
+                        novoNome = novoNome.trim();
+                    }while (novoNome.isEmpty());
+                    
                     listaDeAnimais.get(i).setNome(novoNome);
                     atualizarTabelaAnimais();
                 }
